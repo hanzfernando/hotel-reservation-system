@@ -15,6 +15,18 @@ namespace HotelReservationSystem.Dashboard
         public DashboardPanel()
         {
             InitializeComponent();
+            pictureBox1.Parent = panel1;
+            this.TableLayoutNavigationDashboard.Parent = pictureBox1;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
