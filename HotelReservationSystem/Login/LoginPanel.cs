@@ -10,17 +10,15 @@ using System.Windows.Forms;
 
 namespace HotelReservationSystem.Login
 {
-    public partial class LoginWindow : Form
+    public partial class LoginPanel : UserControl
     {
-        public LoginWindow()
+        Panel panel;
+        Form form;
+        public LoginPanel(Panel panel, Form form)
         {
             InitializeComponent();
-        }
-
-        private void LoginWindow_Load(object sender, EventArgs e)
-        {
-            UserControl panel = new LoginPanel(panel1, this);
-            panel1.Controls.Add(panel);
+            this.panel = panel;
+            this.form = form;
         }
     }
 }

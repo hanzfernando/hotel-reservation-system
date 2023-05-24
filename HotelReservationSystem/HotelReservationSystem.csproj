@@ -58,6 +58,12 @@
     <Compile Include="Dashboard\DashboardPanel.Designer.cs">
       <DependentUpon>DashboardPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login\LoginPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Login\LoginPanel.Designer.cs">
+      <DependentUpon>LoginPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login\LoginWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,12 @@
     <Compile Include="Transaction\TransactionPanel.Designer.cs">
       <DependentUpon>TransactionPanel.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Login\LoginPanel.resx">
+      <DependentUpon>LoginPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\LoginWindow.resx">
+      <DependentUpon>LoginWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
