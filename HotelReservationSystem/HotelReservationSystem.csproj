@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AlphaBlendTextBox">
+      <HintPath>Assets\AlphaBlendTextBox.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -51,6 +54,12 @@
     </Compile>
     <Compile Include="Administrator\AdministratorPanel.Designer.cs">
       <DependentUpon>AdministratorPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\PlaceholderTextbox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Assets\RJButton.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Dashboard\DashboardPanel.cs">
       <SubType>UserControl</SubType>
@@ -112,8 +121,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

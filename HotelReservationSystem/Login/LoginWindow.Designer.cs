@@ -36,17 +36,17 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(900, 500);
+            this.panel1.Size = new System.Drawing.Size(900, 720);
             this.panel1.TabIndex = 0;
             // 
             // LoginWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 500);
+            this.ClientSize = new System.Drawing.Size(900, 720);
             this.Controls.Add(this.panel1);
-            this.MaximumSize = new System.Drawing.Size(916, 539);
-            this.MinimumSize = new System.Drawing.Size(916, 539);
+            this.MaximumSize = new System.Drawing.Size(916, 759);
+            this.MinimumSize = new System.Drawing.Size(916, 759);
             this.Name = "LoginWindow";
             this.Text = "LoginWindow";
             this.Load += new System.EventHandler(this.LoginWindow_Load);
