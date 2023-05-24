@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using HotelReservationSystem.Login;
+using main = HotelReservationSystem.MainWindow;
 
 namespace HotelReservationSystem
 {
@@ -17,7 +18,7 @@ namespace HotelReservationSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginWindow());
+            Application.Run(new main.MainWindow());
         }
     }
 }
