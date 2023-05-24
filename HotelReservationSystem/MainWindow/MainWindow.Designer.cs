@@ -36,11 +36,8 @@
             this.CustomerStatusTab = new System.Windows.Forms.Button();
             this.TransactionsTab = new System.Windows.Forms.Button();
             this.PanelRoot = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TableLayoutNavigationRoot.SuspendLayout();
-            this.LogoPanel.SuspendLayout();
             this.TableLayoutNavigation.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // TableLayoutNavigationRoot
@@ -61,7 +58,6 @@
             // 
             // LogoPanel
             // 
-            this.LogoPanel.Controls.Add(this.pictureBox1);
             this.LogoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LogoPanel.Location = new System.Drawing.Point(3, 3);
             this.LogoPanel.Name = "LogoPanel";
@@ -133,14 +129,6 @@
             this.PanelRoot.Size = new System.Drawing.Size(1200, 820);
             this.PanelRoot.TabIndex = 1;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -151,9 +139,7 @@
             this.Name = "MainWindow";
             this.Text = "MainWindow";
             this.TableLayoutNavigationRoot.ResumeLayout(false);
-            this.LogoPanel.ResumeLayout(false);
             this.TableLayoutNavigation.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -168,6 +154,5 @@
         private System.Windows.Forms.Button RoomsTab;
         private System.Windows.Forms.Button CustomerStatusTab;
         private System.Windows.Forms.Button TransactionsTab;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
