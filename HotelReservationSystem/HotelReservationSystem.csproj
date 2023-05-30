@@ -61,6 +61,7 @@
     <Compile Include="Assets\RJButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Constants\MySqlConstants.cs" />
     <Compile Include="Dashboard\DashboardPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -85,7 +86,6 @@
     <Compile Include="MainWindow\MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="MySqlConstants.cs" />
     <Compile Include="PresenterCommons\IPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -129,9 +129,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Constants\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Assets\DashboardNavBarBG.png" />
     <Content Include="Assets\LogoMainWindow.png" />
