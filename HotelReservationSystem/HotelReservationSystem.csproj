@@ -108,6 +108,12 @@
     <Compile Include="Dashboard\DashboardPanel.Designer.cs">
       <DependentUpon>DashboardPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Employee\EmployeePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employee\EmployeePanel.Designer.cs">
+      <DependentUpon>EmployeePanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login\LoginPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -144,6 +150,9 @@
     </Compile>
     <EmbeddedResource Include="Dashboard\DashboardPanel.resx">
       <DependentUpon>DashboardPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\EmployeePanel.resx">
+      <DependentUpon>EmployeePanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\LoginPanel.resx">
       <DependentUpon>LoginPanel.cs</DependentUpon>
