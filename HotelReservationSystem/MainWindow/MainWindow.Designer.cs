@@ -140,6 +140,7 @@
             this.EmployeeTab.TabIndex = 0;
             this.EmployeeTab.Text = "Employee";
             this.EmployeeTab.UseVisualStyleBackColor = true;
+            this.EmployeeTab.Click += new System.EventHandler(this.EmployeeTab_Click);
             // 
             // RoomsTab
             // 
