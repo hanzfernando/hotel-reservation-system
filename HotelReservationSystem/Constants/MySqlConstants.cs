@@ -9,6 +9,6 @@ namespace HotelReservationSystem.Constants
     public class MySqlConstants
     {
         private static string _connection = "";
-        public static string Connection { get { return _connection; } };
+        public static string Connection { get { return _connection; } }
     }
 }
