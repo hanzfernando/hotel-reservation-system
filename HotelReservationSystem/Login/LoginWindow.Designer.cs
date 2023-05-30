@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.loginPanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // panel1
+            // loginPanel
             // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(900, 720);
-            this.panel1.TabIndex = 0;
+            this.loginPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.loginPanel.Location = new System.Drawing.Point(0, 0);
+            this.loginPanel.Name = "loginPanel";
+            this.loginPanel.Size = new System.Drawing.Size(900, 720);
+            this.loginPanel.TabIndex = 0;
             // 
             // LoginWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(900, 720);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.loginPanel);
             this.MaximumSize = new System.Drawing.Size(916, 759);
             this.MinimumSize = new System.Drawing.Size(916, 759);
             this.Name = "LoginWindow";
@@ -56,6 +56,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel loginPanel;
     }
 }
