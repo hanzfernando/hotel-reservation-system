@@ -7,39 +7,164 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HotelReservationSystem.Assets;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using HotelReservationSystem.PresenterCommons;
+using MySql.Data.MySqlClient;
 
 namespace HotelReservationSystem.Login
 {
     public partial class LoginPanel : UserControl
     {
-        Panel panel;
-        Form form;
+        PresenterLoginPanel _presenter;
+        
+        
 
-        public LoginPanel(Panel panel, Form form)
+        public LoginPanel()
         {
             InitializeComponent();
-            this.panel = panel;
-            this.form = form;
+            _presenter = new PresenterLoginPanel();
 
-            this.TitleLabel.Parent = BackgroundPicture;
-            //this.TitleLabel.BackColor = System.Drawing.Color.Transparent;
+
+            this.WelcomeLabel.Parent = BackgroundPicture;
+            this.SigninLabel.Parent = BackgroundPicture;
+
             this.UsernameLabel.Parent = BackgroundPicture;
-            //this.UsernameLabel.BackColor = System.Drawing.Color.Transparent;
+
             this.PasswordLabel.Parent = BackgroundPicture;
-            //this.PasswordLabel.BackColor = System.Drawing.Color.Transparent;
-            this.UsernameTextbox.Parent = BackgroundPicture;
-            this.PasswordTextbox.Parent = BackgroundPicture;
+
+            this.ShowPasswordCheckBox.Parent = BackgroundPicture;
+
+            this.CreateLabel.Parent = BackgroundPicture;
+            this.CreateLinkLabel.Parent = BackgroundPicture;
+
+
 
         }
 
-        private void PasswordLabel_Click(object sender, EventArgs e)
+        public PresenterLoginPanel Presenter { get { return _presenter; } }
+
+        private void UsernameTextBox_Enter(object sender, EventArgs e)
+        {
+            if (UsernameTextBox.Text == "Enter Username...")
+            {
+                UsernameTextBox.Text = "";
+                UsernameTextBox.ForeColor = Color.Black;
+            }
+        }
+
+        private void UsernameTextBox_Leave(object sender, EventArgs e)
+        {
+            if (UsernameTextBox.Text == "")
+            {
+                UsernameTextBox.Text = "Enter Username...";
+                UsernameTextBox.ForeColor = Color.Silver;
+            }
+        }
+
+        private void PasswordTextBox_Enter(object sender, EventArgs e)
+        {
+            if (PasswordTextBox.Text == "Enter Password...")
+            {
+                PasswordTextBox.Text = "";
+                PasswordTextBox.ForeColor = Color.Black;
+                PasswordTextBox.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void PasswordTextBox_Leave(object sender, EventArgs e)
+        {
+            if (PasswordTextBox.Text == "")
+            {
+                PasswordTextBox.Text = "Enter Password...";
+                PasswordTextBox.ForeColor = Color.Silver;
+                PasswordTextBox.UseSystemPasswordChar = false;
+            }
+        }
+
+        private void ShowPasswordCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ShowPasswordCheckBox.Checked == true)
+            {
+                PasswordTextBox.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                PasswordTextBox.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void CreateLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
         }
 
-        private void PasswordTextbox_TextChanged(object sender, EventArgs e)
+        private void LoginButton_Click(object sender, EventArgs e)
         {
+            _presenter.Username = UsernameTextBox.Text;
+            _presenter.Password = PasswordTextBox.Text;
 
+            if(_presenter.ValidateLogIn())
+            {
+
+            }
+            else
+            {
+                // pop up window if wrong
+            }
+        }
+    }
+
+    public interface IPresenterLoginPanel : IPresenter
+    {
+        string Username { set; }
+        string Password { set; }
+    }
+
+    public class PresenterLoginPanel : INotifyPropertyChanged, IPresenterLoginPanel
+    {
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+        }
+
+        private Form _form;
+        private Panel _panel;
+        private string _username;
+        private string _password;
+        private string _connection = "server=localhost; user id=root; password=; database=hotel_reservation_system";
+
+        public string Username { set { _username = value; } }
+        public string Password { set { _password = value; } }
+
+        public Form Form { get { return _form; } set { _form = value; } }
+        public Panel Panel { get { return _panel; } set { _panel = value; } }
+
+        public Boolean ValidateLogIn()
+        {
+            string query = "SELECT * FROM admin WHERE admin_username LIKE " + _username + " AND admin_password LIKE " + _password;
+            MySqlConnection mySqlConnection = new MySqlConnection(_connection);
+            MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
+            MySqlDataReader mySqlDataReader;
+            mySqlConnection.Open();
+            mySqlDataReader = mySqlCommand.ExecuteReader();
+            if (mySqlDataReader.HasRows)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            /*MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter();
+            mySqlDataAdapter.SelectCommand = mySqlCommand;
+            MySqlDataAdapter.*/
+            
         }
     }
 }
