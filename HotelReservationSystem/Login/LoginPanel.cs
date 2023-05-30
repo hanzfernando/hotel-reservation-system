@@ -144,7 +144,7 @@ namespace HotelReservationSystem.Login
         private Panel _panel;
         private string _username;
         private string _password;
-        private string _connection = "server=localhost;port=3307;username=root;password=;database=hotel_reservation_system";
+        private string _connection = Constants.MySqlConstants.Connection;
 
         public string Username { set { _username = value; } }
         public string Password { set { _password = value; } }
