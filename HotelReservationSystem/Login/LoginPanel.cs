@@ -12,6 +12,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using HotelReservationSystem.PresenterCommons;
 using MySql.Data.MySqlClient;
+//using HotelReservationSystem.MainWindow;
 
 namespace HotelReservationSystem.Login
 {
@@ -107,7 +108,13 @@ namespace HotelReservationSystem.Login
 
             if(_presenter.ValidateLogIn())
             {
+                HotelReservationSystem.MainWindow.MainWindow mainWindow = new HotelReservationSystem.MainWindow.MainWindow();
+                /*this._presenter.Form.Hide();
+                mainWindow.Show();*/
 
+                this._presenter.Form.Hide();
+                mainWindow.Closed += (s, args) => this._presenter.Form.Close();
+                mainWindow.Show();
             }
             else
             {
@@ -137,7 +144,7 @@ namespace HotelReservationSystem.Login
         private Panel _panel;
         private string _username;
         private string _password;
-        private string _connection = "server=localhost; user id=root; password=; database=hotel_reservation_system";
+        private string _connection = "server=localhost;port=3307;username=root;password=;database=hotel_reservation_system";
 
         public string Username { set { _username = value; } }
         public string Password { set { _password = value; } }
@@ -147,7 +154,7 @@ namespace HotelReservationSystem.Login
 
         public Boolean ValidateLogIn()
         {
-            string query = "SELECT * FROM admin WHERE admin_username LIKE " + _username + " AND admin_password LIKE " + _password;
+            string query = "SELECT * FROM admin WHERE admin_username LIKE '" + _username + "' AND admin_password LIKE '" + _password + "'";
             MySqlConnection mySqlConnection = new MySqlConnection(_connection);
             MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
             MySqlDataReader mySqlDataReader;
