@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AlphaBlendTextBox">
+      <HintPath>Assets\AlphaBlendTextBox.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -52,11 +55,23 @@
     <Compile Include="Administrator\AdministratorPanel.Designer.cs">
       <DependentUpon>AdministratorPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Assets\PlaceholderTextbox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Assets\RJButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Dashboard\DashboardPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Dashboard\DashboardPanel.Designer.cs">
       <DependentUpon>DashboardPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\LoginPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Login\LoginPanel.Designer.cs">
+      <DependentUpon>LoginPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Login\LoginWindow.cs">
       <SubType>Form</SubType>
@@ -70,6 +85,7 @@
     <Compile Include="MainWindow\MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="PresenterCommons\IPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Transaction\TransactionPanel.cs">
@@ -78,6 +94,15 @@
     <Compile Include="Transaction\TransactionPanel.Designer.cs">
       <DependentUpon>TransactionPanel.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Dashboard\DashboardPanel.resx">
+      <DependentUpon>DashboardPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\LoginPanel.resx">
+      <DependentUpon>LoginPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\LoginWindow.resx">
+      <DependentUpon>LoginWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainWindow\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -105,6 +130,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Assets\DashboardNavBarBG.png" />
     <Content Include="Assets\LogoMainWindow.png" />
     <Content Include="Assets\NavBarBG.png" />
   </ItemGroup>
