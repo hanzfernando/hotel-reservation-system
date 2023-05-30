@@ -94,6 +94,9 @@
     <Compile Include="Transaction\TransactionPanel.Designer.cs">
       <DependentUpon>TransactionPanel.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Dashboard\DashboardPanel.resx">
+      <DependentUpon>DashboardPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login\LoginPanel.resx">
       <DependentUpon>LoginPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -126,5 +129,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="Assets\DashboardNavBarBG.png" />
+    <Content Include="Assets\LogoMainWindow.png" />
+    <Content Include="Assets\NavBarBG.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
