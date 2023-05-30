@@ -33,7 +33,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.TableLayoutNavigationDashboard = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.DashboardTableLayout.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -46,7 +45,6 @@
             this.DashboardTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.DashboardTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.DashboardTableLayout.Controls.Add(this.panel1, 0, 0);
-            this.DashboardTableLayout.Controls.Add(this.dateTimePicker1, 1, 0);
             this.DashboardTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DashboardTableLayout.Location = new System.Drawing.Point(0, 0);
             this.DashboardTableLayout.Name = "DashboardTableLayout";
@@ -100,13 +98,6 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(243, 3);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 1;
-            // 
             // DashboardPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -126,7 +117,6 @@
         private System.Windows.Forms.TableLayoutPanel DashboardTableLayout;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TableLayoutPanel TableLayoutNavigationDashboard;
     }
 }
