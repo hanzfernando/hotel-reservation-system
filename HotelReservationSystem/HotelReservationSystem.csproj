@@ -61,6 +61,7 @@
     <Compile Include="Assets\RJButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Constants\MySqlConstants.cs" />
     <Compile Include="Dashboard\DashboardPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
