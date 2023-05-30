@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelReservationSystem.Dashboard;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,10 @@ namespace HotelReservationSystem.MainWindow
         public MainWindow()
         {
             InitializeComponent();
+            DashboardPanel dashboard = new DashboardPanel();
+            dashboard.Presenter.Form = this;
+            dashboard.Presenter.Panel = PanelRoot;
+            PanelRoot.Controls.Add(dashboard);
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -28,6 +33,26 @@ namespace HotelReservationSystem.MainWindow
         }
 
         private void PanelRoot_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void TableLayoutNavigationRoot_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
         {
 
         }

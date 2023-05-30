@@ -16,5 +16,11 @@ namespace HotelReservationSystem.Login
         {
             InitializeComponent();
         }
+
+        private void LoginWindow_Load(object sender, EventArgs e)
+        {
+            UserControl panel = new LoginPanel(panel1, this);
+            panel1.Controls.Add(panel);
+        }
     }
 }
