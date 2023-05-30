@@ -180,12 +180,13 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Assets\Font\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\DashboardNavBarBG.png" />
     <Content Include="Assets\LogoMainWindow.png" />
     <Content Include="Assets\NavBarBG.png" />
-    <Folder Include="Assets\Font\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
