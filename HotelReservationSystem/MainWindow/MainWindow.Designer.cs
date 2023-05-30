@@ -34,10 +34,12 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TableLayoutNavigation = new System.Windows.Forms.TableLayoutPanel();
             this.DashboardTab = new System.Windows.Forms.Button();
-            this.RoomsTab = new System.Windows.Forms.Button();
-            this.CustomerStatusTab = new System.Windows.Forms.Button();
-            this.TransactionsTab = new System.Windows.Forms.Button();
             this.PanelRoot = new System.Windows.Forms.Panel();
+            this.EmployeeTab = new System.Windows.Forms.Button();
+            this.ReservationTab = new System.Windows.Forms.Button();
+            this.RoomsTab = new System.Windows.Forms.Button();
+            this.TransactionsTab = new System.Windows.Forms.Button();
+            this.SettingsTab = new System.Windows.Forms.Button();
             this.TableLayoutNavigationRoot.SuspendLayout();
             this.LogoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -49,19 +51,20 @@
             this.TableLayoutNavigationRoot.BackColor = System.Drawing.SystemColors.Control;
             this.TableLayoutNavigationRoot.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("TableLayoutNavigationRoot.BackgroundImage")));
             this.TableLayoutNavigationRoot.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.TableLayoutNavigationRoot.ColumnCount = 2;
+            this.TableLayoutNavigationRoot.ColumnCount = 1;
             this.TableLayoutNavigationRoot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.TableLayoutNavigationRoot.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.TableLayoutNavigationRoot.Controls.Add(this.LogoPanel, 0, 0);
-            this.TableLayoutNavigationRoot.Controls.Add(this.TableLayoutNavigation, 1, 0);
-            this.TableLayoutNavigationRoot.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TableLayoutNavigationRoot.Controls.Add(this.TableLayoutNavigation, 0, 1);
+            this.TableLayoutNavigationRoot.Dock = System.Windows.Forms.DockStyle.Left;
             this.TableLayoutNavigationRoot.ForeColor = System.Drawing.SystemColors.ControlText;
             this.TableLayoutNavigationRoot.Location = new System.Drawing.Point(0, 0);
             this.TableLayoutNavigationRoot.Name = "TableLayoutNavigationRoot";
-            this.TableLayoutNavigationRoot.RowCount = 1;
-            this.TableLayoutNavigationRoot.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TableLayoutNavigationRoot.Size = new System.Drawing.Size(1200, 60);
+            this.TableLayoutNavigationRoot.RowCount = 2;
+            this.TableLayoutNavigationRoot.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.TableLayoutNavigationRoot.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
+            this.TableLayoutNavigationRoot.Size = new System.Drawing.Size(300, 900);
             this.TableLayoutNavigationRoot.TabIndex = 0;
+            this.TableLayoutNavigationRoot.Paint += new System.Windows.Forms.PaintEventHandler(this.TableLayoutNavigationRoot_Paint);
             // 
             // LogoPanel
             // 
@@ -70,39 +73,47 @@
             this.LogoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LogoPanel.Location = new System.Drawing.Point(3, 3);
             this.LogoPanel.Name = "LogoPanel";
-            this.LogoPanel.Size = new System.Drawing.Size(234, 54);
+            this.LogoPanel.Size = new System.Drawing.Size(294, 129);
             this.LogoPanel.TabIndex = 1;
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(60, 3);
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(129, 54);
+            this.pictureBox1.Size = new System.Drawing.Size(294, 129);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
             // TableLayoutNavigation
             // 
             this.TableLayoutNavigation.BackColor = System.Drawing.Color.Transparent;
-            this.TableLayoutNavigation.ColumnCount = 5;
-            this.TableLayoutNavigation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.TableLayoutNavigation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.TableLayoutNavigation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.TableLayoutNavigation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.TableLayoutNavigation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.TableLayoutNavigation.ColumnCount = 1;
+            this.TableLayoutNavigation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TableLayoutNavigation.Controls.Add(this.SettingsTab, 0, 5);
             this.TableLayoutNavigation.Controls.Add(this.DashboardTab, 0, 0);
-            this.TableLayoutNavigation.Controls.Add(this.RoomsTab, 1, 0);
-            this.TableLayoutNavigation.Controls.Add(this.CustomerStatusTab, 2, 0);
-            this.TableLayoutNavigation.Controls.Add(this.TransactionsTab, 3, 0);
-            this.TableLayoutNavigation.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TableLayoutNavigation.Location = new System.Drawing.Point(243, 3);
+            this.TableLayoutNavigation.Controls.Add(this.TransactionsTab, 0, 4);
+            this.TableLayoutNavigation.Controls.Add(this.EmployeeTab, 0, 1);
+            this.TableLayoutNavigation.Controls.Add(this.RoomsTab, 0, 3);
+            this.TableLayoutNavigation.Controls.Add(this.ReservationTab, 0, 2);
+            this.TableLayoutNavigation.Location = new System.Drawing.Point(3, 138);
             this.TableLayoutNavigation.Name = "TableLayoutNavigation";
-            this.TableLayoutNavigation.RowCount = 1;
-            this.TableLayoutNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TableLayoutNavigation.Size = new System.Drawing.Size(954, 54);
+            this.TableLayoutNavigation.RowCount = 10;
+            this.TableLayoutNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.TableLayoutNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.TableLayoutNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.TableLayoutNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.TableLayoutNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.TableLayoutNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.TableLayoutNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.TableLayoutNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.TableLayoutNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.TableLayoutNavigation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.TableLayoutNavigation.Size = new System.Drawing.Size(294, 759);
             this.TableLayoutNavigation.TabIndex = 2;
             // 
             // DashboardTab
@@ -113,58 +124,85 @@
             this.DashboardTab.ForeColor = System.Drawing.Color.White;
             this.DashboardTab.Location = new System.Drawing.Point(3, 3);
             this.DashboardTab.Name = "DashboardTab";
-            this.DashboardTab.Size = new System.Drawing.Size(184, 48);
+            this.DashboardTab.Size = new System.Drawing.Size(288, 69);
             this.DashboardTab.TabIndex = 0;
             this.DashboardTab.Text = "Dashboard";
             this.DashboardTab.UseVisualStyleBackColor = false;
             // 
+            // PanelRoot
+            // 
+            this.PanelRoot.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelRoot.Location = new System.Drawing.Point(300, 0);
+            this.PanelRoot.Name = "PanelRoot";
+            this.PanelRoot.Size = new System.Drawing.Size(900, 900);
+            this.PanelRoot.TabIndex = 1;
+            this.PanelRoot.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelRoot_Paint);
+            // 
+            // EmployeeTab
+            // 
+            this.EmployeeTab.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.EmployeeTab.FlatAppearance.BorderSize = 0;
+            this.EmployeeTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EmployeeTab.ForeColor = System.Drawing.Color.White;
+            this.EmployeeTab.Location = new System.Drawing.Point(3, 78);
+            this.EmployeeTab.Name = "EmployeeTab";
+            this.EmployeeTab.Size = new System.Drawing.Size(288, 69);
+            this.EmployeeTab.TabIndex = 0;
+            this.EmployeeTab.Text = "Employee";
+            this.EmployeeTab.UseVisualStyleBackColor = true;
+            // 
+            // ReservationTab
+            // 
+            this.ReservationTab.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ReservationTab.FlatAppearance.BorderSize = 0;
+            this.ReservationTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReservationTab.ForeColor = System.Drawing.Color.White;
+            this.ReservationTab.Location = new System.Drawing.Point(3, 153);
+            this.ReservationTab.Name = "ReservationTab";
+            this.ReservationTab.Size = new System.Drawing.Size(288, 69);
+            this.ReservationTab.TabIndex = 1;
+            this.ReservationTab.Text = "Reservation";
+            this.ReservationTab.UseVisualStyleBackColor = true;
+            // 
             // RoomsTab
             // 
-            this.RoomsTab.BackColor = System.Drawing.Color.Transparent;
+            this.RoomsTab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RoomsTab.FlatAppearance.BorderSize = 0;
             this.RoomsTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RoomsTab.ForeColor = System.Drawing.Color.White;
-            this.RoomsTab.Location = new System.Drawing.Point(193, 3);
+            this.RoomsTab.Location = new System.Drawing.Point(3, 228);
             this.RoomsTab.Name = "RoomsTab";
-            this.RoomsTab.Size = new System.Drawing.Size(184, 48);
-            this.RoomsTab.TabIndex = 1;
+            this.RoomsTab.Size = new System.Drawing.Size(288, 69);
+            this.RoomsTab.TabIndex = 2;
             this.RoomsTab.Text = "Rooms";
             this.RoomsTab.UseVisualStyleBackColor = true;
             // 
-            // CustomerStatusTab
-            // 
-            this.CustomerStatusTab.BackColor = System.Drawing.Color.Transparent;
-            this.CustomerStatusTab.FlatAppearance.BorderSize = 0;
-            this.CustomerStatusTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CustomerStatusTab.ForeColor = System.Drawing.Color.White;
-            this.CustomerStatusTab.Location = new System.Drawing.Point(383, 3);
-            this.CustomerStatusTab.Name = "CustomerStatusTab";
-            this.CustomerStatusTab.Size = new System.Drawing.Size(184, 48);
-            this.CustomerStatusTab.TabIndex = 2;
-            this.CustomerStatusTab.Text = "Customer Status";
-            this.CustomerStatusTab.UseVisualStyleBackColor = true;
-            // 
             // TransactionsTab
             // 
-            this.TransactionsTab.BackColor = System.Drawing.Color.Transparent;
+            this.TransactionsTab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TransactionsTab.FlatAppearance.BorderSize = 0;
             this.TransactionsTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TransactionsTab.ForeColor = System.Drawing.Color.White;
-            this.TransactionsTab.Location = new System.Drawing.Point(573, 3);
+            this.TransactionsTab.Location = new System.Drawing.Point(3, 303);
             this.TransactionsTab.Name = "TransactionsTab";
-            this.TransactionsTab.Size = new System.Drawing.Size(184, 48);
+            this.TransactionsTab.Size = new System.Drawing.Size(288, 69);
             this.TransactionsTab.TabIndex = 3;
             this.TransactionsTab.Text = "Transactions";
             this.TransactionsTab.UseVisualStyleBackColor = true;
             // 
-            // PanelRoot
+            // SettingsTab
             // 
-            this.PanelRoot.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelRoot.Location = new System.Drawing.Point(0, 60);
-            this.PanelRoot.Name = "PanelRoot";
-            this.PanelRoot.Size = new System.Drawing.Size(1200, 840);
-            this.PanelRoot.TabIndex = 1;
-            this.PanelRoot.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelRoot_Paint);
+            this.SettingsTab.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SettingsTab.FlatAppearance.BorderSize = 0;
+            this.SettingsTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SettingsTab.ForeColor = System.Drawing.Color.White;
+            this.SettingsTab.Location = new System.Drawing.Point(3, 378);
+            this.SettingsTab.Name = "SettingsTab";
+            this.SettingsTab.Size = new System.Drawing.Size(288, 69);
+            this.SettingsTab.TabIndex = 4;
+            this.SettingsTab.Text = "Settings";
+            this.SettingsTab.UseVisualStyleBackColor = true;
+            this.SettingsTab.Click += new System.EventHandler(this.button5_Click);
             // 
             // MainWindow
             // 
@@ -176,6 +214,7 @@
             this.Controls.Add(this.TableLayoutNavigationRoot);
             this.Name = "MainWindow";
             this.Text = "MainWindow";
+            this.Load += new System.EventHandler(this.MainWindow_Load);
             this.TableLayoutNavigationRoot.ResumeLayout(false);
             this.LogoPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -185,15 +224,16 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TableLayoutPanel TableLayoutNavigationRoot;
-        private System.Windows.Forms.TableLayoutPanel TableLayoutNavigation;
         private System.Windows.Forms.Panel PanelRoot;
         private System.Windows.Forms.Button DashboardTab;
-        private System.Windows.Forms.Button RoomsTab;
-        private System.Windows.Forms.Button CustomerStatusTab;
-        private System.Windows.Forms.Button TransactionsTab;
         private System.Windows.Forms.Panel LogoPanel;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TableLayoutPanel TableLayoutNavigationRoot;
+        private System.Windows.Forms.TableLayoutPanel TableLayoutNavigation;
+        private System.Windows.Forms.Button EmployeeTab;
+        private System.Windows.Forms.Button SettingsTab;
+        private System.Windows.Forms.Button TransactionsTab;
+        private System.Windows.Forms.Button RoomsTab;
+        private System.Windows.Forms.Button ReservationTab;
     }
 }
