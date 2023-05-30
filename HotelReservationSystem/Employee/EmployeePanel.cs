@@ -25,6 +25,21 @@ namespace HotelReservationSystem.Employee
         {
             InitializeComponent();
             _presenter = new PresenterEmployeePanel();
+            RefreshGridView(this, new EventArgs());
+        }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            EmployeeAddWindow employeeAddWindow = new EmployeeAddWindow();
+            employeeAddWindow.Presenter.Form  = _presenter.Form;
+            employeeAddWindow.Presenter.Panel = _presenter.Panel;
+            employeeAddWindow.Presenter.Parent = this;
+            employeeAddWindow.ShowDialog();
+            employeeAddWindow.FormClosing += RefreshGridView;
+        }
+
+        public void RefreshGridView (object sender, EventArgs e)
+        {
             _presenter.PopulateGridView(EmployeeGridView);
         }
     }
@@ -64,10 +79,12 @@ namespace HotelReservationSystem.Employee
             {
                 _dataTable = new DataTable();
             }
+            _dataTable.Clear();
             string query = "select * from admin";
             MySqlConnection mySqlConnection = new MySqlConnection(_connection);
             MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
             MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter();
+            mySqlConnection.Open();
             mySqlDataAdapter.SelectCommand = mySqlCommand;
             mySqlDataAdapter.Fill(_dataTable);
 
