@@ -21,6 +21,7 @@ namespace HotelReservationSystem.Employee
         public EmployeeAddWindow()
         {
             InitializeComponent();
+            this.CenterToScreen();
             _presenter = new PresenterEmployeeAddWindow();
         }
 
