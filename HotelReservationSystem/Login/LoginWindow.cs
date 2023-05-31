@@ -16,6 +16,7 @@ namespace HotelReservationSystem.Login
         public LoginWindow()
         {
             InitializeComponent();
+            this.CenterToScreen();
             LoginPanel loginPanel = new LoginPanel();
             loginPanel.Presenter.Form = this;
             loginPanel.Presenter.Panel = this.loginPanel;

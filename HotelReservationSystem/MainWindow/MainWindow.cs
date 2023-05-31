@@ -19,6 +19,7 @@ namespace HotelReservationSystem.MainWindow
         public MainWindow()
         {
             InitializeComponent();
+            this.CenterToScreen();
             _presenter = new PresenterMainWindow();
             _presenter.Form = this;
             _presenter.Panel = PanelRoot;
