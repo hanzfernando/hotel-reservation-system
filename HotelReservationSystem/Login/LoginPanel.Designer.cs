@@ -38,7 +38,7 @@ namespace HotelReservationSystem.Login
             this.WelcomeLabel = new System.Windows.Forms.Label();
             this.UsernameLabel = new System.Windows.Forms.Label();
             this.PasswordLabel = new System.Windows.Forms.Label();
-            this.BackgroundPicture = new System.Windows.Forms.PictureBox();
+            this.BackgroundPicture1 = new System.Windows.Forms.PictureBox();
             this.SigninLabel = new System.Windows.Forms.Label();
             this.ShowPasswordCheckBox = new System.Windows.Forms.CheckBox();
             this.CreateLabel = new System.Windows.Forms.Label();
@@ -46,7 +46,7 @@ namespace HotelReservationSystem.Login
             this.UsernameTextBox = new System.Windows.Forms.TextBox();
             this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.LoginButton = new HotelReservationSystem.Assets.RJButton();
-            ((System.ComponentModel.ISupportInitialize)(this.BackgroundPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BackgroundPicture1)).BeginInit();
             this.SuspendLayout();
             // 
             // WelcomeLabel
@@ -85,16 +85,16 @@ namespace HotelReservationSystem.Login
             this.PasswordLabel.TabIndex = 7;
             this.PasswordLabel.Text = "Password";
             // 
-            // BackgroundPicture
+            // BackgroundPicture1
             // 
-            this.BackgroundPicture.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BackgroundPicture.Image = ((System.Drawing.Image)(resources.GetObject("BackgroundPicture.Image")));
-            this.BackgroundPicture.Location = new System.Drawing.Point(0, 0);
-            this.BackgroundPicture.Name = "BackgroundPicture";
-            this.BackgroundPicture.Size = new System.Drawing.Size(900, 720);
-            this.BackgroundPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.BackgroundPicture.TabIndex = 9;
-            this.BackgroundPicture.TabStop = false;
+            this.BackgroundPicture1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BackgroundPicture1.Image = ((System.Drawing.Image)(resources.GetObject("BackgroundPicture1.Image")));
+            this.BackgroundPicture1.Location = new System.Drawing.Point(0, 0);
+            this.BackgroundPicture1.Name = "BackgroundPicture1";
+            this.BackgroundPicture1.Size = new System.Drawing.Size(900, 720);
+            this.BackgroundPicture1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.BackgroundPicture1.TabIndex = 9;
+            this.BackgroundPicture1.TabStop = false;
             // 
             // SigninLabel
             // 
@@ -207,10 +207,10 @@ namespace HotelReservationSystem.Login
             this.Controls.Add(this.PasswordLabel);
             this.Controls.Add(this.UsernameLabel);
             this.Controls.Add(this.WelcomeLabel);
-            this.Controls.Add(this.BackgroundPicture);
+            this.Controls.Add(this.BackgroundPicture1);
             this.Name = "LoginPanel";
             this.Size = new System.Drawing.Size(900, 720);
-            ((System.ComponentModel.ISupportInitialize)(this.BackgroundPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BackgroundPicture1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,7 +220,7 @@ namespace HotelReservationSystem.Login
         private System.Windows.Forms.Label WelcomeLabel;
         private System.Windows.Forms.Label UsernameLabel;
         private System.Windows.Forms.Label PasswordLabel;
-        private System.Windows.Forms.PictureBox BackgroundPicture;
+        private System.Windows.Forms.PictureBox BackgroundPicture1;
         private Label SigninLabel;
         private RJButton LoginButton;
         private CheckBox ShowPasswordCheckBox;

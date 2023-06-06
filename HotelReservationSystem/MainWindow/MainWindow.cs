@@ -16,6 +16,7 @@ namespace HotelReservationSystem.MainWindow
     public partial class MainWindow : Form
     {
         private PresenterMainWindow _presenter;
+        public PresenterMainWindow Presenter { get { return _presenter; } }
         public MainWindow()
         {
             InitializeComponent();
@@ -59,7 +60,7 @@ namespace HotelReservationSystem.MainWindow
 
     public interface IPresenterMainWindow : IPresenter
     {
-
+        string Username { get; set; }
     }
 
     public class PresenterMainWindow : INotifyPropertyChanged, IPresenterMainWindow
@@ -67,6 +68,9 @@ namespace HotelReservationSystem.MainWindow
         private Form _form;
         private Panel _panel;
         private UserControl _currentPanel;
+        private string _userName;
+
+        public string Username { get; set; }
 
         public Form Form
         {

@@ -19,26 +19,24 @@ namespace HotelReservationSystem.Login
     public partial class LoginPanel : UserControl
     {
         PresenterLoginPanel _presenter;
-        
-        
-
+  
         public LoginPanel()
         {
             InitializeComponent();
             _presenter = new PresenterLoginPanel();
 
 
-            this.WelcomeLabel.Parent = BackgroundPicture;
-            this.SigninLabel.Parent = BackgroundPicture;
+            this.WelcomeLabel.Parent = BackgroundPicture1;
+            this.SigninLabel.Parent = BackgroundPicture1;
 
-            this.UsernameLabel.Parent = BackgroundPicture;
+            this.UsernameLabel.Parent = BackgroundPicture1;
 
-            this.PasswordLabel.Parent = BackgroundPicture;
+            this.PasswordLabel.Parent = BackgroundPicture1;
 
-            this.ShowPasswordCheckBox.Parent = BackgroundPicture;
+            this.ShowPasswordCheckBox.Parent = BackgroundPicture1;
 
-            this.CreateLabel.Parent = BackgroundPicture;
-            this.CreateLinkLabel.Parent = BackgroundPicture;
+            this.CreateLabel.Parent = BackgroundPicture1;
+            this.CreateLinkLabel.Parent = BackgroundPicture1;
 
 
 
@@ -98,7 +96,12 @@ namespace HotelReservationSystem.Login
 
         private void CreateLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            SignupPanel signupPanel = new SignupPanel();
+            signupPanel.Presenter.Panel = this._presenter.Panel;
+            signupPanel.Presenter.Form = this._presenter.Form;
+            signupPanel.Presenter.PreviousPanel = this;
+            _presenter.Panel.Controls.Remove(this);
+            _presenter.Panel.Controls.Add(signupPanel);
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
@@ -109,6 +112,7 @@ namespace HotelReservationSystem.Login
             if(_presenter.ValidateLogIn())
             {
                 HotelReservationSystem.MainWindow.MainWindow mainWindow = new HotelReservationSystem.MainWindow.MainWindow();
+                mainWindow.Presenter.Username = UsernameTextBox.Text;
                 /*this._presenter.Form.Hide();
                 mainWindow.Show();*/
 
@@ -154,7 +158,7 @@ namespace HotelReservationSystem.Login
 
         public Boolean ValidateLogIn()
         {
-            string query = "SELECT * FROM admin WHERE admin_username LIKE '" + _username + "' AND admin_password LIKE '" + _password + "'";
+            string query = "SELECT * FROM admins WHERE admin_username LIKE '" + _username + "' AND admin_password LIKE '" + _password + "'";
             MySqlConnection mySqlConnection = new MySqlConnection(_connection);
             MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
             MySqlDataReader mySqlDataReader;
