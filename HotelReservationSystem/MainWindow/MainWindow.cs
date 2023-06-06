@@ -1,4 +1,6 @@
 ﻿using HotelReservationSystem.Dashboard;
+using HotelReservationSystem.Employee;
+using HotelReservationSystem.PresenterCommons;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,48 +15,86 @@ namespace HotelReservationSystem.MainWindow
 {
     public partial class MainWindow : Form
     {
+        private PresenterMainWindow _presenter;
+        public PresenterMainWindow Presenter { get { return _presenter; } }
         public MainWindow()
         {
             InitializeComponent();
+            this.CenterToScreen();
+            _presenter = new PresenterMainWindow();
+            _presenter.Form = this;
+            _presenter.Panel = PanelRoot;
             DashboardPanel dashboard = new DashboardPanel();
-            dashboard.Presenter.Form = this;
-            dashboard.Presenter.Panel = PanelRoot;
+            dashboard.Presenter.Form = _presenter.Form;
+            dashboard.Presenter.Panel = _presenter.Panel;
             PanelRoot.Controls.Add(dashboard);
+            _presenter.CurrentPanel = dashboard;
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        private void DashboardTab_Click(object sender, EventArgs e)
         {
-
+            DashboardPanel dashboardPanel = new DashboardPanel();
+            if (!dashboardPanel.Equals(_presenter.CurrentPanel))
+            {
+                dashboardPanel.Presenter.Form = _presenter.Form;
+                dashboardPanel.Presenter.Panel = _presenter.Panel;
+                _presenter.Panel.Controls.Remove(_presenter.CurrentPanel);
+                _presenter.Panel.Controls.Add(dashboardPanel);
+                _presenter.CurrentPanel = dashboardPanel;
+            }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void EmployeeTab_Click(object sender, EventArgs e)
         {
+            EmployeePanel employeePanel = new EmployeePanel();
+            if (!employeePanel.Equals(_presenter.CurrentPanel))
+            {
+                employeePanel.Presenter.Form = _presenter.Form;
+                employeePanel.Presenter.Panel = _presenter.Panel;
+                _presenter.Panel.Controls.Remove(_presenter.CurrentPanel);
+                _presenter.Panel.Controls.Add(employeePanel);
+                _presenter.CurrentPanel = employeePanel;
+            }
+        }
+    }
 
+    public interface IPresenterMainWindow : IPresenter
+    {
+        string Username { get; set; }
+    }
+
+    public class PresenterMainWindow : INotifyPropertyChanged, IPresenterMainWindow
+    {
+        private Form _form;
+        private Panel _panel;
+        private UserControl _currentPanel;
+        private string _userName;
+
+        public string Username { get; set; }
+
+        public Form Form
+        {
+            get { return _form; }
+            set { _form = value; }
         }
 
-        private void PanelRoot_Paint(object sender, PaintEventArgs e)
+        public Panel Panel
         {
-
+            get { return _panel; }
+            set { _panel = value; }
         }
 
-        private void TableLayoutNavigationRoot_Paint(object sender, PaintEventArgs e)
+        public UserControl CurrentPanel
         {
-
+            get { return _currentPanel; }
+            set { _currentPanel = value; } 
         }
 
-        private void pictureBox1_Click_1(object sender, EventArgs e)
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(string propertyName)
         {
-
-        }
-
-        private void MainWindow_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

@@ -108,6 +108,18 @@
     <Compile Include="Dashboard\DashboardPanel.Designer.cs">
       <DependentUpon>DashboardPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Employee\EmployeeAddWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee\EmployeeAddWindow.Designer.cs">
+      <DependentUpon>EmployeeAddWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\EmployeePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employee\EmployeePanel.Designer.cs">
+      <DependentUpon>EmployeePanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login\LoginPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -145,6 +157,12 @@
     <EmbeddedResource Include="Dashboard\DashboardPanel.resx">
       <DependentUpon>DashboardPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Employee\EmployeeAddWindow.resx">
+      <DependentUpon>EmployeeAddWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\EmployeePanel.resx">
+      <DependentUpon>EmployeePanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login\LoginPanel.resx">
       <DependentUpon>LoginPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -180,12 +198,13 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Assets\Font\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\DashboardNavBarBG.png" />
     <Content Include="Assets\LogoMainWindow.png" />
     <Content Include="Assets\NavBarBG.png" />
-    <Folder Include="Assets\Font\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
