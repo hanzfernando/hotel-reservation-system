@@ -1,5 +1,4 @@
 ﻿using HotelReservationSystem.Dashboard;
-using HotelReservationSystem.Employee;
 using HotelReservationSystem.PresenterCommons;
 using System;
 using System.Collections.Generic;
@@ -24,9 +23,13 @@ namespace HotelReservationSystem.MainWindow
             _presenter = new PresenterMainWindow();
             _presenter.Form = this;
             _presenter.Panel = PanelRoot;
+        }
+        public void OnLoad (object sender, EventArgs e)
+        {
             DashboardPanel dashboard = new DashboardPanel();
             dashboard.Presenter.Form = _presenter.Form;
             dashboard.Presenter.Panel = _presenter.Panel;
+            dashboard.Presenter.Username = _presenter.Username;
             PanelRoot.Controls.Add(dashboard);
             _presenter.CurrentPanel = dashboard;
         }
@@ -34,6 +37,7 @@ namespace HotelReservationSystem.MainWindow
         private void DashboardTab_Click(object sender, EventArgs e)
         {
             DashboardPanel dashboardPanel = new DashboardPanel();
+            dashboardPanel.Presenter.Username = _presenter.Username;
             if (!dashboardPanel.Equals(_presenter.CurrentPanel))
             {
                 dashboardPanel.Presenter.Form = _presenter.Form;
@@ -41,19 +45,6 @@ namespace HotelReservationSystem.MainWindow
                 _presenter.Panel.Controls.Remove(_presenter.CurrentPanel);
                 _presenter.Panel.Controls.Add(dashboardPanel);
                 _presenter.CurrentPanel = dashboardPanel;
-            }
-        }
-
-        private void EmployeeTab_Click(object sender, EventArgs e)
-        {
-            EmployeePanel employeePanel = new EmployeePanel();
-            if (!employeePanel.Equals(_presenter.CurrentPanel))
-            {
-                employeePanel.Presenter.Form = _presenter.Form;
-                employeePanel.Presenter.Panel = _presenter.Panel;
-                _presenter.Panel.Controls.Remove(_presenter.CurrentPanel);
-                _presenter.Panel.Controls.Add(employeePanel);
-                _presenter.CurrentPanel = employeePanel;
             }
         }
     }
@@ -70,7 +61,7 @@ namespace HotelReservationSystem.MainWindow
         private UserControl _currentPanel;
         private string _userName;
 
-        public string Username { get; set; }
+        public string Username { get { return _userName; } set { _userName = value; } }
 
         public Form Form
         {

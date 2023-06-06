@@ -112,7 +112,7 @@ namespace HotelReservationSystem.Login
             if(_presenter.ValidateLogIn())
             {
                 HotelReservationSystem.MainWindow.MainWindow mainWindow = new HotelReservationSystem.MainWindow.MainWindow();
-                mainWindow.Presenter.Username = UsernameTextBox.Text;
+                mainWindow.Presenter.Username = _presenter.Username;
                 /*this._presenter.Form.Hide();
                 mainWindow.Show();*/
 
@@ -129,7 +129,7 @@ namespace HotelReservationSystem.Login
 
     public interface IPresenterLoginPanel : IPresenter
     {
-        string Username { set; }
+        string Username { get; set; }
         string Password { set; }
     }
 
@@ -150,7 +150,7 @@ namespace HotelReservationSystem.Login
         private string _password;
         private string _connection = Constants.MySqlConstants.Connection;
 
-        public string Username { set { _username = value; } }
+        public string Username { get { return _username; } set { _username = value; } }
         public string Password { set { _password = value; } }
 
         public Form Form { get { return _form; } set { _form = value; } }

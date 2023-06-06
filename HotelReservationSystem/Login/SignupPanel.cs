@@ -150,7 +150,7 @@ namespace HotelReservationSystem.Login
         public string Password { set { _password = value; } }
         public string ConfirmPassword { set { _confirmpassword = value; } }
 
-        public UserControl PreviousPanel { get; set; }
+        public UserControl PreviousPanel { get { return _previouspanel; } set { _previouspanel = value; } }
         public Form Form { get { return _form; } set { _form = value; } }
         public Panel Panel { get { return _panel; } set { _panel = value; } }
     }
