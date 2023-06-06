@@ -34,10 +34,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TableLayoutNavigation = new System.Windows.Forms.TableLayoutPanel();
             this.DashboardTab = new System.Windows.Forms.Button();
-            this.EmployeeTab = new System.Windows.Forms.Button();
             this.RoomsTab = new System.Windows.Forms.Button();
             this.ReservationTab = new System.Windows.Forms.Button();
-            this.SettingsTab = new System.Windows.Forms.Button();
             this.PanelRoot = new System.Windows.Forms.Panel();
             this.TableLayoutNavigationRoot.SuspendLayout();
             this.LogoPanel.SuspendLayout();
@@ -92,10 +90,8 @@
             this.TableLayoutNavigation.ColumnCount = 1;
             this.TableLayoutNavigation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.TableLayoutNavigation.Controls.Add(this.DashboardTab, 0, 0);
-            this.TableLayoutNavigation.Controls.Add(this.EmployeeTab, 0, 1);
-            this.TableLayoutNavigation.Controls.Add(this.RoomsTab, 0, 3);
-            this.TableLayoutNavigation.Controls.Add(this.ReservationTab, 0, 2);
-            this.TableLayoutNavigation.Controls.Add(this.SettingsTab, 0, 4);
+            this.TableLayoutNavigation.Controls.Add(this.ReservationTab, 0, 1);
+            this.TableLayoutNavigation.Controls.Add(this.RoomsTab, 0, 2);
             this.TableLayoutNavigation.Location = new System.Drawing.Point(3, 138);
             this.TableLayoutNavigation.Name = "TableLayoutNavigation";
             this.TableLayoutNavigation.RowCount = 10;
@@ -127,28 +123,13 @@
             this.DashboardTab.UseVisualStyleBackColor = false;
             this.DashboardTab.Click += new System.EventHandler(this.DashboardTab_Click);
             // 
-            // EmployeeTab
-            // 
-            this.EmployeeTab.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.EmployeeTab.FlatAppearance.BorderSize = 0;
-            this.EmployeeTab.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCoral;
-            this.EmployeeTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EmployeeTab.ForeColor = System.Drawing.Color.White;
-            this.EmployeeTab.Location = new System.Drawing.Point(3, 78);
-            this.EmployeeTab.Name = "EmployeeTab";
-            this.EmployeeTab.Size = new System.Drawing.Size(288, 69);
-            this.EmployeeTab.TabIndex = 0;
-            this.EmployeeTab.Text = "Employee";
-            this.EmployeeTab.UseVisualStyleBackColor = true;
-            this.EmployeeTab.Click += new System.EventHandler(this.EmployeeTab_Click);
-            // 
             // RoomsTab
             // 
             this.RoomsTab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RoomsTab.FlatAppearance.BorderSize = 0;
             this.RoomsTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RoomsTab.ForeColor = System.Drawing.Color.White;
-            this.RoomsTab.Location = new System.Drawing.Point(3, 228);
+            this.RoomsTab.Location = new System.Drawing.Point(3, 153);
             this.RoomsTab.Name = "RoomsTab";
             this.RoomsTab.Size = new System.Drawing.Size(288, 69);
             this.RoomsTab.TabIndex = 2;
@@ -161,25 +142,12 @@
             this.ReservationTab.FlatAppearance.BorderSize = 0;
             this.ReservationTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ReservationTab.ForeColor = System.Drawing.Color.White;
-            this.ReservationTab.Location = new System.Drawing.Point(3, 153);
+            this.ReservationTab.Location = new System.Drawing.Point(3, 78);
             this.ReservationTab.Name = "ReservationTab";
             this.ReservationTab.Size = new System.Drawing.Size(288, 69);
             this.ReservationTab.TabIndex = 1;
             this.ReservationTab.Text = "Reservation";
             this.ReservationTab.UseVisualStyleBackColor = true;
-            // 
-            // SettingsTab
-            // 
-            this.SettingsTab.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SettingsTab.FlatAppearance.BorderSize = 0;
-            this.SettingsTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SettingsTab.ForeColor = System.Drawing.Color.White;
-            this.SettingsTab.Location = new System.Drawing.Point(3, 303);
-            this.SettingsTab.Name = "SettingsTab";
-            this.SettingsTab.Size = new System.Drawing.Size(288, 69);
-            this.SettingsTab.TabIndex = 4;
-            this.SettingsTab.Text = "Settings";
-            this.SettingsTab.UseVisualStyleBackColor = true;
             // 
             // PanelRoot
             // 
@@ -215,8 +183,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TableLayoutPanel TableLayoutNavigationRoot;
         private System.Windows.Forms.TableLayoutPanel TableLayoutNavigation;
-        private System.Windows.Forms.Button EmployeeTab;
-        private System.Windows.Forms.Button SettingsTab;
         private System.Windows.Forms.Button RoomsTab;
         private System.Windows.Forms.Button ReservationTab;
     }

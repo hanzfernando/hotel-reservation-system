@@ -48,19 +48,6 @@ namespace HotelReservationSystem.MainWindow
                 _presenter.CurrentPanel = dashboardPanel;
             }
         }
-
-        private void EmployeeTab_Click(object sender, EventArgs e)
-        {
-            EmployeePanel employeePanel = new EmployeePanel();
-            if (!employeePanel.Equals(_presenter.CurrentPanel))
-            {
-                employeePanel.Presenter.Form = _presenter.Form;
-                employeePanel.Presenter.Panel = _presenter.Panel;
-                _presenter.Panel.Controls.Remove(_presenter.CurrentPanel);
-                _presenter.Panel.Controls.Add(employeePanel);
-                _presenter.CurrentPanel = employeePanel;
-            }
-        }
     }
 
     public interface IPresenterMainWindow : IPresenter
