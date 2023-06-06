@@ -33,12 +33,11 @@
             this.LogoPanel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TableLayoutNavigation = new System.Windows.Forms.TableLayoutPanel();
-            this.SettingsTab = new System.Windows.Forms.Button();
             this.DashboardTab = new System.Windows.Forms.Button();
-            this.TransactionsTab = new System.Windows.Forms.Button();
             this.EmployeeTab = new System.Windows.Forms.Button();
             this.RoomsTab = new System.Windows.Forms.Button();
             this.ReservationTab = new System.Windows.Forms.Button();
+            this.SettingsTab = new System.Windows.Forms.Button();
             this.PanelRoot = new System.Windows.Forms.Panel();
             this.TableLayoutNavigationRoot.SuspendLayout();
             this.LogoPanel.SuspendLayout();
@@ -64,7 +63,6 @@
             this.TableLayoutNavigationRoot.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
             this.TableLayoutNavigationRoot.Size = new System.Drawing.Size(300, 900);
             this.TableLayoutNavigationRoot.TabIndex = 0;
-            this.TableLayoutNavigationRoot.Paint += new System.Windows.Forms.PaintEventHandler(this.TableLayoutNavigationRoot_Paint);
             // 
             // LogoPanel
             // 
@@ -87,19 +85,17 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
             // TableLayoutNavigation
             // 
             this.TableLayoutNavigation.BackColor = System.Drawing.Color.Transparent;
             this.TableLayoutNavigation.ColumnCount = 1;
             this.TableLayoutNavigation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TableLayoutNavigation.Controls.Add(this.SettingsTab, 0, 5);
             this.TableLayoutNavigation.Controls.Add(this.DashboardTab, 0, 0);
-            this.TableLayoutNavigation.Controls.Add(this.TransactionsTab, 0, 4);
             this.TableLayoutNavigation.Controls.Add(this.EmployeeTab, 0, 1);
             this.TableLayoutNavigation.Controls.Add(this.RoomsTab, 0, 3);
             this.TableLayoutNavigation.Controls.Add(this.ReservationTab, 0, 2);
+            this.TableLayoutNavigation.Controls.Add(this.SettingsTab, 0, 4);
             this.TableLayoutNavigation.Location = new System.Drawing.Point(3, 138);
             this.TableLayoutNavigation.Name = "TableLayoutNavigation";
             this.TableLayoutNavigation.RowCount = 10;
@@ -116,20 +112,6 @@
             this.TableLayoutNavigation.Size = new System.Drawing.Size(294, 759);
             this.TableLayoutNavigation.TabIndex = 2;
             // 
-            // SettingsTab
-            // 
-            this.SettingsTab.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SettingsTab.FlatAppearance.BorderSize = 0;
-            this.SettingsTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SettingsTab.ForeColor = System.Drawing.Color.White;
-            this.SettingsTab.Location = new System.Drawing.Point(3, 378);
-            this.SettingsTab.Name = "SettingsTab";
-            this.SettingsTab.Size = new System.Drawing.Size(288, 69);
-            this.SettingsTab.TabIndex = 4;
-            this.SettingsTab.Text = "Settings";
-            this.SettingsTab.UseVisualStyleBackColor = true;
-            this.SettingsTab.Click += new System.EventHandler(this.button5_Click);
-            // 
             // DashboardTab
             // 
             this.DashboardTab.BackColor = System.Drawing.Color.Transparent;
@@ -143,19 +125,7 @@
             this.DashboardTab.TabIndex = 0;
             this.DashboardTab.Text = "Dashboard";
             this.DashboardTab.UseVisualStyleBackColor = false;
-            // 
-            // TransactionsTab
-            // 
-            this.TransactionsTab.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TransactionsTab.FlatAppearance.BorderSize = 0;
-            this.TransactionsTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TransactionsTab.ForeColor = System.Drawing.Color.White;
-            this.TransactionsTab.Location = new System.Drawing.Point(3, 303);
-            this.TransactionsTab.Name = "TransactionsTab";
-            this.TransactionsTab.Size = new System.Drawing.Size(288, 69);
-            this.TransactionsTab.TabIndex = 3;
-            this.TransactionsTab.Text = "Transactions";
-            this.TransactionsTab.UseVisualStyleBackColor = true;
+            this.DashboardTab.Click += new System.EventHandler(this.DashboardTab_Click);
             // 
             // EmployeeTab
             // 
@@ -170,6 +140,7 @@
             this.EmployeeTab.TabIndex = 0;
             this.EmployeeTab.Text = "Employee";
             this.EmployeeTab.UseVisualStyleBackColor = true;
+            this.EmployeeTab.Click += new System.EventHandler(this.EmployeeTab_Click);
             // 
             // RoomsTab
             // 
@@ -197,6 +168,19 @@
             this.ReservationTab.Text = "Reservation";
             this.ReservationTab.UseVisualStyleBackColor = true;
             // 
+            // SettingsTab
+            // 
+            this.SettingsTab.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SettingsTab.FlatAppearance.BorderSize = 0;
+            this.SettingsTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SettingsTab.ForeColor = System.Drawing.Color.White;
+            this.SettingsTab.Location = new System.Drawing.Point(3, 303);
+            this.SettingsTab.Name = "SettingsTab";
+            this.SettingsTab.Size = new System.Drawing.Size(288, 69);
+            this.SettingsTab.TabIndex = 4;
+            this.SettingsTab.Text = "Settings";
+            this.SettingsTab.UseVisualStyleBackColor = true;
+            // 
             // PanelRoot
             // 
             this.PanelRoot.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -204,7 +188,6 @@
             this.PanelRoot.Name = "PanelRoot";
             this.PanelRoot.Size = new System.Drawing.Size(900, 900);
             this.PanelRoot.TabIndex = 1;
-            this.PanelRoot.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelRoot_Paint);
             // 
             // MainWindow
             // 
@@ -216,7 +199,6 @@
             this.Controls.Add(this.TableLayoutNavigationRoot);
             this.Name = "MainWindow";
             this.Text = "MainWindow";
-            this.Load += new System.EventHandler(this.MainWindow_Load);
             this.TableLayoutNavigationRoot.ResumeLayout(false);
             this.LogoPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -234,7 +216,6 @@
         private System.Windows.Forms.TableLayoutPanel TableLayoutNavigation;
         private System.Windows.Forms.Button EmployeeTab;
         private System.Windows.Forms.Button SettingsTab;
-        private System.Windows.Forms.Button TransactionsTab;
         private System.Windows.Forms.Button RoomsTab;
         private System.Windows.Forms.Button ReservationTab;
     }
