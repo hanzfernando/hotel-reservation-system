@@ -199,6 +199,7 @@
             this.Controls.Add(this.TableLayoutNavigationRoot);
             this.Name = "MainWindow";
             this.Text = "MainWindow";
+            this.Load += new System.EventHandler(this.OnLoad);
             this.TableLayoutNavigationRoot.ResumeLayout(false);
             this.LogoPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

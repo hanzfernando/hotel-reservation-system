@@ -203,6 +203,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\DashboardNavBarBG.png" />
+    <Content Include="Assets\Dashboard\Rectangle 6507.png" />
+    <Content Include="Assets\Dashboard\Rectangle 6509.png" />
+    <Content Include="Assets\Dashboard\Rectangle 6528.png" />
+    <Content Include="Assets\Dashboard\Rectangle 6529.png" />
     <Content Include="Assets\LogoMainWindow.png" />
     <Content Include="Assets\NavBarBG.png" />
   </ItemGroup>

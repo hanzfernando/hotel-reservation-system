@@ -80,7 +80,7 @@ namespace HotelReservationSystem.Employee
                 _dataTable = new DataTable();
             }
             _dataTable.Clear();
-            string query = "select * from admin";
+            string query = "select * from admins";
             MySqlConnection mySqlConnection = new MySqlConnection(_connection);
             MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
             MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter();
