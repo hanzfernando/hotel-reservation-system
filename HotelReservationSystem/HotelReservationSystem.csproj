@@ -71,6 +71,9 @@
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
     </Reference>
+    <Reference Include="System.Reactive, Version=6.0.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.6.0.0\lib\net472\System.Reactive.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
@@ -78,6 +81,7 @@
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -87,6 +91,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administrator\AdministratorPanel.cs">
@@ -107,18 +112,6 @@
     </Compile>
     <Compile Include="Dashboard\DashboardPanel.Designer.cs">
       <DependentUpon>DashboardPanel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Employee\EmployeeAddWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Employee\EmployeeAddWindow.Designer.cs">
-      <DependentUpon>EmployeeAddWindow.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Employee\EmployeePanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Employee\EmployeePanel.Designer.cs">
-      <DependentUpon>EmployeePanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Login\LoginPanel.cs">
       <SubType>UserControl</SubType>
@@ -156,12 +149,6 @@
     </Compile>
     <EmbeddedResource Include="Dashboard\DashboardPanel.resx">
       <DependentUpon>DashboardPanel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Employee\EmployeeAddWindow.resx">
-      <DependentUpon>EmployeeAddWindow.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Employee\EmployeePanel.resx">
-      <DependentUpon>EmployeePanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\LoginPanel.resx">
       <DependentUpon>LoginPanel.cs</DependentUpon>
@@ -203,6 +190,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\DashboardNavBarBG.png" />
+    <Content Include="Assets\Dashboard\Rectangle 6507.png" />
+    <Content Include="Assets\Dashboard\Rectangle 6509.png" />
+    <Content Include="Assets\Dashboard\Rectangle 6528.png" />
+    <Content Include="Assets\Dashboard\Rectangle 6529.png" />
     <Content Include="Assets\LogoMainWindow.png" />
     <Content Include="Assets\NavBarBG.png" />
   </ItemGroup>
