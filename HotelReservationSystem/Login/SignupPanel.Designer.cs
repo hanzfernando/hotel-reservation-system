@@ -185,7 +185,7 @@ namespace HotelReservationSystem.Login
             this.SignInLabel2.BackColor = System.Drawing.Color.Transparent;
             this.SignInLabel2.Font = new System.Drawing.Font("SansSerif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.SignInLabel2.LinkColor = System.Drawing.Color.Yellow;
-            this.SignInLabel2.Location = new System.Drawing.Point(695, 564);
+            this.SignInLabel2.Location = new System.Drawing.Point(695, 561);
             this.SignInLabel2.Name = "SignInLabel2";
             this.SignInLabel2.Size = new System.Drawing.Size(37, 12);
             this.SignInLabel2.TabIndex = 32;
@@ -199,7 +199,7 @@ namespace HotelReservationSystem.Login
             this.SignInLabel1.BackColor = System.Drawing.Color.Transparent;
             this.SignInLabel1.Font = new System.Drawing.Font("SansSerif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.SignInLabel1.ForeColor = System.Drawing.Color.White;
-            this.SignInLabel1.Location = new System.Drawing.Point(563, 564);
+            this.SignInLabel1.Location = new System.Drawing.Point(563, 561);
             this.SignInLabel1.Name = "SignInLabel1";
             this.SignInLabel1.Size = new System.Drawing.Size(132, 12);
             this.SignInLabel1.TabIndex = 31;

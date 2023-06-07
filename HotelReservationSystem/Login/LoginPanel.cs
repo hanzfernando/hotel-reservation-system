@@ -90,7 +90,11 @@ namespace HotelReservationSystem.Login
             }
             else
             {
-                PasswordTextBox.UseSystemPasswordChar = true;
+                if (PasswordTextBox.Text != "Enter Password...")
+                {
+                    PasswordTextBox.UseSystemPasswordChar = true;
+                }
+                
             }
         }
 
