@@ -140,6 +140,25 @@
     <Compile Include="PresenterCommons\IPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reservation\Item.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reservation\Item.Designer.cs">
+      <DependentUpon>Item.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reservation\ListHeader.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reservation\ListHeader.Designer.cs">
+      <DependentUpon>ListHeader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reservation\ReservationCommons.cs" />
+    <Compile Include="Reservation\ReservationPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reservation\ReservationPanel.Designer.cs">
+      <DependentUpon>ReservationPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Theme\Theme.cs" />
     <Compile Include="Transaction\TransactionPanel.cs">
       <SubType>UserControl</SubType>
@@ -171,6 +190,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Reservation\Item.resx">
+      <DependentUpon>Item.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reservation\ListHeader.resx">
+      <DependentUpon>ListHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reservation\ReservationPanel.resx">
+      <DependentUpon>ReservationPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
