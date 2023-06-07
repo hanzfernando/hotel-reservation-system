@@ -43,7 +43,7 @@ namespace HotelReservationSystem.Reservation
 
         }
 
-        private void OnScroll(object sender, EventArgs e)
+       /* private void OnScroll(object sender, EventArgs e)
         {
             if (_presenter.Scrollable)
             {
@@ -54,7 +54,7 @@ namespace HotelReservationSystem.Reservation
                 _presenter.Scrollable = true;
             }
 
-        }
+        }*/
 
         public PresenterReservationPanel Presenter { get { return _presenter; } }
 
@@ -68,7 +68,7 @@ namespace HotelReservationSystem.Reservation
 
     public interface IPresenterReservationPanel : IPresenter
     {
-        Boolean Scrollable { get; set; } 
+        /*Boolean Scrollable { get; set; }*/ 
         List <IReservationCommons> ItemList { get; set; }
         FlowLayoutPanel FlowLayoutPanel { get; set; }
     }
@@ -91,30 +91,27 @@ namespace HotelReservationSystem.Reservation
 
         public Form Form { get { return _form; } set { _form = value; } }
         public Panel Panel { get { return _panel; } set { _panel = value; } }
-        public Boolean Scrollable { get { return _scrollable; }
+        /*public Boolean Scrollable { get { return _scrollable; }
             set { _scrollable = value;
                 OnPropertyChanged(nameof(Scrollable));
                 ChangeWidth();
             }
-        }
+        }*/
         public FlowLayoutPanel FlowLayoutPanel { get { return _flowlayoutpanel; } set { _flowlayoutpanel = value; } }
 
 
         public List<IReservationCommons> ItemList { get { return _itemList; } 
             set { 
-                if (_itemList != value)
-                {
-                    _itemList = value;
-                    OnPropertyChanged(nameof(ItemList));
-                    _flowlayoutpanel.Controls.Clear();
-                    RebuildList(value);
-                }
-
-
+                
+                 _itemList = value;
+                 OnPropertyChanged(nameof(ItemList));
+                 _flowlayoutpanel.Controls.Clear();
+                 RebuildList(value);
+                
             } 
         }
 
-        private void ChangeWidth()
+        /*private void ChangeWidth()
         {
             if (Scrollable) 
             {
@@ -134,7 +131,7 @@ namespace HotelReservationSystem.Reservation
 
                 }
             }
-        }
+        }*/
 
         private void RebuildList(List<IReservationCommons> reservationcommons)
         {

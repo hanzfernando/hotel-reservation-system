@@ -91,7 +91,6 @@
             this.ReservationLayoutPanel.Name = "ReservationLayoutPanel";
             this.ReservationLayoutPanel.Size = new System.Drawing.Size(774, 674);
             this.ReservationLayoutPanel.TabIndex = 1;
-            this.ReservationLayoutPanel.Resize += new System.EventHandler(this.OnScroll);
             // 
             // PinkBG
             // 
