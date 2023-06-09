@@ -34,8 +34,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TableLayoutNavigation = new System.Windows.Forms.TableLayoutPanel();
             this.DashboardTab = new System.Windows.Forms.Button();
-            this.RoomsTab = new System.Windows.Forms.Button();
             this.ReservationTab = new System.Windows.Forms.Button();
+            this.RoomsTab = new System.Windows.Forms.Button();
             this.PanelRoot = new System.Windows.Forms.Panel();
             this.TableLayoutNavigationRoot.SuspendLayout();
             this.LogoPanel.SuspendLayout();
@@ -123,19 +123,6 @@
             this.DashboardTab.UseVisualStyleBackColor = false;
             this.DashboardTab.Click += new System.EventHandler(this.DashboardTab_Click);
             // 
-            // RoomsTab
-            // 
-            this.RoomsTab.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RoomsTab.FlatAppearance.BorderSize = 0;
-            this.RoomsTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RoomsTab.ForeColor = System.Drawing.Color.White;
-            this.RoomsTab.Location = new System.Drawing.Point(3, 153);
-            this.RoomsTab.Name = "RoomsTab";
-            this.RoomsTab.Size = new System.Drawing.Size(288, 69);
-            this.RoomsTab.TabIndex = 2;
-            this.RoomsTab.Text = "Rooms";
-            this.RoomsTab.UseVisualStyleBackColor = true;
-            // 
             // ReservationTab
             // 
             this.ReservationTab.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -148,6 +135,20 @@
             this.ReservationTab.TabIndex = 1;
             this.ReservationTab.Text = "Reservation";
             this.ReservationTab.UseVisualStyleBackColor = true;
+            this.ReservationTab.Click += new System.EventHandler(this.ReservationTab_Click);
+            // 
+            // RoomsTab
+            // 
+            this.RoomsTab.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RoomsTab.FlatAppearance.BorderSize = 0;
+            this.RoomsTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RoomsTab.ForeColor = System.Drawing.Color.White;
+            this.RoomsTab.Location = new System.Drawing.Point(3, 153);
+            this.RoomsTab.Name = "RoomsTab";
+            this.RoomsTab.Size = new System.Drawing.Size(288, 69);
+            this.RoomsTab.TabIndex = 2;
+            this.RoomsTab.Text = "Rooms";
+            this.RoomsTab.UseVisualStyleBackColor = true;
             // 
             // PanelRoot
             // 
