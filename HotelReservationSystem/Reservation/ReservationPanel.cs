@@ -1,4 +1,5 @@
 ﻿using HotelReservationSystem.Login;
+using HotelReservationSystem.MainWindow;
 using HotelReservationSystem.PresenterCommons;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,13 @@ namespace HotelReservationSystem.Reservation
         }
 
         public PresenterReservationPanel Presenter { get { return _presenter; } }
-    }    
+
+        private void CreateButton_Click(object sender, EventArgs e)
+        {
+            HotelReservationSystem.Reservation.ReservationWindow reservationWindow = new ReservationWindow();
+            reservationWindow.Show();
+        }
+    }
 
     public interface IPresenterReservationPanel : IPresenter
     {

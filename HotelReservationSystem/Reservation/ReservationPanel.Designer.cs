@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.TopPanel = new System.Windows.Forms.Panel();
             this.artanPanel1 = new HotelReservationSystem.Assets.ArtanPanel();
@@ -38,8 +38,8 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BottomPanel = new System.Windows.Forms.Panel();
-            this.CreateButton = new HotelReservationSystem.Assets.RJButton();
             this.CancelButton = new HotelReservationSystem.Assets.RJButton();
+            this.CreateButton = new HotelReservationSystem.Assets.RJButton();
             this.TableLayoutPanel1.SuspendLayout();
             this.TopPanel.SuspendLayout();
             this.artanPanel1.SuspendLayout();
@@ -98,14 +98,14 @@
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(154)))), ((int)(((byte)(227)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("SansSerif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(154)))), ((int)(((byte)(227)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(154)))), ((int)(((byte)(227)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("SansSerif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(154)))), ((int)(((byte)(227)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeight = 35;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -164,25 +164,6 @@
             this.BottomPanel.Size = new System.Drawing.Size(894, 84);
             this.BottomPanel.TabIndex = 1;
             // 
-            // CreateButton
-            // 
-            this.CreateButton.BackColor = System.Drawing.Color.Gainsboro;
-            this.CreateButton.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.CreateButton.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.CreateButton.BorderRadius = 20;
-            this.CreateButton.BorderSize = 0;
-            this.CreateButton.FlatAppearance.BorderSize = 0;
-            this.CreateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CreateButton.Font = new System.Drawing.Font("SansSerif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.CreateButton.ForeColor = System.Drawing.Color.Black;
-            this.CreateButton.Location = new System.Drawing.Point(648, 3);
-            this.CreateButton.Name = "CreateButton";
-            this.CreateButton.Size = new System.Drawing.Size(100, 40);
-            this.CreateButton.TabIndex = 0;
-            this.CreateButton.Text = "Create";
-            this.CreateButton.TextColor = System.Drawing.Color.Black;
-            this.CreateButton.UseVisualStyleBackColor = false;
-            // 
             // CancelButton
             // 
             this.CancelButton.BackColor = System.Drawing.Color.Gainsboro;
@@ -201,6 +182,26 @@
             this.CancelButton.Text = "Cancel";
             this.CancelButton.TextColor = System.Drawing.Color.Black;
             this.CancelButton.UseVisualStyleBackColor = false;
+            // 
+            // CreateButton
+            // 
+            this.CreateButton.BackColor = System.Drawing.Color.Gainsboro;
+            this.CreateButton.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.CreateButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.CreateButton.BorderRadius = 20;
+            this.CreateButton.BorderSize = 0;
+            this.CreateButton.FlatAppearance.BorderSize = 0;
+            this.CreateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CreateButton.Font = new System.Drawing.Font("SansSerif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.CreateButton.ForeColor = System.Drawing.Color.Black;
+            this.CreateButton.Location = new System.Drawing.Point(648, 3);
+            this.CreateButton.Name = "CreateButton";
+            this.CreateButton.Size = new System.Drawing.Size(100, 40);
+            this.CreateButton.TabIndex = 0;
+            this.CreateButton.Text = "Create";
+            this.CreateButton.TextColor = System.Drawing.Color.Black;
+            this.CreateButton.UseVisualStyleBackColor = false;
+            this.CreateButton.Click += new System.EventHandler(this.CreateButton_Click);
             // 
             // ReservationPanel
             // 
