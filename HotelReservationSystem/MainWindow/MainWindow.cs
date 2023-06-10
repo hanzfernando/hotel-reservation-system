@@ -1,5 +1,6 @@
 ﻿using HotelReservationSystem.Dashboard;
 using HotelReservationSystem.PresenterCommons;
+using HotelReservationSystem.Reservation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,6 +39,19 @@ namespace HotelReservationSystem.MainWindow
         {
             DashboardPanel dashboardPanel = new DashboardPanel();
             dashboardPanel.Presenter.Username = _presenter.Username;
+            if (!dashboardPanel.Equals(_presenter.CurrentPanel))
+            {
+                dashboardPanel.Presenter.Form = _presenter.Form;
+                dashboardPanel.Presenter.Panel = _presenter.Panel;
+                _presenter.Panel.Controls.Remove(_presenter.CurrentPanel);
+                _presenter.Panel.Controls.Add(dashboardPanel);
+                _presenter.CurrentPanel = dashboardPanel;
+            }
+        }
+
+        private void ReservationTab_Click(object sender, EventArgs e)
+        {
+            ReservationPanel dashboardPanel = new ReservationPanel();
             if (!dashboardPanel.Equals(_presenter.CurrentPanel))
             {
                 dashboardPanel.Presenter.Form = _presenter.Form;
