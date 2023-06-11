@@ -35,19 +35,19 @@
             this.FirstNameTextBox = new System.Windows.Forms.TextBox();
             this.LastNameTextBox = new System.Windows.Forms.TextBox();
             this.LastNameLabel = new System.Windows.Forms.Label();
-            this.CheckInTextBox = new System.Windows.Forms.TextBox();
             this.CheckInLabel = new System.Windows.Forms.Label();
             this.RoomUnitTextBox = new System.Windows.Forms.TextBox();
             this.RoomUnitLabel = new System.Windows.Forms.Label();
-            this.CheckOutTextBox = new System.Windows.Forms.TextBox();
             this.CheckOutLabel = new System.Windows.Forms.Label();
-            this.PaymentMethodTextBox = new System.Windows.Forms.TextBox();
             this.PaymentMethodLabel = new System.Windows.Forms.Label();
             this.SuffixTextBox = new System.Windows.Forms.TextBox();
             this.SuffixLabel = new System.Windows.Forms.Label();
             this.MiddleNameTextBox = new System.Windows.Forms.TextBox();
             this.MiddleNameLabel = new System.Windows.Forms.Label();
             this.CreateRecordButton = new HotelReservationSystem.Assets.RJButton();
+            this.PaymentMethodComboBox = new System.Windows.Forms.ComboBox();
+            this.CheckInDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.CheckOutDateTimePicker = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -116,17 +116,6 @@
             this.LastNameLabel.TabIndex = 4;
             this.LastNameLabel.Text = "Last Name";
             // 
-            // CheckInTextBox
-            // 
-            this.CheckInTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(139)))), ((int)(((byte)(139)))));
-            this.CheckInTextBox.Location = new System.Drawing.Point(29, 479);
-            this.CheckInTextBox.Name = "CheckInTextBox";
-            this.CheckInTextBox.Size = new System.Drawing.Size(196, 20);
-            this.CheckInTextBox.TabIndex = 9;
-            this.CheckInTextBox.Text = "Enter check in date...";
-            this.CheckInTextBox.Enter += new System.EventHandler(this.CheckInTextBox_Enter);
-            this.CheckInTextBox.Leave += new System.EventHandler(this.CheckInTextBox_Leave);
-            // 
             // CheckInLabel
             // 
             this.CheckInLabel.AutoSize = true;
@@ -160,17 +149,6 @@
             this.RoomUnitLabel.TabIndex = 6;
             this.RoomUnitLabel.Text = "Room Unit";
             // 
-            // CheckOutTextBox
-            // 
-            this.CheckOutTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(139)))), ((int)(((byte)(139)))));
-            this.CheckOutTextBox.Location = new System.Drawing.Point(267, 479);
-            this.CheckOutTextBox.Name = "CheckOutTextBox";
-            this.CheckOutTextBox.Size = new System.Drawing.Size(196, 20);
-            this.CheckOutTextBox.TabIndex = 17;
-            this.CheckOutTextBox.Text = "Enter check out date...";
-            this.CheckOutTextBox.Enter += new System.EventHandler(this.CheckOutTextBox_Enter);
-            this.CheckOutTextBox.Leave += new System.EventHandler(this.CheckOutTextBox_Leave);
-            // 
             // CheckOutLabel
             // 
             this.CheckOutLabel.AutoSize = true;
@@ -181,17 +159,6 @@
             this.CheckOutLabel.Size = new System.Drawing.Size(69, 15);
             this.CheckOutLabel.TabIndex = 16;
             this.CheckOutLabel.Text = "Check Out";
-            // 
-            // PaymentMethodTextBox
-            // 
-            this.PaymentMethodTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(139)))), ((int)(((byte)(139)))));
-            this.PaymentMethodTextBox.Location = new System.Drawing.Point(267, 400);
-            this.PaymentMethodTextBox.Name = "PaymentMethodTextBox";
-            this.PaymentMethodTextBox.Size = new System.Drawing.Size(196, 20);
-            this.PaymentMethodTextBox.TabIndex = 15;
-            this.PaymentMethodTextBox.Text = "Enter payment method...";
-            this.PaymentMethodTextBox.Enter += new System.EventHandler(this.PaymentMethodTextBox_Enter);
-            this.PaymentMethodTextBox.Leave += new System.EventHandler(this.PaymentMethodTextBox_Leave);
             // 
             // PaymentMethodLabel
             // 
@@ -266,22 +233,45 @@
             this.CreateRecordButton.Text = "Create record";
             this.CreateRecordButton.TextColor = System.Drawing.Color.Black;
             this.CreateRecordButton.UseVisualStyleBackColor = false;
+            this.CreateRecordButton.Click += new System.EventHandler(this.CreateRecordButton_Click);
+            // 
+            // PaymentMethodComboBox
+            // 
+            this.PaymentMethodComboBox.FormattingEnabled = true;
+            this.PaymentMethodComboBox.Location = new System.Drawing.Point(267, 400);
+            this.PaymentMethodComboBox.Name = "PaymentMethodComboBox";
+            this.PaymentMethodComboBox.Size = new System.Drawing.Size(196, 21);
+            this.PaymentMethodComboBox.TabIndex = 19;
+            // 
+            // CheckInDateTimePicker
+            // 
+            this.CheckInDateTimePicker.Location = new System.Drawing.Point(29, 479);
+            this.CheckInDateTimePicker.Name = "CheckInDateTimePicker";
+            this.CheckInDateTimePicker.Size = new System.Drawing.Size(196, 20);
+            this.CheckInDateTimePicker.TabIndex = 20;
+            // 
+            // CheckOutDateTimePicker
+            // 
+            this.CheckOutDateTimePicker.Location = new System.Drawing.Point(267, 479);
+            this.CheckOutDateTimePicker.Name = "CheckOutDateTimePicker";
+            this.CheckOutDateTimePicker.Size = new System.Drawing.Size(196, 20);
+            this.CheckOutDateTimePicker.TabIndex = 21;
             // 
             // CreateReservationPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(3)))), ((int)(((byte)(45)))));
+            this.Controls.Add(this.CheckOutDateTimePicker);
+            this.Controls.Add(this.CheckInDateTimePicker);
+            this.Controls.Add(this.PaymentMethodComboBox);
             this.Controls.Add(this.CreateRecordButton);
-            this.Controls.Add(this.CheckOutTextBox);
             this.Controls.Add(this.CheckOutLabel);
-            this.Controls.Add(this.PaymentMethodTextBox);
             this.Controls.Add(this.PaymentMethodLabel);
             this.Controls.Add(this.SuffixTextBox);
             this.Controls.Add(this.SuffixLabel);
             this.Controls.Add(this.MiddleNameTextBox);
             this.Controls.Add(this.MiddleNameLabel);
-            this.Controls.Add(this.CheckInTextBox);
             this.Controls.Add(this.CheckInLabel);
             this.Controls.Add(this.RoomUnitTextBox);
             this.Controls.Add(this.RoomUnitLabel);
@@ -307,18 +297,18 @@
         private System.Windows.Forms.TextBox FirstNameTextBox;
         private System.Windows.Forms.TextBox LastNameTextBox;
         private System.Windows.Forms.Label LastNameLabel;
-        private System.Windows.Forms.TextBox CheckInTextBox;
         private System.Windows.Forms.Label CheckInLabel;
         private System.Windows.Forms.TextBox RoomUnitTextBox;
         private System.Windows.Forms.Label RoomUnitLabel;
-        private System.Windows.Forms.TextBox CheckOutTextBox;
         private System.Windows.Forms.Label CheckOutLabel;
-        private System.Windows.Forms.TextBox PaymentMethodTextBox;
         private System.Windows.Forms.Label PaymentMethodLabel;
         private System.Windows.Forms.TextBox SuffixTextBox;
         private System.Windows.Forms.Label SuffixLabel;
         private System.Windows.Forms.TextBox MiddleNameTextBox;
         private System.Windows.Forms.Label MiddleNameLabel;
         private Assets.RJButton CreateRecordButton;
+        private System.Windows.Forms.ComboBox PaymentMethodComboBox;
+        private System.Windows.Forms.DateTimePicker CheckInDateTimePicker;
+        private System.Windows.Forms.DateTimePicker CheckOutDateTimePicker;
     }
 }

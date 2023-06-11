@@ -1,4 +1,5 @@
 ﻿using HotelReservationSystem.PresenterCommons;
+using MySqlX.XDevAPI.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,8 +29,10 @@ namespace HotelReservationSystem.Reservation
             if (FirstNameTextBox.Text == "Enter first name...")
             {
                 FirstNameTextBox.Text = "";
+                
                 FirstNameTextBox.ForeColor = Color.Black;
             }
+                         
         }
 
         private void FirstNameTextBox_Leave(object sender, EventArgs e)
@@ -113,7 +116,7 @@ namespace HotelReservationSystem.Reservation
             }
         }
 
-        private void PaymentMethodTextBox_Enter(object sender, EventArgs e)
+        /*private void PaymentMethodTextBox_Enter(object sender, EventArgs e)
         {
             if (PaymentMethodTextBox.Text == "Enter payment method...")
             {
@@ -165,6 +168,44 @@ namespace HotelReservationSystem.Reservation
                 CheckOutTextBox.Text = "Enter check out date...";
                 CheckOutTextBox.ForeColor = Color.Silver;
             }
+        }*/
+
+        private void CreateRecordButton_Click(object sender, EventArgs e)
+        {
+
+            string[] strings = { "Enter first name...", "Enter last name...", "Enter room unit..."};
+            bool[] inputStatus = new bool[3];
+
+            if (FirstNameTextBox.Text == strings[0] || FirstNameTextBox.Text == "")
+            {
+                inputStatus[0] = true;
+            }
+            
+            if (LastNameTextBox.Text == strings[1] || LastNameTextBox.Text == "")
+            {
+                inputStatus[1] = true;
+            }
+            
+            if (RoomUnitTextBox.Text == strings[2] || RoomUnitTextBox.Text == "")
+            {
+                inputStatus[2] = true;
+            }
+
+            string message = "";
+            string[] fieldName = { "First Name", "Last Name", "Room Unit" };
+
+            for(int i = 0; i < inputStatus.Length; i++)
+            {
+                if (inputStatus[i])
+                {
+                    message += "Invalid Input on " + fieldName[i] + Environment.NewLine;
+                }
+            }
+
+            string caption = "Error Detected in Input";
+            MessageBoxButtons buttons = MessageBoxButtons.OK;
+            MessageBox.Show(message, caption, buttons);
+            
         }
     }
 
