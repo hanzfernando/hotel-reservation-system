@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace HotelReservationSystem.Reservation
 {
-    public partial class ReservationWindow : Form
+    public partial class CreateReservationWindow : Form
     {
         private PresenterReservationWindow _presenter;
         public PresenterReservationWindow Presenter { get { return _presenter; } }
-        public ReservationWindow()
+        public CreateReservationWindow()
         {
             InitializeComponent();
             _presenter = new PresenterReservationWindow();

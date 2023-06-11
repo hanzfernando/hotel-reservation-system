@@ -37,6 +37,7 @@
             this.ReservationTab = new System.Windows.Forms.Button();
             this.RoomsTab = new System.Windows.Forms.Button();
             this.PanelRoot = new System.Windows.Forms.Panel();
+            this.CheckTab = new System.Windows.Forms.Button();
             this.TableLayoutNavigationRoot.SuspendLayout();
             this.LogoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -89,9 +90,10 @@
             this.TableLayoutNavigation.BackColor = System.Drawing.Color.Transparent;
             this.TableLayoutNavigation.ColumnCount = 1;
             this.TableLayoutNavigation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TableLayoutNavigation.Controls.Add(this.RoomsTab, 0, 2);
+            this.TableLayoutNavigation.Controls.Add(this.CheckTab, 0, 3);
             this.TableLayoutNavigation.Controls.Add(this.DashboardTab, 0, 0);
             this.TableLayoutNavigation.Controls.Add(this.ReservationTab, 0, 1);
-            this.TableLayoutNavigation.Controls.Add(this.RoomsTab, 0, 2);
             this.TableLayoutNavigation.Location = new System.Drawing.Point(3, 138);
             this.TableLayoutNavigation.Name = "TableLayoutNavigation";
             this.TableLayoutNavigation.RowCount = 10;
@@ -158,6 +160,19 @@
             this.PanelRoot.Size = new System.Drawing.Size(900, 900);
             this.PanelRoot.TabIndex = 1;
             // 
+            // CheckTab
+            // 
+            this.CheckTab.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CheckTab.FlatAppearance.BorderSize = 0;
+            this.CheckTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CheckTab.ForeColor = System.Drawing.Color.White;
+            this.CheckTab.Location = new System.Drawing.Point(3, 228);
+            this.CheckTab.Name = "CheckTab";
+            this.CheckTab.Size = new System.Drawing.Size(288, 69);
+            this.CheckTab.TabIndex = 3;
+            this.CheckTab.Text = "Check-in / Check-out";
+            this.CheckTab.UseVisualStyleBackColor = true;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -186,5 +201,6 @@
         private System.Windows.Forms.TableLayoutPanel TableLayoutNavigation;
         private System.Windows.Forms.Button RoomsTab;
         private System.Windows.Forms.Button ReservationTab;
+        private System.Windows.Forms.Button CheckTab;
     }
 }

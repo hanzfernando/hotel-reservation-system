@@ -155,11 +155,11 @@
     <Compile Include="Reservation\ReservationPanel.Designer.cs">
       <DependentUpon>ReservationPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reservation\ReservationWindow.cs">
+    <Compile Include="Reservation\CreateReservationWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reservation\ReservationWindow.Designer.cs">
-      <DependentUpon>ReservationWindow.cs</DependentUpon>
+    <Compile Include="Reservation\CreateReservationWindow.Designer.cs">
+      <DependentUpon>CreateReservationWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Theme\Theme.cs" />
     <Compile Include="Transaction\TransactionPanel.cs">
@@ -198,8 +198,8 @@
     <EmbeddedResource Include="Reservation\ReservationPanel.resx">
       <DependentUpon>ReservationPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reservation\ReservationWindow.resx">
-      <DependentUpon>ReservationWindow.cs</DependentUpon>
+    <EmbeddedResource Include="Reservation\CreateReservationWindow.resx">
+      <DependentUpon>CreateReservationWindow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
