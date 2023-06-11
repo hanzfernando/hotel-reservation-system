@@ -161,6 +161,12 @@
     <Compile Include="Reservation\CreateReservationWindow.Designer.cs">
       <DependentUpon>CreateReservationWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Rooms\Floor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Rooms\Floor.Designer.cs">
+      <DependentUpon>Floor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Rooms\RoomsPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -206,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reservation\CreateReservationWindow.resx">
       <DependentUpon>CreateReservationWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rooms\Floor.resx">
+      <DependentUpon>Floor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rooms\RoomsPanel.resx">
       <DependentUpon>RoomsPanel.cs</DependentUpon>
