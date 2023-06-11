@@ -31,14 +31,18 @@ namespace HotelReservationSystem.Reservation
 
         private void CreateButton_Click(object sender, EventArgs e)
         {
+
             HotelReservationSystem.Reservation.ReservationWindow reservationWindow = new ReservationWindow();
+            reservationWindow.Presenter.AdminId = _presenter.AdminId;
+
             reservationWindow.Show();
+
         }
     }
 
     public interface IPresenterReservationPanel : IPresenter
     {
-
+        int AdminId { get; set; }
     }
 
     public class PresenterReservationPanel : INotifyPropertyChanged, IPresenterReservationPanel
@@ -53,8 +57,10 @@ namespace HotelReservationSystem.Reservation
 
         private Form _form;
         private Panel _panel;
+        private int _adminid;
 
         public Form Form { get { return _form; } set { _form = value; } }
         public Panel Panel { get { return _panel; } set { _panel = value; } }
+        public int AdminId { get { return _adminid; } set { _adminid = value; } }
     }
 }

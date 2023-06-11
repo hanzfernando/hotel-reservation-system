@@ -12,6 +12,8 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using HotelReservationSystem.PresenterCommons;
 using MySql.Data.MySqlClient;
+using System.Collections;
+using System.Diagnostics;
 //using HotelReservationSystem.MainWindow;
 
 namespace HotelReservationSystem.Login
@@ -113,8 +115,7 @@ namespace HotelReservationSystem.Login
             {
                 HotelReservationSystem.MainWindow.MainWindow mainWindow = new HotelReservationSystem.MainWindow.MainWindow();
                 mainWindow.Presenter.Username = _presenter.Username;
-                /*this._presenter.Form.Hide();
-                mainWindow.Show();*/
+                mainWindow.Presenter.AdminId = _presenter.GetId();
 
                 this._presenter.Form.Hide();
                 mainWindow.Closed += (s, args) => this._presenter.Form.Close();
@@ -176,6 +177,21 @@ namespace HotelReservationSystem.Login
             mySqlDataAdapter.SelectCommand = mySqlCommand;
             MySqlDataAdapter.*/
             
+        }
+
+        public int GetId()
+        {
+            string query = "SELECT admin_id FROM admins WHERE admin_username LIKE '" + _username + "' AND admin_password LIKE '" + _password + "'";
+            MySqlConnection mySqlConnection = new MySqlConnection(_connection);
+            mySqlConnection.Open();
+            MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
+            MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);                      
+            DataTable dataTable = new DataTable();
+            mySqlDataAdapter.Fill(dataTable);
+            DataRow row = dataTable.Rows[0]; 
+            int adminId = Convert.ToInt32(row["admin_id"]);
+            
+            return adminId;
         }
     }
 }

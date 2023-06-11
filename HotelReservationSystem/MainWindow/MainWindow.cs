@@ -51,14 +51,15 @@ namespace HotelReservationSystem.MainWindow
 
         private void ReservationTab_Click(object sender, EventArgs e)
         {
-            ReservationPanel dashboardPanel = new ReservationPanel();
-            if (!dashboardPanel.Equals(_presenter.CurrentPanel))
+            ReservationPanel reservationPanel = new ReservationPanel();
+            if (!reservationPanel.Equals(_presenter.CurrentPanel))
             {
-                dashboardPanel.Presenter.Form = _presenter.Form;
-                dashboardPanel.Presenter.Panel = _presenter.Panel;
+                reservationPanel.Presenter.AdminId = _presenter.AdminId;
+                reservationPanel.Presenter.Form = _presenter.Form;
+                reservationPanel.Presenter.Panel = _presenter.Panel;
                 _presenter.Panel.Controls.Remove(_presenter.CurrentPanel);
-                _presenter.Panel.Controls.Add(dashboardPanel);
-                _presenter.CurrentPanel = dashboardPanel;
+                _presenter.Panel.Controls.Add(reservationPanel);
+                _presenter.CurrentPanel = reservationPanel;
             }
         }
     }
@@ -66,6 +67,7 @@ namespace HotelReservationSystem.MainWindow
     public interface IPresenterMainWindow : IPresenter
     {
         string Username { get; set; }
+        int AdminId { get; set; }
     }
 
     public class PresenterMainWindow : INotifyPropertyChanged, IPresenterMainWindow
@@ -74,8 +76,10 @@ namespace HotelReservationSystem.MainWindow
         private Panel _panel;
         private UserControl _currentPanel;
         private string _userName;
+        private int _adminid;
 
         public string Username { get { return _userName; } set { _userName = value; } }
+        public int AdminId { get { return _adminid; } set { _adminid = value; } }
 
         public Form Form
         {

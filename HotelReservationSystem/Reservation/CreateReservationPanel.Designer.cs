@@ -266,6 +266,7 @@
             this.CreateRecordButton.Text = "Create record";
             this.CreateRecordButton.TextColor = System.Drawing.Color.Black;
             this.CreateRecordButton.UseVisualStyleBackColor = false;
+            this.CreateRecordButton.Click += new System.EventHandler(this.CreateRecordButton_Click);
             // 
             // CreateReservationPanel
             // 

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -166,10 +167,16 @@ namespace HotelReservationSystem.Reservation
                 CheckOutTextBox.ForeColor = Color.Silver;
             }
         }
+
+        private void CreateRecordButton_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 
     public interface IPresenterCreateReservationPanel : IPresenter
     {
+        int AdminId { get; set; }
 
     }
 
@@ -185,8 +192,12 @@ namespace HotelReservationSystem.Reservation
 
         private Form _form;
         private Panel _panel;
+        private int _adminid;
+
 
         public Form Form { get { return _form; } set { _form = value; } }
         public Panel Panel { get { return _panel; } set { _panel = value; } }
+        public int AdminId { get { return _adminid; } set { _adminid = value; } }
+
     }
 }
