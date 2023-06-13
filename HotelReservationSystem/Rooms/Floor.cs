@@ -32,7 +32,7 @@ namespace HotelReservationSystem.Rooms
             _presenter.PopulateRoomList();
             _presenter.GetRoomUnit();
             _presenter.GetRoomType();
-            _presenter.GetReservationID();
+            // _presenter.GetReservationID();
             UpdateUnitName();
             FloorLabel.Text = "Floor " + _presenter.FloorNumber;
             PeriodicRefresh(sender, e);
@@ -49,39 +49,109 @@ namespace HotelReservationSystem.Rooms
 
         private void button2_Click(object sender, EventArgs e)
         {
+            RoomDetailsWindow roomDetailsWindow = new RoomDetailsWindow();
+            roomDetailsWindow.Presenter.FloorNumber = _presenter.FloorNumber;
+            roomDetailsWindow.Presenter.RoomUnit = _presenter.RoomStatuses[1].RoomUnit;
+            roomDetailsWindow.Presenter.Status = _presenter.RoomStatuses[1].Status;
+            roomDetailsWindow.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            RoomDetailsWindow roomDetailsWindow = new RoomDetailsWindow();
+            roomDetailsWindow.Presenter.FloorNumber = _presenter.FloorNumber;
+            roomDetailsWindow.Presenter.RoomUnit = _presenter.RoomStatuses[2].RoomUnit;
+            roomDetailsWindow.Presenter.Status = _presenter.RoomStatuses[2].Status;
+            roomDetailsWindow.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+            RoomDetailsWindow roomDetailsWindow = new RoomDetailsWindow();
+            roomDetailsWindow.Presenter.FloorNumber = _presenter.FloorNumber;
+            roomDetailsWindow.Presenter.RoomUnit = _presenter.RoomStatuses[3].RoomUnit;
+            roomDetailsWindow.Presenter.Status = _presenter.RoomStatuses[3].Status;
+            roomDetailsWindow.Show();
 
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
+            RoomDetailsWindow roomDetailsWindow = new RoomDetailsWindow();
+            roomDetailsWindow.Presenter.FloorNumber = _presenter.FloorNumber;
+            roomDetailsWindow.Presenter.RoomUnit = _presenter.RoomStatuses[4].RoomUnit;
+            roomDetailsWindow.Presenter.Status = _presenter.RoomStatuses[4].Status;
+            roomDetailsWindow.Show();
 
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
+            RoomDetailsWindow roomDetailsWindow = new RoomDetailsWindow();
+            roomDetailsWindow.Presenter.FloorNumber = _presenter.FloorNumber;
+            roomDetailsWindow.Presenter.RoomUnit = _presenter.RoomStatuses[5].RoomUnit;
+            roomDetailsWindow.Presenter.Status = _presenter.RoomStatuses[5].Status;
+            roomDetailsWindow.Show();
 
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
+            RoomDetailsWindow roomDetailsWindow = new RoomDetailsWindow();
+            roomDetailsWindow.Presenter.FloorNumber = _presenter.FloorNumber;
+            roomDetailsWindow.Presenter.RoomUnit = _presenter.RoomStatuses[6].RoomUnit;
+            roomDetailsWindow.Presenter.Status = _presenter.RoomStatuses[6].Status;
+            roomDetailsWindow.Show();
 
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
+            RoomDetailsWindow roomDetailsWindow = new RoomDetailsWindow();
+            roomDetailsWindow.Presenter.FloorNumber = _presenter.FloorNumber;
+            roomDetailsWindow.Presenter.RoomUnit = _presenter.RoomStatuses[7].RoomUnit;
+            roomDetailsWindow.Presenter.Status = _presenter.RoomStatuses[7].Status;
+            roomDetailsWindow.Show();
 
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
+            RoomDetailsWindow roomDetailsWindow = new RoomDetailsWindow();
+            roomDetailsWindow.Presenter.FloorNumber = _presenter.FloorNumber;
+            roomDetailsWindow.Presenter.RoomUnit = _presenter.RoomStatuses[8].RoomUnit;
+            roomDetailsWindow.Presenter.Status = _presenter.RoomStatuses[8].Status;
+            roomDetailsWindow.Show();
+
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            RoomDetailsWindow roomDetailsWindow = new RoomDetailsWindow();
+            roomDetailsWindow.Presenter.FloorNumber = _presenter.FloorNumber;
+            roomDetailsWindow.Presenter.RoomUnit = _presenter.RoomStatuses[9].RoomUnit;
+            roomDetailsWindow.Presenter.Status = _presenter.RoomStatuses[9].Status;
+            roomDetailsWindow.Show();
+
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            RoomDetailsWindow roomDetailsWindow = new RoomDetailsWindow();
+            roomDetailsWindow.Presenter.FloorNumber = _presenter.FloorNumber;
+            roomDetailsWindow.Presenter.RoomUnit = _presenter.RoomStatuses[10].RoomUnit;
+            roomDetailsWindow.Presenter.Status = _presenter.RoomStatuses[10].Status;
+            roomDetailsWindow.Show();
+
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            RoomDetailsWindow roomDetailsWindow = new RoomDetailsWindow();
+            roomDetailsWindow.Presenter.FloorNumber = _presenter.FloorNumber;
+            roomDetailsWindow.Presenter.RoomUnit = _presenter.RoomStatuses[11].RoomUnit;
+            roomDetailsWindow.Presenter.Status = _presenter.RoomStatuses[11].Status;
+            roomDetailsWindow.Show();
 
         }
 
@@ -145,6 +215,7 @@ namespace HotelReservationSystem.Rooms
             button12.Text = "Room " + _presenter.RoomStatuses[11].RoomUnit.ToString() + "\r\n" + _presenter.RoomStatuses[11].RoomType;
 
         }
+
     }
     public interface IPresenterFloor : IPresenter
     {
@@ -253,7 +324,7 @@ namespace HotelReservationSystem.Rooms
             }
         }
 
-        public void GetReservationID()
+        /*public void GetReservationID()
         {
 
             string query = "SELECT * FROM rooms";
@@ -271,7 +342,7 @@ namespace HotelReservationSystem.Rooms
             {
                 RoomStatuses[i].ReservationID = (int)filteredRows.ElementAt(i)["reservation_id"];
             }
-        }
+        }*/
 
        /* public void RandomStatus()
         {

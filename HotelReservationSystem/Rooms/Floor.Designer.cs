@@ -176,6 +176,7 @@
             this.button12.TabIndex = 0;
             this.button12.Text = "Room #\r\nRoom Type";
             this.button12.UseVisualStyleBackColor = false;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // panel13
             // 
@@ -201,6 +202,7 @@
             this.button11.TabIndex = 0;
             this.button11.Text = "Room #\r\nRoom Type";
             this.button11.UseVisualStyleBackColor = false;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // panel12
             // 
@@ -226,6 +228,7 @@
             this.button10.TabIndex = 0;
             this.button10.Text = "Room #\r\nRoom Type";
             this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // panel11
             // 
