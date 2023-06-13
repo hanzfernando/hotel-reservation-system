@@ -27,13 +27,14 @@ namespace HotelReservationSystem.Reservation
             CreateReservationPanel createReservation = new CreateReservationPanel();
             createReservation.Presenter.Form = _presenter.Form;
             createReservation.Presenter.Panel = _presenter.Panel;
+            createReservation.Presenter.AdminId = _presenter.AdminId;
             this.createReservationPanel.Controls.Add(createReservation);
         }
     }
 
     public interface IPresenterReservationWindow : IPresenter
     {
-
+        int AdminId { get; set; }
     }
 
     public class PresenterReservationWindow : INotifyPropertyChanged, IPresenterReservationWindow
@@ -47,6 +48,8 @@ namespace HotelReservationSystem.Reservation
 
         private Form _form;
         private Panel _panel;
+        private int _adminid;
+
 
         public Form Form
         {
@@ -59,5 +62,8 @@ namespace HotelReservationSystem.Reservation
             get { return _panel; }
             set { _panel = value; }
         }
+
+        public int AdminId { get { return _adminid; } set { _adminid = value; } }
+
     }
 }
