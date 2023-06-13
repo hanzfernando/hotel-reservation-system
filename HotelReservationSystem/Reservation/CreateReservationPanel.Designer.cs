@@ -44,17 +44,19 @@
             this.MiddleNameTextBox = new System.Windows.Forms.TextBox();
             this.MiddleNameLabel = new System.Windows.Forms.Label();
             this.CreateRecordButton = new HotelReservationSystem.Assets.RJButton();
-            this.CheckInTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.CheckOutTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.CheckInDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.CheckOutDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.TransactionDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.TransactionDateLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // LogoPicture
             // 
             this.LogoPicture.Image = ((System.Drawing.Image)(resources.GetObject("LogoPicture.Image")));
-            this.LogoPicture.Location = new System.Drawing.Point(0, 59);
+            this.LogoPicture.Location = new System.Drawing.Point(0, 46);
             this.LogoPicture.Name = "LogoPicture";
-            this.LogoPicture.Size = new System.Drawing.Size(500, 95);
+            this.LogoPicture.Size = new System.Drawing.Size(500, 108);
             this.LogoPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.LogoPicture.TabIndex = 0;
             this.LogoPicture.TabStop = false;
@@ -64,7 +66,7 @@
             this.CreateReservationLabel.AutoSize = true;
             this.CreateReservationLabel.Font = new System.Drawing.Font("SansSerif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.CreateReservationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(209)))), ((int)(((byte)(253)))));
-            this.CreateReservationLabel.Location = new System.Drawing.Point(142, 157);
+            this.CreateReservationLabel.Location = new System.Drawing.Point(143, 157);
             this.CreateReservationLabel.Name = "CreateReservationLabel";
             this.CreateReservationLabel.Size = new System.Drawing.Size(206, 25);
             this.CreateReservationLabel.TabIndex = 1;
@@ -222,27 +224,47 @@
             this.CreateRecordButton.UseVisualStyleBackColor = false;
             this.CreateRecordButton.Click += new System.EventHandler(this.CreateRecordButton_Click);
             // 
-            // CheckInTimePicker
+            // CheckInDateTimePicker
             // 
-            this.CheckInTimePicker.Location = new System.Drawing.Point(29, 479);
-            this.CheckInTimePicker.Name = "CheckInTimePicker";
-            this.CheckInTimePicker.Size = new System.Drawing.Size(196, 20);
-            this.CheckInTimePicker.TabIndex = 19;
+            this.CheckInDateTimePicker.Location = new System.Drawing.Point(29, 479);
+            this.CheckInDateTimePicker.Name = "CheckInDateTimePicker";
+            this.CheckInDateTimePicker.Size = new System.Drawing.Size(196, 20);
+            this.CheckInDateTimePicker.TabIndex = 19;
             // 
-            // CheckOutTimePicker
+            // CheckOutDateTimePicker
             // 
-            this.CheckOutTimePicker.Location = new System.Drawing.Point(267, 479);
-            this.CheckOutTimePicker.Name = "CheckOutTimePicker";
-            this.CheckOutTimePicker.Size = new System.Drawing.Size(196, 20);
-            this.CheckOutTimePicker.TabIndex = 20;
+            this.CheckOutDateTimePicker.Location = new System.Drawing.Point(267, 479);
+            this.CheckOutDateTimePicker.Name = "CheckOutDateTimePicker";
+            this.CheckOutDateTimePicker.Size = new System.Drawing.Size(196, 20);
+            this.CheckOutDateTimePicker.TabIndex = 20;
+            // 
+            // TransactionDateTimePicker
+            // 
+            this.TransactionDateTimePicker.Location = new System.Drawing.Point(267, 400);
+            this.TransactionDateTimePicker.Name = "TransactionDateTimePicker";
+            this.TransactionDateTimePicker.Size = new System.Drawing.Size(196, 20);
+            this.TransactionDateTimePicker.TabIndex = 22;
+            // 
+            // TransactionDateLabel
+            // 
+            this.TransactionDateLabel.AutoSize = true;
+            this.TransactionDateLabel.Font = new System.Drawing.Font("SansSerif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.TransactionDateLabel.ForeColor = System.Drawing.Color.White;
+            this.TransactionDateLabel.Location = new System.Drawing.Point(264, 372);
+            this.TransactionDateLabel.Name = "TransactionDateLabel";
+            this.TransactionDateLabel.Size = new System.Drawing.Size(106, 15);
+            this.TransactionDateLabel.TabIndex = 21;
+            this.TransactionDateLabel.Text = "Transaction Date";
             // 
             // CreateReservationPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(3)))), ((int)(((byte)(45)))));
-            this.Controls.Add(this.CheckOutTimePicker);
-            this.Controls.Add(this.CheckInTimePicker);
+            this.Controls.Add(this.TransactionDateTimePicker);
+            this.Controls.Add(this.TransactionDateLabel);
+            this.Controls.Add(this.CheckOutDateTimePicker);
+            this.Controls.Add(this.CheckInDateTimePicker);
             this.Controls.Add(this.CreateRecordButton);
             this.Controls.Add(this.CheckOutLabel);
             this.Controls.Add(this.SuffixTextBox);
@@ -283,7 +305,9 @@
         private System.Windows.Forms.TextBox MiddleNameTextBox;
         private System.Windows.Forms.Label MiddleNameLabel;
         private Assets.RJButton CreateRecordButton;
-        private System.Windows.Forms.DateTimePicker CheckInTimePicker;
-        private System.Windows.Forms.DateTimePicker CheckOutTimePicker;
+        private System.Windows.Forms.DateTimePicker CheckInDateTimePicker;
+        private System.Windows.Forms.DateTimePicker CheckOutDateTimePicker;
+        private System.Windows.Forms.DateTimePicker TransactionDateTimePicker;
+        private System.Windows.Forms.Label TransactionDateLabel;
     }
 }

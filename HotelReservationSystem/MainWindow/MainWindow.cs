@@ -54,7 +54,7 @@ namespace HotelReservationSystem.MainWindow
 
         private void ReservationTab_Click(object sender, EventArgs e)
         {
-            _presenter.Width = 1500;
+            _presenter.Width = 1600;
             this.Width = _presenter.Width;
             ReservationPanel reservationPanel = new ReservationPanel();
             if (!reservationPanel.Equals(_presenter.CurrentPanel))
