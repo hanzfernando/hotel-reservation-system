@@ -38,16 +38,20 @@ namespace HotelReservationSystem.Rooms
                     this.panel1.Controls.Add(available);
                     break;
                 case 1:
+                    _presenter.GetRoomDetail();
                     ReservedPanel reserved = new ReservedPanel();
                     reserved.Presenter.Form = this;
                     reserved.Presenter.Panel = panel1;
+                    reserved.Presenter.RoomUnit = _presenter.RoomUnit;
                     reserved.Presenter.RoomDetail = _presenter.RoomDetail;
                     this.panel1.Controls.Add(reserved);
                     break; 
                 case 2:
+                    _presenter.GetRoomDetail();
                     OccupiedPanel occupied = new OccupiedPanel();
                     occupied.Presenter.Form = this;
                     occupied.Presenter.Panel = panel1;
+                    occupied.Presenter.RoomUnit = _presenter.RoomUnit;
                     occupied.Presenter.RoomDetail = _presenter.RoomDetail;
                     this.panel1.Controls.Add(occupied);
                     break;
@@ -74,7 +78,7 @@ namespace HotelReservationSystem.Rooms
         private int _roomUnit;
         private int _status;
         private string _connection = MySqlConstants.Connection;
-        private RoomDetail _roomDetail;
+        private RoomDetail _roomDetail = new RoomDetail();
 
         public Form Form { get { return _form; } set { _form = value; } }
         public Panel Panel { get { return _panel; } set { _panel = value; } }
@@ -110,7 +114,7 @@ namespace HotelReservationSystem.Rooms
         public void GetRoomDetail()
         {
 
-            string query = "SELECT * FROM rooms, reservations WHERE reservations.room_unit = rooms.room_unit";
+            string query = "SELECT * FROM reservations WHERE room_unit = "+RoomUnit;
             MySqlConnection connection = new MySqlConnection(_connection);
             MySqlCommand command = new MySqlCommand(query, connection);
             MySqlDataAdapter adapter = new MySqlDataAdapter(command);
@@ -118,10 +122,10 @@ namespace HotelReservationSystem.Rooms
             connection.Open();
             adapter.Fill(dataTable);
 
-            DataRow filteredRow = dataTable.Rows[dataTable.Rows.Count];
+            DataRow filteredRow = dataTable.Rows[dataTable.Rows.Count-1];
 
             RoomDetail.CustomerName = (string)filteredRow["customer_name"];
-            RoomDetail.Date = (string)filteredRow["check_in"];
+            RoomDetail.Date = ((DateTime)filteredRow["check_in"]).ToString();
         }
     }
 
