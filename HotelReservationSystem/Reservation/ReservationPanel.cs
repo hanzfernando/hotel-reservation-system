@@ -118,6 +118,7 @@ namespace HotelReservationSystem.Reservation
                 // ReservationDataGridView.Refresh();
             }
 
+            // Check out
             if (e.ColumnIndex == ReservationDataGridView.Columns["Check-out Status"].Index && e.RowIndex >= 0)
             {
                 // Get the current cell
@@ -141,7 +142,7 @@ namespace HotelReservationSystem.Reservation
                 _presenter.UpdateStatus(query);
                 // ReservationDataGridView.Refresh();
             }
-
+            // Cancel
             if (e.ColumnIndex == ReservationDataGridView.Columns["Cancellation"].Index && e.RowIndex >= 0)
             {
                 // Get the current cell
