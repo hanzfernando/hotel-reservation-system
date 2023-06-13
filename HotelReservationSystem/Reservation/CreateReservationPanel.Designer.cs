@@ -39,15 +39,13 @@
             this.RoomUnitTextBox = new System.Windows.Forms.TextBox();
             this.RoomUnitLabel = new System.Windows.Forms.Label();
             this.CheckOutLabel = new System.Windows.Forms.Label();
-            this.PaymentMethodLabel = new System.Windows.Forms.Label();
             this.SuffixTextBox = new System.Windows.Forms.TextBox();
             this.SuffixLabel = new System.Windows.Forms.Label();
             this.MiddleNameTextBox = new System.Windows.Forms.TextBox();
             this.MiddleNameLabel = new System.Windows.Forms.Label();
             this.CreateRecordButton = new HotelReservationSystem.Assets.RJButton();
-            this.PaymentMethodComboBox = new System.Windows.Forms.ComboBox();
-            this.CheckInDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.CheckOutDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.CheckInTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.CheckOutTimePicker = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -160,17 +158,6 @@
             this.CheckOutLabel.TabIndex = 16;
             this.CheckOutLabel.Text = "Check Out";
             // 
-            // PaymentMethodLabel
-            // 
-            this.PaymentMethodLabel.AutoSize = true;
-            this.PaymentMethodLabel.Font = new System.Drawing.Font("SansSerif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.PaymentMethodLabel.ForeColor = System.Drawing.Color.White;
-            this.PaymentMethodLabel.Location = new System.Drawing.Point(264, 372);
-            this.PaymentMethodLabel.Name = "PaymentMethodLabel";
-            this.PaymentMethodLabel.Size = new System.Drawing.Size(106, 15);
-            this.PaymentMethodLabel.TabIndex = 14;
-            this.PaymentMethodLabel.Text = "Payment Method";
-            // 
             // SuffixTextBox
             // 
             this.SuffixTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(139)))), ((int)(((byte)(139)))));
@@ -235,39 +222,29 @@
             this.CreateRecordButton.UseVisualStyleBackColor = false;
             this.CreateRecordButton.Click += new System.EventHandler(this.CreateRecordButton_Click);
             // 
-            // PaymentMethodComboBox
+            // CheckInTimePicker
             // 
-            this.PaymentMethodComboBox.FormattingEnabled = true;
-            this.PaymentMethodComboBox.Location = new System.Drawing.Point(267, 400);
-            this.PaymentMethodComboBox.Name = "PaymentMethodComboBox";
-            this.PaymentMethodComboBox.Size = new System.Drawing.Size(196, 21);
-            this.PaymentMethodComboBox.TabIndex = 19;
+            this.CheckInTimePicker.Location = new System.Drawing.Point(29, 479);
+            this.CheckInTimePicker.Name = "CheckInTimePicker";
+            this.CheckInTimePicker.Size = new System.Drawing.Size(196, 20);
+            this.CheckInTimePicker.TabIndex = 19;
             // 
-            // CheckInDateTimePicker
+            // CheckOutTimePicker
             // 
-            this.CheckInDateTimePicker.Location = new System.Drawing.Point(29, 479);
-            this.CheckInDateTimePicker.Name = "CheckInDateTimePicker";
-            this.CheckInDateTimePicker.Size = new System.Drawing.Size(196, 20);
-            this.CheckInDateTimePicker.TabIndex = 20;
-            // 
-            // CheckOutDateTimePicker
-            // 
-            this.CheckOutDateTimePicker.Location = new System.Drawing.Point(267, 479);
-            this.CheckOutDateTimePicker.Name = "CheckOutDateTimePicker";
-            this.CheckOutDateTimePicker.Size = new System.Drawing.Size(196, 20);
-            this.CheckOutDateTimePicker.TabIndex = 21;
+            this.CheckOutTimePicker.Location = new System.Drawing.Point(267, 479);
+            this.CheckOutTimePicker.Name = "CheckOutTimePicker";
+            this.CheckOutTimePicker.Size = new System.Drawing.Size(196, 20);
+            this.CheckOutTimePicker.TabIndex = 20;
             // 
             // CreateReservationPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(3)))), ((int)(((byte)(45)))));
-            this.Controls.Add(this.CheckOutDateTimePicker);
-            this.Controls.Add(this.CheckInDateTimePicker);
-            this.Controls.Add(this.PaymentMethodComboBox);
+            this.Controls.Add(this.CheckOutTimePicker);
+            this.Controls.Add(this.CheckInTimePicker);
             this.Controls.Add(this.CreateRecordButton);
             this.Controls.Add(this.CheckOutLabel);
-            this.Controls.Add(this.PaymentMethodLabel);
             this.Controls.Add(this.SuffixTextBox);
             this.Controls.Add(this.SuffixLabel);
             this.Controls.Add(this.MiddleNameTextBox);
@@ -301,14 +278,12 @@
         private System.Windows.Forms.TextBox RoomUnitTextBox;
         private System.Windows.Forms.Label RoomUnitLabel;
         private System.Windows.Forms.Label CheckOutLabel;
-        private System.Windows.Forms.Label PaymentMethodLabel;
         private System.Windows.Forms.TextBox SuffixTextBox;
         private System.Windows.Forms.Label SuffixLabel;
         private System.Windows.Forms.TextBox MiddleNameTextBox;
         private System.Windows.Forms.Label MiddleNameLabel;
         private Assets.RJButton CreateRecordButton;
-        private System.Windows.Forms.ComboBox PaymentMethodComboBox;
-        private System.Windows.Forms.DateTimePicker CheckInDateTimePicker;
-        private System.Windows.Forms.DateTimePicker CheckOutDateTimePicker;
+        private System.Windows.Forms.DateTimePicker CheckInTimePicker;
+        private System.Windows.Forms.DateTimePicker CheckOutTimePicker;
     }
 }
