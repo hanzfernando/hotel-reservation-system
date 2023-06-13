@@ -1,6 +1,7 @@
 ﻿using HotelReservationSystem.Dashboard;
 using HotelReservationSystem.PresenterCommons;
 using HotelReservationSystem.Reservation;
+using HotelReservationSystem.Rooms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -64,6 +65,21 @@ namespace HotelReservationSystem.MainWindow
                 _presenter.Panel.Controls.Remove(_presenter.CurrentPanel);
                 _presenter.Panel.Controls.Add(reservationPanel);
                 _presenter.CurrentPanel = reservationPanel;
+            }
+        }
+
+        private void RoomsTab_Click(object sender, EventArgs e)
+        {
+            _presenter.Width = 1200;
+            this.Width = _presenter.Width;
+            RoomsPanel roomsPanel = new RoomsPanel();
+            if(!roomsPanel.Equals(_presenter.CurrentPanel))
+            {
+                roomsPanel.Presenter.Form = _presenter.Form;
+                roomsPanel.Presenter.Panel = _presenter.Panel;
+                _presenter.Panel.Controls.Remove(_presenter.CurrentPanel);
+                _presenter.Panel.Controls.Add(roomsPanel);
+                _presenter.CurrentPanel = roomsPanel;
             }
         }
     }
