@@ -113,64 +113,42 @@ namespace HotelReservationSystem.Reservation
                 RoomUnitTextBox.ForeColor = Color.Silver;
             }
         }
-
-        private void PaymentMethodTextBox_Enter(object sender, EventArgs e)
-        {
-            if (PaymentMethodTextBox.Text == "Enter payment method...")
-            {
-                PaymentMethodTextBox.Text = "";
-                PaymentMethodTextBox.ForeColor = Color.Black;
-            }
-        }
-
-        private void PaymentMethodTextBox_Leave(object sender, EventArgs e)
-        {
-            if (PaymentMethodTextBox.Text == "")
-            {
-                PaymentMethodTextBox.Text = "Enter payment method...";
-                PaymentMethodTextBox.ForeColor = Color.Silver;
-            }
-        }
-
-        private void CheckInTextBox_Enter(object sender, EventArgs e)
-        {
-            if (CheckInTextBox.Text == "Enter check in date...")
-            {
-                CheckInTextBox.Text = "";
-                CheckInTextBox.ForeColor = Color.Black;
-            }
-        }
-
-        private void CheckInTextBox_Leave(object sender, EventArgs e)
-        {
-            if (CheckInTextBox.Text == "")
-            {
-                CheckInTextBox.Text = "Enter check in date...";
-                CheckInTextBox.ForeColor = Color.Silver;
-            }
-        }
-
-        private void CheckOutTextBox_Enter(object sender, EventArgs e)
-        {
-            if (CheckOutTextBox.Text == "Enter check out date...")
-            {
-                CheckOutTextBox.Text = "";
-                CheckOutTextBox.ForeColor = Color.Black;
-            }
-        }
-
-        private void CheckOutTextBox_Leave(object sender, EventArgs e)
-        {
-            if (CheckOutTextBox.Text == "")
-            {
-                CheckOutTextBox.Text = "Enter check out date...";
-                CheckOutTextBox.ForeColor = Color.Silver;
-            }
-        }
-
+                
         private void CreateRecordButton_Click(object sender, EventArgs e)
         {
-            
+            string[] strings = { "Enter first name...", "Enter last name...", "Enter room unit..." };
+            bool[] inputStatus = new bool[3];
+
+            if (FirstNameTextBox.Text == strings[0] || FirstNameTextBox.Text == "")
+            {
+                inputStatus[0] = true;
+            }
+
+            if (LastNameTextBox.Text == strings[1] || LastNameTextBox.Text == "")
+            {
+                inputStatus[1] = true;
+            }
+
+            if (RoomUnitTextBox.Text == strings[2] || RoomUnitTextBox.Text == "")
+            {
+                inputStatus[2] = true;
+            }
+
+            string message = "";
+            string[] fieldName = { "First Name", "Last Name", "Room Unit" };
+
+            for (int i = 0; i < inputStatus.Length; i++)
+            {
+                if (inputStatus[i])
+                {
+                    message += "Invalid Input on " + fieldName[i] + Environment.NewLine;
+                }
+            }
+
+            string caption = "Error Detected in Input";
+            MessageBoxButtons buttons = MessageBoxButtons.OK;
+            MessageBox.Show(message, caption, buttons);
+
         }
     }
 
