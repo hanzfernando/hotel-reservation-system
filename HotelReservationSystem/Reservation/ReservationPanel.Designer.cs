@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.TopPanel = new System.Windows.Forms.Panel();
             this.artanPanel1 = new HotelReservationSystem.Assets.ArtanPanel();
@@ -56,7 +57,7 @@
             this.TableLayoutPanel1.RowCount = 2;
             this.TableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
             this.TableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.TableLayoutPanel1.Size = new System.Drawing.Size(1200, 900);
+            this.TableLayoutPanel1.Size = new System.Drawing.Size(1300, 900);
             this.TableLayoutPanel1.TabIndex = 0;
             // 
             // TopPanel
@@ -66,7 +67,7 @@
             this.TopPanel.Location = new System.Drawing.Point(3, 3);
             this.TopPanel.Name = "TopPanel";
             this.TopPanel.Padding = new System.Windows.Forms.Padding(30);
-            this.TopPanel.Size = new System.Drawing.Size(1194, 804);
+            this.TopPanel.Size = new System.Drawing.Size(1294, 804);
             this.TopPanel.TabIndex = 0;
             // 
             // artanPanel1
@@ -82,7 +83,7 @@
             this.artanPanel1.Location = new System.Drawing.Point(30, 30);
             this.artanPanel1.Name = "artanPanel1";
             this.artanPanel1.Padding = new System.Windows.Forms.Padding(4, 0, 4, 15);
-            this.artanPanel1.Size = new System.Drawing.Size(1134, 744);
+            this.artanPanel1.Size = new System.Drawing.Size(1234, 744);
             this.artanPanel1.TabIndex = 0;
             // 
             // ReservationDataGridView
@@ -91,20 +92,27 @@
             this.ReservationDataGridView.AllowUserToDeleteRows = false;
             this.ReservationDataGridView.AllowUserToResizeColumns = false;
             this.ReservationDataGridView.AllowUserToResizeRows = false;
-            this.ReservationDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.ReservationDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.ReservationDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ReservationDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.ReservationDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(154)))), ((int)(((byte)(227)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("SansSerif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("SansSerif", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(154)))), ((int)(((byte)(227)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.ReservationDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.ReservationDataGridView.ColumnHeadersHeight = 35;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("SansSerif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(209)))), ((int)(((byte)(220)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ReservationDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.ReservationDataGridView.EnableHeadersVisualStyles = false;
             this.ReservationDataGridView.Location = new System.Drawing.Point(6, 1);
             this.ReservationDataGridView.Name = "ReservationDataGridView";
@@ -113,7 +121,7 @@
             this.ReservationDataGridView.RowHeadersWidth = 35;
             this.ReservationDataGridView.RowTemplate.Height = 25;
             this.ReservationDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ReservationDataGridView.Size = new System.Drawing.Size(1126, 729);
+            this.ReservationDataGridView.Size = new System.Drawing.Size(1225, 729);
             this.ReservationDataGridView.TabIndex = 0;
             // 
             // BottomPanel
@@ -123,7 +131,7 @@
             this.BottomPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BottomPanel.Location = new System.Drawing.Point(3, 813);
             this.BottomPanel.Name = "BottomPanel";
-            this.BottomPanel.Size = new System.Drawing.Size(1194, 84);
+            this.BottomPanel.Size = new System.Drawing.Size(1294, 84);
             this.BottomPanel.TabIndex = 1;
             // 
             // CancelButton
@@ -179,7 +187,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(3)))), ((int)(((byte)(45)))));
             this.Controls.Add(this.TableLayoutPanel1);
             this.Name = "ReservationPanel";
-            this.Size = new System.Drawing.Size(1200, 900);
+            this.Size = new System.Drawing.Size(1300, 900);
             this.Load += new System.EventHandler(this.ReservationPanel_Load);
             this.TableLayoutPanel1.ResumeLayout(false);
             this.TopPanel.ResumeLayout(false);
