@@ -32,7 +32,7 @@ namespace HotelReservationSystem.Reservation
         private void CreateButton_Click(object sender, EventArgs e)
         {
 
-            HotelReservationSystem.Reservation.ReservationWindow reservationWindow = new ReservationWindow();
+            HotelReservationSystem.Reservation.CreateReservationWindow reservationWindow = new CreateReservationWindow();
             reservationWindow.Presenter.AdminId = _presenter.AdminId;
 
             reservationWindow.Show();
