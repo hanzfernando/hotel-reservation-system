@@ -1,4 +1,6 @@
-﻿using HotelReservationSystem.PresenterCommons;
+﻿using HotelReservationSystem.Constants;
+using HotelReservationSystem.PresenterCommons;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -28,12 +30,21 @@ namespace HotelReservationSystem.Rooms
         public void OnLoad (object sender, EventArgs e)
         {
             _presenter.PopulateRoomList();
+            _presenter.GetRoomUnit();
+            _presenter.GetRoomType();
+            _presenter.GetReservationID();
+            UpdateUnitName();
             FloorLabel.Text = "Floor " + _presenter.FloorNumber;
             PeriodicRefresh(sender, e);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            RoomDetailsWindow roomDetailsWindow = new RoomDetailsWindow();
+            roomDetailsWindow.Presenter.FloorNumber = _presenter.FloorNumber;
+            roomDetailsWindow.Presenter.RoomUnit = _presenter.RoomStatuses[0].RoomUnit;
+            roomDetailsWindow.Presenter.Status = _presenter.RoomStatuses[0].Status;
+            roomDetailsWindow.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -117,6 +128,23 @@ namespace HotelReservationSystem.Rooms
             button11.BackColor = _presenter.RoomStatuses[10].Color;
             button12.BackColor = _presenter.RoomStatuses[11].Color;
         }
+
+        public void UpdateUnitName()
+        {
+            button1.Text = "Room " + _presenter.RoomStatuses[0].RoomUnit.ToString() + "\r\n" + _presenter.RoomStatuses[0].RoomType;
+            button2.Text = "Room " + _presenter.RoomStatuses[1].RoomUnit.ToString() + "\r\n" + _presenter.RoomStatuses[1].RoomType;
+            button3.Text = "Room " + _presenter.RoomStatuses[2].RoomUnit.ToString() + "\r\n" + _presenter.RoomStatuses[2].RoomType;
+            button4.Text = "Room " + _presenter.RoomStatuses[3].RoomUnit.ToString() + "\r\n" + _presenter.RoomStatuses[3].RoomType;
+            button5.Text = "Room " + _presenter.RoomStatuses[4].RoomUnit.ToString() + "\r\n" + _presenter.RoomStatuses[4].RoomType;
+            button6.Text = "Room " + _presenter.RoomStatuses[5].RoomUnit.ToString() + "\r\n" + _presenter.RoomStatuses[5].RoomType;
+            button7.Text = "Room " + _presenter.RoomStatuses[6].RoomUnit.ToString() + "\r\n" + _presenter.RoomStatuses[6].RoomType;
+            button8.Text = "Room " + _presenter.RoomStatuses[7].RoomUnit.ToString() + "\r\n" + _presenter.RoomStatuses[7].RoomType;
+            button9.Text = "Room " + _presenter.RoomStatuses[8].RoomUnit.ToString() + "\r\n" + _presenter.RoomStatuses[8].RoomType;
+            button10.Text = "Room " + _presenter.RoomStatuses[9].RoomUnit.ToString() + "\r\n" + _presenter.RoomStatuses[9].RoomType;
+            button11.Text = "Room " + _presenter.RoomStatuses[10].RoomUnit.ToString() + "\r\n" + _presenter.RoomStatuses[10].RoomType;
+            button12.Text = "Room " + _presenter.RoomStatuses[11].RoomUnit.ToString() + "\r\n" + _presenter.RoomStatuses[11].RoomType;
+
+        }
     }
     public interface IPresenterFloor : IPresenter
     {
@@ -128,6 +156,7 @@ namespace HotelReservationSystem.Rooms
         private Form _form;
         private Panel _panel;
         private int _floorNumber;
+        private string _connection = MySqlConstants.Connection;
 
         private RoomStatus[] _roomStatuses = new RoomStatus[12];
 
@@ -167,14 +196,91 @@ namespace HotelReservationSystem.Rooms
 
         public ObservableCollection<RoomStatus> RoomStatusesList => new ObservableCollection<RoomStatus>(_roomStatuses);
 
+        public void GetRoomUnit()
+        {
+            string query = "SELECT * FROM rooms";
+            MySqlConnection connection = new MySqlConnection(_connection);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataTable dataTable = new DataTable();
+            connection.Open();
+            adapter.Fill(dataTable);
+
+            DataRow[] filteredRows = dataTable.Select("room_floor = " + FloorNumber.ToString());
+            
+            for (int i = 0; i < filteredRows.Count(); i++)
+            {
+                _roomStatuses[i].RoomUnit = (int)filteredRows.ElementAt(i)["room_unit"];
+            }
+
+        }
+        public void GetRoomType()
+        {
+            string query = "SELECT * FROM rooms, room_types WHERE rooms.room_type_id = room_types.room_type_id";
+            MySqlConnection connection = new MySqlConnection(_connection);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataTable dataTable = new DataTable();
+            connection.Open();
+            adapter.Fill(dataTable);
+
+
+            DataRow[] filteredRows = dataTable.Select("room_floor = " + FloorNumber.ToString());
+
+            for (int i = 0; i<filteredRows.Count(); i++)
+            {
+                _roomStatuses[i].RoomType = (string)filteredRows.ElementAt(i)["room_type"];
+            }
+
+        }
+
         public void GetStatus()
+        {
+            string query = "SELECT * FROM rooms";
+            MySqlConnection connection = new MySqlConnection(_connection);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataTable dataTable = new DataTable();
+            connection.Open();
+            adapter.Fill(dataTable);
+
+
+            DataRow[] filteredRows = dataTable.Select("room_floor = " + FloorNumber.ToString());
+
+            for (int i = 0; i < filteredRows.Count(); i++)
+            {
+                RoomStatuses[i].Status = (int)filteredRows.ElementAt(i)["room_status_id"];
+            }
+        }
+
+        public void GetReservationID()
+        {
+
+            string query = "SELECT * FROM rooms";
+            MySqlConnection connection = new MySqlConnection(_connection);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataTable dataTable = new DataTable();
+            connection.Open();
+            adapter.Fill(dataTable);
+
+
+            DataRow[] filteredRows = dataTable.Select("room_floor = " + FloorNumber.ToString());
+
+            for (int i = 0; i < filteredRows.Count(); i++)
+            {
+                RoomStatuses[i].ReservationID = (int)filteredRows.ElementAt(i)["reservation_id"];
+            }
+        }
+
+       /* public void RandomStatus()
         {
             Random random = new Random();
             for (int i = 0; i < RoomStatuses.Length; i++)
             {
-                RoomStatuses[i].Status = random.Next(0,3);
+                RoomStatuses[i].Status = random.Next(0, 3);
             }
-        }
+        }*/
 
         public void PopulateRoomList()
         {
@@ -189,13 +295,35 @@ namespace HotelReservationSystem.Rooms
 
     public class RoomStatus : INotifyPropertyChanged
     {
+        private int _roomUnit;
         private int _status;
+        private string _roomType;
+        private int _reservationID;
         private Color _color = Color.FromArgb(215, 89, 210);
         public int Status { get { return _status;} set { _status= value; OnPropertyChanged(nameof(Status));
                 GetColor(_status);
             } }
 
         public Color Color { get { return _color; } set { _color = value; OnPropertyChanged(nameof(Color)); } }
+
+        public int RoomUnit
+        {
+            get { return _roomUnit; }
+            set { _roomUnit = value; OnPropertyChanged(nameof(RoomUnit)); }
+        }
+
+        public string RoomType
+        {
+
+            get { return _roomType; }
+            set { _roomType = value; OnPropertyChanged(nameof(RoomType)); }
+        }
+
+        public int ReservationID
+        {
+            get { return _reservationID; }
+            set { _reservationID = value; OnPropertyChanged(nameof(ReservationID)); }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

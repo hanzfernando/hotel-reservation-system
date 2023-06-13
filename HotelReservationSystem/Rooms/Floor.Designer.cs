@@ -169,6 +169,7 @@
             this.button12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button12.FlatAppearance.BorderSize = 3;
             this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button12.Font = new System.Drawing.Font("SansSerif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button12.Location = new System.Drawing.Point(10, 10);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(228, 162);
@@ -193,6 +194,7 @@
             this.button11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button11.FlatAppearance.BorderSize = 3;
             this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.Font = new System.Drawing.Font("SansSerif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button11.Location = new System.Drawing.Point(10, 10);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(226, 162);
@@ -217,6 +219,7 @@
             this.button10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button10.FlatAppearance.BorderSize = 3;
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Font = new System.Drawing.Font("SansSerif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button10.Location = new System.Drawing.Point(10, 10);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(226, 162);
@@ -241,6 +244,7 @@
             this.button9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button9.FlatAppearance.BorderSize = 3;
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Font = new System.Drawing.Font("SansSerif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button9.Location = new System.Drawing.Point(10, 10);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(228, 160);
@@ -266,6 +270,7 @@
             this.button8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button8.FlatAppearance.BorderSize = 3;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("SansSerif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button8.Location = new System.Drawing.Point(10, 10);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(226, 160);
@@ -291,6 +296,7 @@
             this.button7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button7.FlatAppearance.BorderSize = 3;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("SansSerif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button7.Location = new System.Drawing.Point(10, 10);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(226, 160);
@@ -316,6 +322,7 @@
             this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button6.FlatAppearance.BorderSize = 3;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("SansSerif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button6.Location = new System.Drawing.Point(10, 10);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(228, 160);
@@ -341,6 +348,7 @@
             this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button5.FlatAppearance.BorderSize = 3;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("SansSerif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button5.Location = new System.Drawing.Point(10, 10);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(226, 160);
@@ -366,6 +374,7 @@
             this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button4.FlatAppearance.BorderSize = 3;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("SansSerif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button4.Location = new System.Drawing.Point(10, 10);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(226, 160);
@@ -391,6 +400,7 @@
             this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button3.FlatAppearance.BorderSize = 3;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("SansSerif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button3.Location = new System.Drawing.Point(10, 10);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(228, 160);
@@ -416,6 +426,7 @@
             this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button2.FlatAppearance.BorderSize = 3;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("SansSerif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button2.Location = new System.Drawing.Point(10, 10);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(226, 160);
@@ -441,6 +452,7 @@
             this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button1.FlatAppearance.BorderSize = 3;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("SansSerif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button1.Location = new System.Drawing.Point(10, 10);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(226, 160);
