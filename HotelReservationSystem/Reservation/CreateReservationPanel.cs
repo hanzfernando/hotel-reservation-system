@@ -137,20 +137,61 @@ namespace HotelReservationSystem.Reservation
                 inputStatus[2] = true;
             }
 
+           
+
             string message = "";
             string[] fieldName = { "First Name", "Last Name", "Room Unit" };
+            bool isError = false;
 
             for (int i = 0; i < inputStatus.Length; i++)
             {
                 if (inputStatus[i])
                 {
                     message += "Invalid Input on " + fieldName[i] + Environment.NewLine;
+                    isError = true;
                 }
             }
+                      
+            if(isError)
+            {
+                string caption = "Error Detected in Input";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                MessageBox.Show(message, caption, buttons);
+            }
+            else
+            {
+                string middleName = "";
+                string suffix = "";
 
-            string caption = "Error Detected in Input";
-            MessageBoxButtons buttons = MessageBoxButtons.OK;
-            MessageBox.Show(message, caption, buttons);
+                if (MiddleNameTextBox.Text == strings[0])
+                {
+                    middleName = " ";
+                }else
+                {
+                    middleName = " " + MiddleNameTextBox.Text + " ";
+                }
+
+                if (MiddleNameTextBox.Text == "")
+                {
+                    middleName = " ";
+                }
+                else
+                {
+                    middleName = " " + MiddleNameTextBox.Text + " ";
+                }
+
+                string transactionDate = TransactionDateTimePicker.Value.ToString("yyyy-MM-dd");
+                string checkInDate = CheckInDateTimePicker.Value.ToString("yyyy-MM-dd");
+                string checkOutDate = CheckOutDateTimePicker.Value.ToString("yyyy-MM-dd");
+                //Debug.Write(transactionDate + " " + checkInDate + " " + checkOutDate);
+
+                string query = "INSERT INTO reservations (admin_id, room_unit, transaction_date, customer_name, check_in, check_out, reservation_status) " +
+                    "VALUES ('" + _presenter.AdminId + "', "+ RoomUnitTextBox.Text + ", '" + transactionDate + "', '" + FirstNameTextBox + middleName + LastNameTextBox.Text + "', '" + checkInDate + "', '" + checkOutDate +",)";
+            }
+
+
+
+
 
         }
     }
