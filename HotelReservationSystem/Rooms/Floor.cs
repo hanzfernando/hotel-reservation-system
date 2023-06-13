@@ -43,6 +43,7 @@ namespace HotelReservationSystem.Rooms
             RoomDetailsWindow roomDetailsWindow = new RoomDetailsWindow();
             roomDetailsWindow.Presenter.FloorNumber = _presenter.FloorNumber;
             roomDetailsWindow.Presenter.RoomUnit = _presenter.RoomStatuses[0].RoomUnit;
+            roomDetailsWindow.Presenter.Status = _presenter.RoomStatuses[0].Status;
             roomDetailsWindow.Show();
         }
 

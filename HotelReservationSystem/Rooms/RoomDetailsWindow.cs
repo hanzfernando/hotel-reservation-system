@@ -1,8 +1,11 @@
-﻿using HotelReservationSystem.PresenterCommons;
+﻿using HotelReservationSystem.Constants;
+using HotelReservationSystem.PresenterCommons;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -26,10 +29,31 @@ namespace HotelReservationSystem.Rooms
         private void OnLoad(object sender, EventArgs e)
         {
             this.CenterToScreen();
-            OccupiedPanel occupied = new OccupiedPanel();
-            occupied.Presenter.Form = this;
-            occupied.Presenter.Panel = panel1;
-            this.panel1.Controls.Add(occupied);
+            switch (_presenter.Status)
+            {
+                case 0:
+                    AvailablePanel available = new AvailablePanel();
+                    available.Presenter.Form = this;
+                    available.Presenter.Panel = panel1;
+                    this.panel1.Controls.Add(available);
+                    break;
+                case 1:
+                    ReservedPanel reserved = new ReservedPanel();
+                    reserved.Presenter.Form = this;
+                    reserved.Presenter.Panel = panel1;
+                    reserved.Presenter.RoomDetail = _presenter.RoomDetail;
+                    this.panel1.Controls.Add(reserved);
+                    break; 
+                case 2:
+                    OccupiedPanel occupied = new OccupiedPanel();
+                    occupied.Presenter.Form = this;
+                    occupied.Presenter.Panel = panel1;
+                    occupied.Presenter.RoomDetail = _presenter.RoomDetail;
+                    this.panel1.Controls.Add(occupied);
+                    break;
+                default:
+                    break;
+            }
         }
     }
 
@@ -37,6 +61,8 @@ namespace HotelReservationSystem.Rooms
     {
         int FloorNumber { get; set; }
         int RoomUnit { get; set; }
+        int Status { get; set; }
+        RoomDetail RoomDetail { get; set; }
 
     }
 
@@ -46,6 +72,9 @@ namespace HotelReservationSystem.Rooms
         private Panel _panel;
         private int _floorNumber;
         private int _roomUnit;
+        private int _status;
+        private string _connection = MySqlConstants.Connection;
+        private RoomDetail _roomDetail;
 
         public Form Form { get { return _form; } set { _form = value; } }
         public Panel Panel { get { return _panel; } set { _panel = value; } }
@@ -60,6 +89,16 @@ namespace HotelReservationSystem.Rooms
             get { return _roomUnit; }
             set { _roomUnit = value; OnPropertyChanged(nameof(RoomUnit)); }
         }
+        public int Status
+        {
+            get { return _status; }
+            set { _status = value; OnPropertyChanged(nameof(RoomStatus)); }
+        }
+        public RoomDetail RoomDetail
+        {
+            get { return _roomDetail; }
+            set { _roomDetail = value; OnPropertyChanged(nameof(RoomDetail)); }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -67,6 +106,39 @@ namespace HotelReservationSystem.Rooms
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        
+        public void GetRoomDetail()
+        {
 
+            string query = "SELECT * FROM rooms, reservations WHERE reservations.room_unit = rooms.room_unit";
+            MySqlConnection connection = new MySqlConnection(_connection);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataTable dataTable = new DataTable();
+            connection.Open();
+            adapter.Fill(dataTable);
+
+            DataRow filteredRow = dataTable.Rows[dataTable.Rows.Count];
+
+            RoomDetail.CustomerName = (string)filteredRow["customer_name"];
+            RoomDetail.Date = (string)filteredRow["check_in"];
+        }
+    }
+
+    public class RoomDetail : INotifyPropertyChanged
+    {
+        private string _customerName;
+        private string _date;
+
+        public string CustomerName { get { return _customerName; } set { _customerName = value; OnPropertyChanged(nameof(CustomerName)); } }
+        public string Date { get { return _date; } set { _date = value; OnPropertyChanged(nameof(Date)); } }
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

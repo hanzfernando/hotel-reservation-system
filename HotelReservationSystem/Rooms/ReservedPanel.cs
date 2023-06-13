@@ -30,6 +30,8 @@ namespace HotelReservationSystem.Rooms
             CustomerNameLabel.Location = new Point((this.panel4.Width / 2) - (CustomerNameLabel.Width / 2), (this.panel4.Height / 2) - (CustomerNameLabel.Height / 2));
             DateLabel.Location = new Point((this.panel5.Width / 2) - (DateLabel.Width / 2), (this.panel5.Height / 2) - (DateLabel.Height / 2));
             CloseButton.Location = new Point((this.panel6.Width / 2) - (CloseButton.Width / 2), (this.panel6.Height / 2) - (CloseButton.Height / 2));
+            CustomerNameLabel.Text = _presenter.RoomDetail.CustomerName;
+            DateLabel.Text = _presenter.RoomDetail.Date;
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
@@ -40,15 +42,23 @@ namespace HotelReservationSystem.Rooms
 
     public interface IPresenterReservedPanel : IPresenter
     {
+        RoomDetail RoomDetail { get; set; }
     }
 
     public class PresenterReservedPanel : IPresenterReservedPanel, INotifyPropertyChanged
     {
         private Form _form;
         private Panel _panel;
+        private RoomDetail _roomDetail;
+
         public Form Form { get { return _form; } set { _form = value; } }
         public Panel Panel { get { return _panel; } set { _panel = value; } }
 
+        public RoomDetail RoomDetail
+        {
+            get { return _roomDetail; }
+            set { _roomDetail = value; OnPropertyChanged(nameof(RoomDetail)); }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
