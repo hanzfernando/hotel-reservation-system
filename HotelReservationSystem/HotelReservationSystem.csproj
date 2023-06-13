@@ -109,6 +109,24 @@
     <Compile Include="Assets\RJButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CheckInCheckOut\CheckInCheckOutPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CheckInCheckOut\CheckInCheckOutPanel.Designer.cs">
+      <DependentUpon>CheckInCheckOutPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckInCheckOut\CheckInPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CheckInCheckOut\CheckInPanel.Designer.cs">
+      <DependentUpon>CheckInPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckInCheckOut\CheckOutPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CheckInCheckOut\CheckOutPanel.Designer.cs">
+      <DependentUpon>CheckOutPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Constants\MySqlConstants.cs" />
     <Compile Include="Dashboard\DashboardPanel.cs">
       <SubType>UserControl</SubType>
@@ -155,11 +173,17 @@
     <Compile Include="Reservation\ReservationPanel.Designer.cs">
       <DependentUpon>ReservationPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reservation\ReservationWindow.cs">
+    <Compile Include="Reservation\CreateReservationWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reservation\ReservationWindow.Designer.cs">
-      <DependentUpon>ReservationWindow.cs</DependentUpon>
+    <Compile Include="Reservation\CreateReservationWindow.Designer.cs">
+      <DependentUpon>CreateReservationWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rooms\RoomsPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Rooms\RoomsPanel.Designer.cs">
+      <DependentUpon>RoomsPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Theme\Theme.cs" />
     <Compile Include="Transaction\TransactionPanel.cs">
@@ -168,6 +192,12 @@
     <Compile Include="Transaction\TransactionPanel.Designer.cs">
       <DependentUpon>TransactionPanel.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CheckInCheckOut\CheckInCheckOutPanel.resx">
+      <DependentUpon>CheckInCheckOutPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckInCheckOut\CheckInPanel.resx">
+      <DependentUpon>CheckInPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard\DashboardPanel.resx">
       <DependentUpon>DashboardPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -198,8 +228,11 @@
     <EmbeddedResource Include="Reservation\ReservationPanel.resx">
       <DependentUpon>ReservationPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reservation\ReservationWindow.resx">
-      <DependentUpon>ReservationWindow.cs</DependentUpon>
+    <EmbeddedResource Include="Reservation\CreateReservationWindow.resx">
+      <DependentUpon>CreateReservationWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rooms\RoomsPanel.resx">
+      <DependentUpon>RoomsPanel.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

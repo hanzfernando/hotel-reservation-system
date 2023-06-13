@@ -1,4 +1,5 @@
 ﻿using HotelReservationSystem.PresenterCommons;
+using MySqlX.XDevAPI.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,8 +30,10 @@ namespace HotelReservationSystem.Reservation
             if (FirstNameTextBox.Text == "Enter first name...")
             {
                 FirstNameTextBox.Text = "";
+                
                 FirstNameTextBox.ForeColor = Color.Black;
             }
+                         
         }
 
         private void FirstNameTextBox_Leave(object sender, EventArgs e)

@@ -1,6 +1,6 @@
 ﻿namespace HotelReservationSystem.Reservation
 {
-    partial class ReservationWindow
+    partial class CreateReservationWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -38,15 +38,15 @@
             this.createReservationPanel.Size = new System.Drawing.Size(500, 675);
             this.createReservationPanel.TabIndex = 0;
             // 
-            // ReservationWindow
+            // CreateReservationWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(504, 676);
             this.Controls.Add(this.createReservationPanel);
-            this.Name = "ReservationWindow";
+            this.Name = "CreateReservationWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ReservationWindow";
+            this.Text = "Create Reservation Window";
             this.Load += new System.EventHandler(this.OnLoad);
             this.ResumeLayout(false);
 
