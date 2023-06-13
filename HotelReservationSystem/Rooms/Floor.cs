@@ -32,7 +32,7 @@ namespace HotelReservationSystem.Rooms
             _presenter.PopulateRoomList();
             _presenter.GetRoomUnit();
             _presenter.GetRoomType();
-            _presenter.GetReservationID();
+            // _presenter.GetReservationID();
             UpdateUnitName();
             FloorLabel.Text = "Floor " + _presenter.FloorNumber;
             PeriodicRefresh(sender, e);
@@ -324,7 +324,7 @@ namespace HotelReservationSystem.Rooms
             }
         }
 
-        public void GetReservationID()
+        /*public void GetReservationID()
         {
 
             string query = "SELECT * FROM rooms";
@@ -342,7 +342,7 @@ namespace HotelReservationSystem.Rooms
             {
                 RoomStatuses[i].ReservationID = (int)filteredRows.ElementAt(i)["reservation_id"];
             }
-        }
+        }*/
 
        /* public void RandomStatus()
         {
