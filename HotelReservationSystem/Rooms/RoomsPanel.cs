@@ -23,7 +23,9 @@ namespace HotelReservationSystem.Rooms
             _presenter = new PresenterRoomsPanel();
             for (int i =0; i < 6; i++)
             {
-                flowLayoutPanel1.Controls.Add(new Floor());
+                Floor floor = new Floor();
+                floor.Presenter.FloorNumber = i+1;
+                flowLayoutPanel1.Controls.Add(floor);
             }
         }
     }
