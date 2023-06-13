@@ -179,11 +179,35 @@
     <Compile Include="Reservation\CreateReservationWindow.Designer.cs">
       <DependentUpon>CreateReservationWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Rooms\ReservedPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Rooms\ReservedPanel.Designer.cs">
+      <DependentUpon>ReservedPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rooms\OccupiedPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Rooms\OccupiedPanel.Designer.cs">
+      <DependentUpon>OccupiedPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rooms\AvailablePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Rooms\AvailablePanel.Designer.cs">
+      <DependentUpon>AvailablePanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Rooms\Floor.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Rooms\Floor.Designer.cs">
       <DependentUpon>Floor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rooms\RoomDetailsWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rooms\RoomDetailsWindow.Designer.cs">
+      <DependentUpon>RoomDetailsWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Rooms\RoomsPanel.cs">
       <SubType>UserControl</SubType>
@@ -237,8 +261,20 @@
     <EmbeddedResource Include="Reservation\CreateReservationWindow.resx">
       <DependentUpon>CreateReservationWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Rooms\ReservedPanel.resx">
+      <DependentUpon>ReservedPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rooms\OccupiedPanel.resx">
+      <DependentUpon>OccupiedPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rooms\AvailablePanel.resx">
+      <DependentUpon>AvailablePanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Rooms\Floor.resx">
       <DependentUpon>Floor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rooms\RoomDetailsWindow.resx">
+      <DependentUpon>RoomDetailsWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rooms\RoomsPanel.resx">
       <DependentUpon>RoomsPanel.cs</DependentUpon>
