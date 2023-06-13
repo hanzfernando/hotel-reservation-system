@@ -34,7 +34,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TableLayoutNavigation = new System.Windows.Forms.TableLayoutPanel();
             this.RoomsTab = new System.Windows.Forms.Button();
-            this.CheckTab = new System.Windows.Forms.Button();
             this.DashboardTab = new System.Windows.Forms.Button();
             this.ReservationTab = new System.Windows.Forms.Button();
             this.PanelRoot = new System.Windows.Forms.Panel();
@@ -91,7 +90,6 @@
             this.TableLayoutNavigation.ColumnCount = 1;
             this.TableLayoutNavigation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.TableLayoutNavigation.Controls.Add(this.RoomsTab, 0, 2);
-            this.TableLayoutNavigation.Controls.Add(this.CheckTab, 0, 3);
             this.TableLayoutNavigation.Controls.Add(this.DashboardTab, 0, 0);
             this.TableLayoutNavigation.Controls.Add(this.ReservationTab, 0, 1);
             this.TableLayoutNavigation.Location = new System.Drawing.Point(3, 138);
@@ -123,19 +121,6 @@
             this.RoomsTab.Text = "Rooms";
             this.RoomsTab.UseVisualStyleBackColor = true;
             this.RoomsTab.Click += new System.EventHandler(this.RoomsTab_Click);
-            // 
-            // CheckTab
-            // 
-            this.CheckTab.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CheckTab.FlatAppearance.BorderSize = 0;
-            this.CheckTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CheckTab.ForeColor = System.Drawing.Color.White;
-            this.CheckTab.Location = new System.Drawing.Point(3, 228);
-            this.CheckTab.Name = "CheckTab";
-            this.CheckTab.Size = new System.Drawing.Size(288, 69);
-            this.CheckTab.TabIndex = 3;
-            this.CheckTab.Text = "Check-in / Check-out";
-            this.CheckTab.UseVisualStyleBackColor = true;
             // 
             // DashboardTab
             // 
@@ -202,6 +187,5 @@
         private System.Windows.Forms.TableLayoutPanel TableLayoutNavigation;
         private System.Windows.Forms.Button RoomsTab;
         private System.Windows.Forms.Button ReservationTab;
-        private System.Windows.Forms.Button CheckTab;
     }
 }
