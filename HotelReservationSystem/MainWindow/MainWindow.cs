@@ -70,6 +70,8 @@ namespace HotelReservationSystem.MainWindow
 
         private void RoomsTab_Click(object sender, EventArgs e)
         {
+            _presenter.Width = 1200;
+            this.Width = _presenter.Width;
             RoomsPanel roomsPanel = new RoomsPanel();
             if(!roomsPanel.Equals(_presenter.CurrentPanel))
             {
