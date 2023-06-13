@@ -33,11 +33,11 @@
             this.LogoPanel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TableLayoutNavigation = new System.Windows.Forms.TableLayoutPanel();
+            this.RoomsTab = new System.Windows.Forms.Button();
+            this.CheckTab = new System.Windows.Forms.Button();
             this.DashboardTab = new System.Windows.Forms.Button();
             this.ReservationTab = new System.Windows.Forms.Button();
-            this.RoomsTab = new System.Windows.Forms.Button();
             this.PanelRoot = new System.Windows.Forms.Panel();
-            this.CheckTab = new System.Windows.Forms.Button();
             this.TableLayoutNavigationRoot.SuspendLayout();
             this.LogoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -110,6 +110,33 @@
             this.TableLayoutNavigation.Size = new System.Drawing.Size(294, 759);
             this.TableLayoutNavigation.TabIndex = 2;
             // 
+            // RoomsTab
+            // 
+            this.RoomsTab.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RoomsTab.FlatAppearance.BorderSize = 0;
+            this.RoomsTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RoomsTab.ForeColor = System.Drawing.Color.White;
+            this.RoomsTab.Location = new System.Drawing.Point(3, 153);
+            this.RoomsTab.Name = "RoomsTab";
+            this.RoomsTab.Size = new System.Drawing.Size(288, 69);
+            this.RoomsTab.TabIndex = 2;
+            this.RoomsTab.Text = "Rooms";
+            this.RoomsTab.UseVisualStyleBackColor = true;
+            this.RoomsTab.Click += new System.EventHandler(this.RoomsTab_Click);
+            // 
+            // CheckTab
+            // 
+            this.CheckTab.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CheckTab.FlatAppearance.BorderSize = 0;
+            this.CheckTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CheckTab.ForeColor = System.Drawing.Color.White;
+            this.CheckTab.Location = new System.Drawing.Point(3, 228);
+            this.CheckTab.Name = "CheckTab";
+            this.CheckTab.Size = new System.Drawing.Size(288, 69);
+            this.CheckTab.TabIndex = 3;
+            this.CheckTab.Text = "Check-in / Check-out";
+            this.CheckTab.UseVisualStyleBackColor = true;
+            // 
             // DashboardTab
             // 
             this.DashboardTab.BackColor = System.Drawing.Color.Transparent;
@@ -139,19 +166,6 @@
             this.ReservationTab.UseVisualStyleBackColor = true;
             this.ReservationTab.Click += new System.EventHandler(this.ReservationTab_Click);
             // 
-            // RoomsTab
-            // 
-            this.RoomsTab.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RoomsTab.FlatAppearance.BorderSize = 0;
-            this.RoomsTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RoomsTab.ForeColor = System.Drawing.Color.White;
-            this.RoomsTab.Location = new System.Drawing.Point(3, 153);
-            this.RoomsTab.Name = "RoomsTab";
-            this.RoomsTab.Size = new System.Drawing.Size(288, 69);
-            this.RoomsTab.TabIndex = 2;
-            this.RoomsTab.Text = "Rooms";
-            this.RoomsTab.UseVisualStyleBackColor = true;
-            // 
             // PanelRoot
             // 
             this.PanelRoot.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -159,19 +173,6 @@
             this.PanelRoot.Name = "PanelRoot";
             this.PanelRoot.Size = new System.Drawing.Size(900, 900);
             this.PanelRoot.TabIndex = 1;
-            // 
-            // CheckTab
-            // 
-            this.CheckTab.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CheckTab.FlatAppearance.BorderSize = 0;
-            this.CheckTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CheckTab.ForeColor = System.Drawing.Color.White;
-            this.CheckTab.Location = new System.Drawing.Point(3, 228);
-            this.CheckTab.Name = "CheckTab";
-            this.CheckTab.Size = new System.Drawing.Size(288, 69);
-            this.CheckTab.TabIndex = 3;
-            this.CheckTab.Text = "Check-in / Check-out";
-            this.CheckTab.UseVisualStyleBackColor = true;
             // 
             // MainWindow
             // 
