@@ -48,7 +48,7 @@ namespace HotelReservationSystem.Reservation
                 _presenter.RowIndex = ReservationDataGridView.CurrentRow.Index;
 
                 _presenter.PopulateDataTable(ReservationDataGridView);
-                ReservationDataGridView.CellContentClick += ReservationDataGridView_CellContentClick;
+                // ReservationDataGridView.CellContentClick += ReservationDataGridView_CellContentClick;
                 ReservationDataGridView.CurrentCell = ReservationDataGridView.Rows[_presenter.RowIndex].Cells[0];
 
             }, TimeSpan.FromMilliseconds(2000));
@@ -221,7 +221,7 @@ namespace HotelReservationSystem.Reservation
                 "r.room_unit AS 'Room Unit', " +
                 "r.transaction_date AS 'Transaction Date', " +
                 "r.customer_name AS 'Customer Name', " +
-                "r.customer_name AS 'Contact', " +
+                "r.customer_contact AS 'Contact', " +
                 "r.check_in AS 'Check In', " +
                 "r.check_in_status AS 'Check-in Status', " +
                 "r.check_out AS 'Check Out', " +

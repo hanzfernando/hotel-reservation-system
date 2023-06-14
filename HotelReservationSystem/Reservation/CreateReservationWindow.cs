@@ -20,6 +20,7 @@ namespace HotelReservationSystem.Reservation
         {
             InitializeComponent();
             _presenter = new PresenterReservationWindow();
+            
         }
 
         private void OnLoad(object sender, EventArgs e)
@@ -29,6 +30,7 @@ namespace HotelReservationSystem.Reservation
             createReservation.Presenter.Panel = _presenter.Panel;
             createReservation.Presenter.AdminId = _presenter.AdminId;
             this.createReservationPanel.Controls.Add(createReservation);
+            
         }
     }
 
@@ -64,6 +66,6 @@ namespace HotelReservationSystem.Reservation
         }
 
         public int AdminId { get { return _adminid; } set { _adminid = value; } }
-
+        
     }
 }
