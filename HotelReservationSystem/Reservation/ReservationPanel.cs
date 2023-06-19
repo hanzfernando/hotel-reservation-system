@@ -158,7 +158,7 @@ namespace HotelReservationSystem.Reservation
                 else                   
                 {
                     query = "UPDATE reservations SET check_out_status = " + cellOut.Value + ", reservation_status = 'Checked In' WHERE reservation_id = " + _presenter.ReservationList.ElementAt(e.RowIndex).ReservationId;
-                    updateRoom = "UPDATE rooms SET room_status_id = 1 WHERE room_unit = " + _presenter.ReservationList.ElementAt(e.RowIndex).RoomUnit;
+                    updateRoom = "UPDATE rooms SET room_status_id = 2 WHERE room_unit = " + _presenter.ReservationList.ElementAt(e.RowIndex).RoomUnit;
                 }
 
                 _presenter.UpdateStatus(query);
