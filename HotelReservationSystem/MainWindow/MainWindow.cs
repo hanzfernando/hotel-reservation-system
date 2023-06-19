@@ -1,5 +1,7 @@
 ﻿using HotelReservationSystem.Dashboard;
 using HotelReservationSystem.PresenterCommons;
+using HotelReservationSystem.Reservation;
+using HotelReservationSystem.Rooms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,6 +38,8 @@ namespace HotelReservationSystem.MainWindow
 
         private void DashboardTab_Click(object sender, EventArgs e)
         {
+            _presenter.Width = 1200;
+            this.Width = _presenter.Width;
             DashboardPanel dashboardPanel = new DashboardPanel();
             dashboardPanel.Presenter.Username = _presenter.Username;
             if (!dashboardPanel.Equals(_presenter.CurrentPanel))
@@ -47,11 +51,44 @@ namespace HotelReservationSystem.MainWindow
                 _presenter.CurrentPanel = dashboardPanel;
             }
         }
+
+        private void ReservationTab_Click(object sender, EventArgs e)
+        {
+            _presenter.Width = 1600;
+            this.Width = _presenter.Width;
+            ReservationPanel reservationPanel = new ReservationPanel();
+            if (!reservationPanel.Equals(_presenter.CurrentPanel))
+            {
+                reservationPanel.Presenter.AdminId = _presenter.AdminId;
+                reservationPanel.Presenter.Form = _presenter.Form;
+                reservationPanel.Presenter.Panel = _presenter.Panel;
+                _presenter.Panel.Controls.Remove(_presenter.CurrentPanel);
+                _presenter.Panel.Controls.Add(reservationPanel);
+                _presenter.CurrentPanel = reservationPanel;
+            }
+        }
+
+        private void RoomsTab_Click(object sender, EventArgs e)
+        {
+            _presenter.Width = 1200;
+            this.Width = _presenter.Width;
+            RoomsPanel roomsPanel = new RoomsPanel();
+            if(!roomsPanel.Equals(_presenter.CurrentPanel))
+            {
+                roomsPanel.Presenter.Form = _presenter.Form;
+                roomsPanel.Presenter.Panel = _presenter.Panel;
+                _presenter.Panel.Controls.Remove(_presenter.CurrentPanel);
+                _presenter.Panel.Controls.Add(roomsPanel);
+                _presenter.CurrentPanel = roomsPanel;
+            }
+        }
     }
 
     public interface IPresenterMainWindow : IPresenter
     {
         string Username { get; set; }
+        int AdminId { get; set; }
+        int Width { get; set; }  
     }
 
     public class PresenterMainWindow : INotifyPropertyChanged, IPresenterMainWindow
@@ -60,8 +97,11 @@ namespace HotelReservationSystem.MainWindow
         private Panel _panel;
         private UserControl _currentPanel;
         private string _userName;
+        private int _adminid;
+        private int _width;
 
         public string Username { get { return _userName; } set { _userName = value; } }
+        public int AdminId { get { return _adminid; } set { _adminid = value; } }
 
         public Form Form
         {
@@ -79,6 +119,12 @@ namespace HotelReservationSystem.MainWindow
         {
             get { return _currentPanel; }
             set { _currentPanel = value; } 
+        }
+
+        public int Width
+        {
+            get { return _width; }
+            set { _width = value; }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

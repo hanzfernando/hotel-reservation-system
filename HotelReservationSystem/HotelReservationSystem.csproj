@@ -100,11 +100,32 @@
     <Compile Include="Administrator\AdministratorPanel.Designer.cs">
       <DependentUpon>AdministratorPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Assets\ArtanPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Assets\PlaceholderTextbox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Assets\RJButton.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CheckInCheckOut\CheckInCheckOutPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CheckInCheckOut\CheckInCheckOutPanel.Designer.cs">
+      <DependentUpon>CheckInCheckOutPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckInCheckOut\CheckInPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CheckInCheckOut\CheckInPanel.Designer.cs">
+      <DependentUpon>CheckInPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckInCheckOut\CheckOutPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CheckInCheckOut\CheckOutPanel.Designer.cs">
+      <DependentUpon>CheckOutPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Constants\MySqlConstants.cs" />
     <Compile Include="Dashboard\DashboardPanel.cs">
@@ -140,6 +161,60 @@
     <Compile Include="PresenterCommons\IPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reservation\CreateReservationPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reservation\CreateReservationPanel.Designer.cs">
+      <DependentUpon>CreateReservationPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reservation\ReservationPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reservation\ReservationPanel.Designer.cs">
+      <DependentUpon>ReservationPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reservation\CreateReservationWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reservation\CreateReservationWindow.Designer.cs">
+      <DependentUpon>CreateReservationWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rooms\ReservedPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Rooms\ReservedPanel.Designer.cs">
+      <DependentUpon>ReservedPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rooms\OccupiedPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Rooms\OccupiedPanel.Designer.cs">
+      <DependentUpon>OccupiedPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rooms\AvailablePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Rooms\AvailablePanel.Designer.cs">
+      <DependentUpon>AvailablePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rooms\Floor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Rooms\Floor.Designer.cs">
+      <DependentUpon>Floor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rooms\RoomDetailsWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rooms\RoomDetailsWindow.Designer.cs">
+      <DependentUpon>RoomDetailsWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rooms\RoomsPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Rooms\RoomsPanel.Designer.cs">
+      <DependentUpon>RoomsPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Theme\Theme.cs" />
     <Compile Include="Transaction\TransactionPanel.cs">
       <SubType>UserControl</SubType>
@@ -147,6 +222,12 @@
     <Compile Include="Transaction\TransactionPanel.Designer.cs">
       <DependentUpon>TransactionPanel.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CheckInCheckOut\CheckInCheckOutPanel.resx">
+      <DependentUpon>CheckInCheckOutPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckInCheckOut\CheckInPanel.resx">
+      <DependentUpon>CheckInPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard\DashboardPanel.resx">
       <DependentUpon>DashboardPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,6 +252,33 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Reservation\CreateReservationPanel.resx">
+      <DependentUpon>CreateReservationPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reservation\ReservationPanel.resx">
+      <DependentUpon>ReservationPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reservation\CreateReservationWindow.resx">
+      <DependentUpon>CreateReservationWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rooms\ReservedPanel.resx">
+      <DependentUpon>ReservedPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rooms\OccupiedPanel.resx">
+      <DependentUpon>OccupiedPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rooms\AvailablePanel.resx">
+      <DependentUpon>AvailablePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rooms\Floor.resx">
+      <DependentUpon>Floor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rooms\RoomDetailsWindow.resx">
+      <DependentUpon>RoomDetailsWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rooms\RoomsPanel.resx">
+      <DependentUpon>RoomsPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -189,6 +297,7 @@
     <Folder Include="Assets\Font\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Check_round_fill.png" />
     <Content Include="Assets\DashboardNavBarBG.png" />
     <Content Include="Assets\Dashboard\Rectangle 6507.png" />
     <Content Include="Assets\Dashboard\Rectangle 6509.png" />
