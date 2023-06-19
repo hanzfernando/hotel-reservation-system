@@ -1,8 +1,12 @@
-﻿using HotelReservationSystem.PresenterCommons;
+﻿using HotelReservationSystem.Constants;
+using HotelReservationSystem.PresenterCommons;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Reactive.Linq;
@@ -56,7 +60,7 @@ namespace HotelReservationSystem.Dashboard
 
             Task periodicTask = RunPeriodicAsynchronousTask(() =>
             {
-                _presenter.Randomize();
+                _presenter.GetAllOccupancyPercentage();
                 Floor1Percent.Text = _presenter.Floor1.ToString() + " %";
                 Floor2Percent.Text = _presenter.Floor2.ToString() + " %";
                 Floor3Percent.Text = _presenter.Floor3.ToString() + " %";
@@ -107,6 +111,7 @@ namespace HotelReservationSystem.Dashboard
         private Form _form;
         private Panel _panel;
         private string _username;
+        private string _connection = MySqlConstants.Connection;
         private int _floor1 = 0;
         private int _floor2 = 0;
         private int _floor3 = 0;
@@ -186,6 +191,31 @@ namespace HotelReservationSystem.Dashboard
             Floor4 = random.Next(1, 101);
             Floor5 = random.Next(1, 101);
             Floor6 = random.Next(1, 101);
+        }
+
+        public int GetOccupancyCount(string floor_number)
+        {
+            string query = "SELECT * FROM rooms WHERE room_status_id = 2";
+
+            MySqlConnection connection = new MySqlConnection(_connection);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataTable dataTable = new DataTable();
+            connection.Open();
+            adapter.Fill(dataTable);
+
+            DataRow[] filteredRows = dataTable.Select("room_floor = " + floor_number);
+            return filteredRows.Length;
+        }
+
+        public void GetAllOccupancyPercentage()
+        {
+            Floor1 = (GetOccupancyCount("1") * 100) / 12;
+            Floor2 = (GetOccupancyCount("2") * 100) / 12;
+            Floor3 = (GetOccupancyCount("3") * 100) / 12;
+            Floor4 = (GetOccupancyCount("4") * 100) / 12;
+            Floor5 = (GetOccupancyCount("5") * 100) / 12;
+            Floor6 = (GetOccupancyCount("6") * 100) / 12;
         }
     }
 }
