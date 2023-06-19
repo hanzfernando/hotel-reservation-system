@@ -48,6 +48,8 @@
             this.CheckOutDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.TransactionDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.TransactionDateLabel = new System.Windows.Forms.Label();
+            this.ContactLabel = new System.Windows.Forms.Label();
+            this.ContactTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,7 +99,7 @@
             // LastNameTextBox
             // 
             this.LastNameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(139)))), ((int)(((byte)(139)))));
-            this.LastNameTextBox.Location = new System.Drawing.Point(29, 324);
+            this.LastNameTextBox.Location = new System.Drawing.Point(29, 311);
             this.LastNameTextBox.Name = "LastNameTextBox";
             this.LastNameTextBox.Size = new System.Drawing.Size(196, 20);
             this.LastNameTextBox.TabIndex = 5;
@@ -110,7 +112,7 @@
             this.LastNameLabel.AutoSize = true;
             this.LastNameLabel.Font = new System.Drawing.Font("SansSerif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.LastNameLabel.ForeColor = System.Drawing.Color.White;
-            this.LastNameLabel.Location = new System.Drawing.Point(26, 296);
+            this.LastNameLabel.Location = new System.Drawing.Point(26, 283);
             this.LastNameLabel.Name = "LastNameLabel";
             this.LastNameLabel.Size = new System.Drawing.Size(70, 15);
             this.LastNameLabel.TabIndex = 4;
@@ -121,7 +123,7 @@
             this.CheckInLabel.AutoSize = true;
             this.CheckInLabel.Font = new System.Drawing.Font("SansSerif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.CheckInLabel.ForeColor = System.Drawing.Color.White;
-            this.CheckInLabel.Location = new System.Drawing.Point(26, 451);
+            this.CheckInLabel.Location = new System.Drawing.Point(26, 473);
             this.CheckInLabel.Name = "CheckInLabel";
             this.CheckInLabel.Size = new System.Drawing.Size(59, 15);
             this.CheckInLabel.TabIndex = 8;
@@ -130,7 +132,7 @@
             // RoomUnitTextBox
             // 
             this.RoomUnitTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(139)))), ((int)(((byte)(139)))));
-            this.RoomUnitTextBox.Location = new System.Drawing.Point(29, 400);
+            this.RoomUnitTextBox.Location = new System.Drawing.Point(29, 440);
             this.RoomUnitTextBox.Name = "RoomUnitTextBox";
             this.RoomUnitTextBox.Size = new System.Drawing.Size(196, 20);
             this.RoomUnitTextBox.TabIndex = 7;
@@ -143,7 +145,7 @@
             this.RoomUnitLabel.AutoSize = true;
             this.RoomUnitLabel.Font = new System.Drawing.Font("SansSerif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RoomUnitLabel.ForeColor = System.Drawing.Color.White;
-            this.RoomUnitLabel.Location = new System.Drawing.Point(26, 372);
+            this.RoomUnitLabel.Location = new System.Drawing.Point(26, 412);
             this.RoomUnitLabel.Name = "RoomUnitLabel";
             this.RoomUnitLabel.Size = new System.Drawing.Size(68, 15);
             this.RoomUnitLabel.TabIndex = 6;
@@ -154,7 +156,7 @@
             this.CheckOutLabel.AutoSize = true;
             this.CheckOutLabel.Font = new System.Drawing.Font("SansSerif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.CheckOutLabel.ForeColor = System.Drawing.Color.White;
-            this.CheckOutLabel.Location = new System.Drawing.Point(264, 451);
+            this.CheckOutLabel.Location = new System.Drawing.Point(264, 473);
             this.CheckOutLabel.Name = "CheckOutLabel";
             this.CheckOutLabel.Size = new System.Drawing.Size(69, 15);
             this.CheckOutLabel.TabIndex = 16;
@@ -163,7 +165,7 @@
             // SuffixTextBox
             // 
             this.SuffixTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(139)))), ((int)(((byte)(139)))));
-            this.SuffixTextBox.Location = new System.Drawing.Point(267, 324);
+            this.SuffixTextBox.Location = new System.Drawing.Point(267, 311);
             this.SuffixTextBox.Name = "SuffixTextBox";
             this.SuffixTextBox.Size = new System.Drawing.Size(196, 20);
             this.SuffixTextBox.TabIndex = 13;
@@ -176,7 +178,7 @@
             this.SuffixLabel.AutoSize = true;
             this.SuffixLabel.Font = new System.Drawing.Font("SansSerif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.SuffixLabel.ForeColor = System.Drawing.Color.White;
-            this.SuffixLabel.Location = new System.Drawing.Point(264, 296);
+            this.SuffixLabel.Location = new System.Drawing.Point(264, 283);
             this.SuffixLabel.Name = "SuffixLabel";
             this.SuffixLabel.Size = new System.Drawing.Size(41, 15);
             this.SuffixLabel.TabIndex = 12;
@@ -215,7 +217,7 @@
             this.CreateRecordButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CreateRecordButton.Font = new System.Drawing.Font("SansSerif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.CreateRecordButton.ForeColor = System.Drawing.Color.Black;
-            this.CreateRecordButton.Location = new System.Drawing.Point(180, 559);
+            this.CreateRecordButton.Location = new System.Drawing.Point(180, 577);
             this.CreateRecordButton.Name = "CreateRecordButton";
             this.CreateRecordButton.Size = new System.Drawing.Size(125, 34);
             this.CreateRecordButton.TabIndex = 18;
@@ -226,21 +228,21 @@
             // 
             // CheckInDateTimePicker
             // 
-            this.CheckInDateTimePicker.Location = new System.Drawing.Point(29, 479);
+            this.CheckInDateTimePicker.Location = new System.Drawing.Point(29, 501);
             this.CheckInDateTimePicker.Name = "CheckInDateTimePicker";
             this.CheckInDateTimePicker.Size = new System.Drawing.Size(196, 20);
             this.CheckInDateTimePicker.TabIndex = 19;
             // 
             // CheckOutDateTimePicker
             // 
-            this.CheckOutDateTimePicker.Location = new System.Drawing.Point(267, 479);
+            this.CheckOutDateTimePicker.Location = new System.Drawing.Point(267, 501);
             this.CheckOutDateTimePicker.Name = "CheckOutDateTimePicker";
             this.CheckOutDateTimePicker.Size = new System.Drawing.Size(196, 20);
             this.CheckOutDateTimePicker.TabIndex = 20;
             // 
             // TransactionDateTimePicker
             // 
-            this.TransactionDateTimePicker.Location = new System.Drawing.Point(267, 400);
+            this.TransactionDateTimePicker.Location = new System.Drawing.Point(267, 440);
             this.TransactionDateTimePicker.Name = "TransactionDateTimePicker";
             this.TransactionDateTimePicker.Size = new System.Drawing.Size(196, 20);
             this.TransactionDateTimePicker.TabIndex = 22;
@@ -250,17 +252,41 @@
             this.TransactionDateLabel.AutoSize = true;
             this.TransactionDateLabel.Font = new System.Drawing.Font("SansSerif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.TransactionDateLabel.ForeColor = System.Drawing.Color.White;
-            this.TransactionDateLabel.Location = new System.Drawing.Point(264, 372);
+            this.TransactionDateLabel.Location = new System.Drawing.Point(264, 412);
             this.TransactionDateLabel.Name = "TransactionDateLabel";
             this.TransactionDateLabel.Size = new System.Drawing.Size(106, 15);
             this.TransactionDateLabel.TabIndex = 21;
             this.TransactionDateLabel.Text = "Transaction Date";
+            // 
+            // ContactLabel
+            // 
+            this.ContactLabel.AutoSize = true;
+            this.ContactLabel.Font = new System.Drawing.Font("SansSerif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.ContactLabel.ForeColor = System.Drawing.Color.White;
+            this.ContactLabel.Location = new System.Drawing.Point(26, 348);
+            this.ContactLabel.Name = "ContactLabel";
+            this.ContactLabel.Size = new System.Drawing.Size(101, 15);
+            this.ContactLabel.TabIndex = 23;
+            this.ContactLabel.Text = "Contact Number";
+            // 
+            // ContactTextBox
+            // 
+            this.ContactTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(139)))), ((int)(((byte)(139)))));
+            this.ContactTextBox.Location = new System.Drawing.Point(29, 376);
+            this.ContactTextBox.Name = "ContactTextBox";
+            this.ContactTextBox.Size = new System.Drawing.Size(196, 20);
+            this.ContactTextBox.TabIndex = 24;
+            this.ContactTextBox.Text = "Enter contact...";
+            this.ContactTextBox.Enter += new System.EventHandler(this.ContactCheckBox_Enter);
+            this.ContactTextBox.Leave += new System.EventHandler(this.ContactCheckBox_Leave);
             // 
             // CreateReservationPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(3)))), ((int)(((byte)(45)))));
+            this.Controls.Add(this.ContactTextBox);
+            this.Controls.Add(this.ContactLabel);
             this.Controls.Add(this.TransactionDateTimePicker);
             this.Controls.Add(this.TransactionDateLabel);
             this.Controls.Add(this.CheckOutDateTimePicker);
@@ -309,5 +335,7 @@
         private System.Windows.Forms.DateTimePicker CheckOutDateTimePicker;
         private System.Windows.Forms.DateTimePicker TransactionDateTimePicker;
         private System.Windows.Forms.Label TransactionDateLabel;
+        private System.Windows.Forms.Label ContactLabel;
+        private System.Windows.Forms.TextBox ContactTextBox;
     }
 }
