@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI.Common;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -203,8 +204,7 @@ namespace HotelReservationSystem.Reservation
                 string transactionDate = TransactionDateTimePicker.Value.ToString("yyyy-MM-dd");
                 string checkInDate = CheckInDateTimePicker.Value.ToString("yyyy-MM-dd");
                 string checkOutDate = CheckOutDateTimePicker.Value.ToString("yyyy-MM-dd");
-                string reserved = "Reserved";
-
+                
                 string query = "INSERT INTO reservations (admin_id, room_unit, transaction_date, customer_name, customer_contact, check_in, check_out, reservation_status) " +
                     "VALUES ('" + _presenter.AdminId + "', " +
                     RoomUnitTextBox.Text + ", " +
@@ -215,10 +215,41 @@ namespace HotelReservationSystem.Reservation
                     "'" + checkOutDate + "', " +
                     "'Reserved');";
 
-                _presenter.UpdateStatus(query);
+                
+                if (_presenter.CheckRoomStatus(RoomUnitTextBox.Text.Trim()))
+                {
+                    string updateRoomStatus = "UPDATE rooms SET room_status_id = 1 WHERE room_unit = " + RoomUnitTextBox.Text + "";
+                    _presenter.UpdateStatus(query);
+                    _presenter.UpdateStatus(updateRoomStatus);
+                    // Close
+                    _presenter.Form.Close();
+                }
+                else
+                {
 
-                // Close Window
-                //this._presenter.Form.Close();
+                    string caption = "";
+                    if (_presenter.GetRoomStatusId(RoomUnitTextBox.Text.Trim()) == 0)
+                    {
+                        return;
+                    }
+                    else if(_presenter.GetRoomStatusId(RoomUnitTextBox.Text.Trim()) == 1)
+                    {
+                        caption = "Room Already Reserved";
+                    }
+                    else if (_presenter.GetRoomStatusId(RoomUnitTextBox.Text.Trim()) == 2)
+                    {
+                        caption = "Room Already Occupied";
+                    }
+                    else
+                    {
+                        caption = "Invalid Status";
+                    }
+
+                    MessageBoxButtons buttons = MessageBoxButtons.OK;
+                    MessageBox.Show(message, caption, buttons);
+                }
+                
+                
             }
         }
     }
@@ -257,6 +288,30 @@ namespace HotelReservationSystem.Reservation
             connection.Open();
             command.ExecuteNonQuery();
 
+        }
+
+        public bool CheckRoomStatus(string roomUnit)
+        {
+            string query = "SELECT * FROM rooms WHERE room_unit = " + roomUnit + " AND room_status_id = 0";
+            MySqlConnection connection = new MySqlConnection(_connection);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            connection.Open();
+            MySqlDataReader mySqlDataReader = command.ExecuteReader();
+            return mySqlDataReader.HasRows;
+        }
+
+        public int GetRoomStatusId(string roomUnit)
+        {
+            DataTable dataTable = new DataTable();
+
+            string query = "SELECT * FROM rooms WHERE room_unit = " + roomUnit;
+            MySqlConnection connection = new MySqlConnection(_connection);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            connection.Open();
+            MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(command);
+            mySqlDataAdapter.Fill(dataTable);
+            return (int)dataTable.Select().ElementAt(0)["room_status_id"];
+           
         }
     }
 
