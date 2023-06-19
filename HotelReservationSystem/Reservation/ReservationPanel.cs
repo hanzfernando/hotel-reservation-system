@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.Common;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
@@ -82,145 +83,7 @@ namespace HotelReservationSystem.Reservation
 
         public void ReservationDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
-            // Check if the clicked column is the "Check-in Status" column
-            if (e.ColumnIndex == ReservationDataGridView.Columns["Check-in Status"].Index && e.RowIndex >= 0)
-            {
-                // Get the current cell
-                DataGridViewCheckBoxCell cellIn = ReservationDataGridView.Rows[e.RowIndex].Cells["Check-in Status"] as DataGridViewCheckBoxCell;
-
-                // Check if the corresponding "Check-out Status" is currently true
-                bool checkOutStatus = (bool)ReservationDataGridView.Rows[e.RowIndex].Cells["Check-out Status"].Value;
-                
-                // Check if the corresponding "Cancellation" is currently true
-                bool cancelStatus = (bool)ReservationDataGridView.Rows[e.RowIndex].Cells["Cancellation"].Value;
-
-                if (checkOutStatus || cancelStatus)
-                {
-                    // Disable checkbox click for "Check-in Status"
-                    cellIn.ReadOnly = true;
-                    return;
-                }
-
-                // Toggle the checkbox value
-                cellIn.Value = !(bool)cellIn.Value;
-                
-                string query;
-                string updateRoom;
-                if ((bool)cellIn.Value == true)
-                {
-                    query = "UPDATE reservations SET check_in_status = " + cellIn.Value + ", reservation_status = 'Checked In' WHERE reservation_id = " + _presenter.ReservationList.ElementAt(e.RowIndex).ReservationId;
-                    updateRoom = "UPDATE rooms SET room_status_id = 2 WHERE room_unit = " + _presenter.ReservationList.ElementAt(e.RowIndex).RoomUnit;
-
-                }
-                else
-                {
-                    query = "UPDATE reservations SET check_in_status = " + cellIn.Value + ", reservation_status = 'Reserved' WHERE reservation_id = " + _presenter.ReservationList.ElementAt(e.RowIndex).ReservationId;
-                    updateRoom = "UPDATE rooms SET room_status_id = 1 WHERE room_unit = " + _presenter.ReservationList.ElementAt(e.RowIndex).RoomUnit;
-                }
-
-
-
-                _presenter.UpdateStatus(query);
-                _presenter.UpdateStatus(updateRoom);
-                // ReservationDataGridView.Refresh();
-            }
-
-            // Check out
-            if (e.ColumnIndex == ReservationDataGridView.Columns["Check-out Status"].Index && e.RowIndex >= 0)
-            {
-                // Get the current cell
-                DataGridViewCheckBoxCell cellOut = ReservationDataGridView.Rows[e.RowIndex].Cells["Check-out Status"] as DataGridViewCheckBoxCell;
-
-                // Check if the corresponding "Check-out Status" is currently true
-                bool checkInStatus = (bool)ReservationDataGridView.Rows[e.RowIndex].Cells["Check-in Status"].Value;
-                // Check if the corresponding "Cancellation" is currently true
-                bool cancelStatus = (bool)ReservationDataGridView.Rows[e.RowIndex].Cells["Cancellation"].Value;
-
-                if (!checkInStatus || cancelStatus)
-                {
-                    // Disable checkbox click for "Check-in Status"
-                    cellOut.ReadOnly = true;
-                    return;
-                }
-                // Toggle the checkbox value
-                cellOut.Value = !(bool)cellOut.Value;
-
-
-                // Commit the change to the underlying data source
-                string query;
-                string updateRoom;
-                if ((bool)cellOut.Value == true)
-                {
-                    query = "UPDATE reservations SET check_out_status = " + cellOut.Value + ", reservation_status = 'Checked Out' WHERE reservation_id = " + _presenter.ReservationList.ElementAt(e.RowIndex).ReservationId;
-                    updateRoom = "UPDATE rooms SET room_status_id = 0 WHERE room_unit = " + _presenter.ReservationList.ElementAt(e.RowIndex).RoomUnit;
-                }
-                else                   
-                {
-                    query = "UPDATE reservations SET check_out_status = " + cellOut.Value + ", reservation_status = 'Checked In' WHERE reservation_id = " + _presenter.ReservationList.ElementAt(e.RowIndex).ReservationId;
-                    updateRoom = "UPDATE rooms SET room_status_id = 2 WHERE room_unit = " + _presenter.ReservationList.ElementAt(e.RowIndex).RoomUnit;
-                }
-
-                _presenter.UpdateStatus(query);
-                _presenter.UpdateStatus(updateRoom);
-                // ReservationDataGridView.Refresh();
-            }
-            // Cancel
-            if (e.ColumnIndex == ReservationDataGridView.Columns["Cancellation"].Index && e.RowIndex >= 0)
-            {
-                // Get the current cell
-                DataGridViewCheckBoxCell cellCancel = ReservationDataGridView.Rows[e.RowIndex].Cells["Cancellation"] as DataGridViewCheckBoxCell;
-
-                // Check if the corresponding "Check-in Status" is currently true
-                bool checkInStatus = (bool)ReservationDataGridView.Rows[e.RowIndex].Cells["Check-in Status"].Value;
-                // Check if the corresponding "Check-out Status" is currently true
-                bool checkOutStatus = (bool)ReservationDataGridView.Rows[e.RowIndex].Cells["Check-out Status"].Value;
-
-                if (checkInStatus || checkOutStatus)
-                {
-                    // Disable checkbox click for "Cancel"
-                    cellCancel.ReadOnly = true;
-                    return;
-                }
-
-                // Toggle the checkbox value
-                cellCancel.Value = !(bool)cellCancel.Value;
-                
-                // Commit the change to the underlying data source
-
-                string query;
-                string updateRoom;
-                if ((bool)cellCancel.Value == true)
-                {
-                    query = "UPDATE reservations SET reservation_cancel = " + cellCancel.Value + ", reservation_status = 'Cancelled' WHERE reservation_id = " + _presenter.ReservationList.ElementAt(e.RowIndex).ReservationId;
-                    updateRoom = "UPDATE rooms SET room_status_id = 0 WHERE room_unit = " + _presenter.ReservationList.ElementAt(e.RowIndex).RoomUnit;
-                }
-                else
-                {
-                    query = "UPDATE reservations SET reservation_cancel = " + cellCancel.Value + ", reservation_status = 'Reserved' WHERE reservation_id = " + _presenter.ReservationList.ElementAt(e.RowIndex).ReservationId;
-                    if (!checkInStatus && !checkOutStatus)
-                    {
-                        updateRoom = "UPDATE rooms SET room_status_id = 1 WHERE room_unit = " + _presenter.ReservationList.ElementAt(e.RowIndex).RoomUnit;
-                    }
-                    else if (checkInStatus && !checkOutStatus)
-                    {
-                        updateRoom = "UPDATE rooms SET room_status_id = 2 WHERE room_unit = " + _presenter.ReservationList.ElementAt(e.RowIndex).RoomUnit;
-                    }
-                    else if (checkInStatus && checkOutStatus)
-                    {
-                        updateRoom = "UPDATE rooms SET room_status_id = 0 WHERE room_unit = " + _presenter.ReservationList.ElementAt(e.RowIndex).RoomUnit;
-                    }
-                    else
-                    {
-                        updateRoom = "UPDATE rooms SET room_status_id = 0 WHERE room_unit = " + _presenter.ReservationList.ElementAt(e.RowIndex).RoomUnit;
-                    }
-                }
-
-                _presenter.UpdateStatus(query);
-                _presenter.UpdateStatus(updateRoom);
-                // ReservationDataGridView.Refresh();
-            }
-
+            _presenter.CheckBox(sender, e, ReservationDataGridView);
 
         }
 
@@ -258,7 +121,7 @@ namespace HotelReservationSystem.Reservation
 
         public List<Reservation> ReservationList { get { return _reservationlist; } }
 
-        public void UpdateStatus(string query)
+        public static void UpdateStatus(string query)
         {
             MySqlConnection connection = new MySqlConnection(_connection);
             MySqlCommand command = new MySqlCommand(query, connection);
@@ -381,7 +244,195 @@ namespace HotelReservationSystem.Reservation
             }
             
         }
-     
+        public void CheckBox(object sender, DataGridViewCellEventArgs e, DataGridView ReservationDataGridView)
+        {
+            //Check In
+            CheckBoxCheckIn(sender, e, ReservationDataGridView);
+            // Check out
+            CheckBoxCheckOut(sender, e, ReservationDataGridView);
+            // Cancel
+            CheckBoxCancel(sender, e, ReservationDataGridView);
+        }
+
+        private void CheckBoxCheckIn(object sender, DataGridViewCellEventArgs e, DataGridView ReservationDataGridView)
+        {
+
+            // Check if the clicked column is the "Check-in Status" column
+            if (e.ColumnIndex == ReservationDataGridView.Columns["Check-in Status"].Index && e.RowIndex >= 0)
+            {
+                // Get the current cell
+                DataGridViewCheckBoxCell cellIn = ReservationDataGridView.Rows[e.RowIndex].Cells["Check-in Status"] as DataGridViewCheckBoxCell;
+
+                // Check if the corresponding "Check-out Status" is currently true
+                bool checkOutStatus = (bool)ReservationDataGridView.Rows[e.RowIndex].Cells["Check-out Status"].Value;
+
+                // Check if the corresponding "Cancellation" is currently true
+                bool cancelStatus = (bool)ReservationDataGridView.Rows[e.RowIndex].Cells["Cancellation"].Value;
+
+                if (checkOutStatus || cancelStatus)
+                {
+                    // Disable checkbox click for "Check-in Status"
+                    cellIn.ReadOnly = true;
+                    return;
+                }
+
+                // Toggle the checkbox value
+                cellIn.Value = !(bool)cellIn.Value;
+
+                string query;
+                string updateRoom;
+                if ((bool)cellIn.Value == true)
+                {
+                    query = "UPDATE reservations SET check_in_status = " + cellIn.Value + ", reservation_status = 'Checked In' WHERE reservation_id = " + ReservationList.ElementAt(e.RowIndex).ReservationId;
+                    updateRoom = "UPDATE rooms SET room_status_id = 2 WHERE room_unit = " + ReservationList.ElementAt(e.RowIndex).RoomUnit;
+
+                }
+                else
+                {
+                    query = "UPDATE reservations SET check_in_status = " + cellIn.Value + ", reservation_status = 'Reserved' WHERE reservation_id = " + ReservationList.ElementAt(e.RowIndex).ReservationId;
+                    updateRoom = "UPDATE rooms SET room_status_id = 1 WHERE room_unit = " + ReservationList.ElementAt(e.RowIndex).RoomUnit;
+                }
+                UpdateStatus(query);
+                UpdateStatus(updateRoom);
+                // ReservationDataGridView.Refresh();
+            }
+        }
+
+        private void CheckBoxCheckOut (object sender, DataGridViewCellEventArgs e, DataGridView ReservationDataGridView)
+        {
+            if (e.ColumnIndex == ReservationDataGridView.Columns["Check-out Status"].Index && e.RowIndex >= 0)
+            {
+                // Get the current cell
+                DataGridViewCheckBoxCell cellOut = ReservationDataGridView.Rows[e.RowIndex].Cells["Check-out Status"] as DataGridViewCheckBoxCell;
+
+                // Check if the corresponding "Check-out Status" is currently true
+                bool checkInStatus = (bool)ReservationDataGridView.Rows[e.RowIndex].Cells["Check-in Status"].Value;
+                // Check if the corresponding "Cancellation" is currently true
+                bool cancelStatus = (bool)ReservationDataGridView.Rows[e.RowIndex].Cells["Cancellation"].Value;
+
+                if (!checkInStatus || cancelStatus)
+                {
+                    // Disable checkbox click for "Check-in Status"
+                    cellOut.ReadOnly = true;
+                    return;
+                }
+                // Toggle the checkbox value
+                cellOut.Value = !(bool)cellOut.Value;
+                // Commit the change to the underlying data source
+                string query;
+                string updateRoom;
+                if ((bool)cellOut.Value == true)
+                {
+                    query = "UPDATE reservations SET check_out_status = " + cellOut.Value + ", reservation_status = 'Checked Out' WHERE reservation_id = " + ReservationList.ElementAt(e.RowIndex).ReservationId;
+                    if (HasNextSchedule(ReservationList.ElementAt(e.RowIndex).RoomUnit))
+                    {
+                        updateRoom = "UPDATE rooms SET room_status_id = 1 WHERE room_unit = " + ReservationList.ElementAt(e.RowIndex).RoomUnit;
+                    }
+                    else
+                    {
+                        updateRoom = "UPDATE rooms SET room_status_id = 0 WHERE room_unit = " + ReservationList.ElementAt(e.RowIndex).RoomUnit;
+                    }
+                }
+                else
+                {
+                    query = "UPDATE reservations SET check_out_status = " + cellOut.Value + ", reservation_status = 'Checked In' WHERE reservation_id = " + ReservationList.ElementAt(e.RowIndex).ReservationId;
+                    updateRoom = "UPDATE rooms SET room_status_id = 2 WHERE room_unit = " + ReservationList.ElementAt(e.RowIndex).RoomUnit;
+                }
+
+                UpdateStatus(query);
+                UpdateStatus(updateRoom);
+                // ReservationDataGridView.Refresh();
+            }
+        }
+
+        private void CheckBoxCancel (object sender, DataGridViewCellEventArgs e, DataGridView ReservationDataGridView)
+        {
+            if (e.ColumnIndex == ReservationDataGridView.Columns["Cancellation"].Index && e.RowIndex >= 0)
+            {
+                // Get the current cell
+                DataGridViewCheckBoxCell cellCancel = ReservationDataGridView.Rows[e.RowIndex].Cells["Cancellation"] as DataGridViewCheckBoxCell;
+
+                // Check if the corresponding "Check-in Status" is currently true
+                bool checkInStatus = (bool)ReservationDataGridView.Rows[e.RowIndex].Cells["Check-in Status"].Value;
+                // Check if the corresponding "Check-out Status" is currently true
+                bool checkOutStatus = (bool)ReservationDataGridView.Rows[e.RowIndex].Cells["Check-out Status"].Value;
+
+                if (checkInStatus || checkOutStatus)
+                {
+                    // Disable checkbox click for "Cancel"
+                    cellCancel.ReadOnly = true;
+                    return;
+                }
+
+                // Toggle the checkbox value
+                cellCancel.Value = !(bool)cellCancel.Value;
+
+                // Commit the change to the underlying data source
+
+                string query;
+                string updateRoom;
+                if ((bool)cellCancel.Value == true)
+                {
+                    query = "UPDATE reservations SET reservation_cancel = " + cellCancel.Value + ", reservation_status = 'Cancelled' WHERE reservation_id = " + ReservationList.ElementAt(e.RowIndex).ReservationId;
+                    if (HasNextSchedule(ReservationList.ElementAt(e.RowIndex).RoomUnit))
+                    {
+                        updateRoom = "UPDATE rooms SET room_status_id = 1 WHERE room_unit = " + ReservationList.ElementAt(e.RowIndex).RoomUnit;
+                    }
+                    else
+                    {
+                        updateRoom = "UPDATE rooms SET room_status_id = 0 WHERE room_unit = " + ReservationList.ElementAt(e.RowIndex).RoomUnit;
+                    }
+                }
+                else
+                {
+                    query = "UPDATE reservations SET reservation_cancel = " + cellCancel.Value + ", reservation_status = 'Reserved' WHERE reservation_id = " + ReservationList.ElementAt(e.RowIndex).ReservationId;
+                    if (!checkInStatus && !checkOutStatus)
+                    {
+                        updateRoom = "UPDATE rooms SET room_status_id = 1 WHERE room_unit = " + ReservationList.ElementAt(e.RowIndex).RoomUnit;
+                    }
+                    else if (checkInStatus && !checkOutStatus)
+                    {
+                        updateRoom = "UPDATE rooms SET room_status_id = 2 WHERE room_unit = " + ReservationList.ElementAt(e.RowIndex).RoomUnit;
+                    }
+                    else if (checkInStatus && checkOutStatus)
+                    {
+                        updateRoom = "UPDATE rooms SET room_status_id = 0 WHERE room_unit = " + ReservationList.ElementAt(e.RowIndex).RoomUnit;
+                    }
+                    else
+                    {
+                        updateRoom = "UPDATE rooms SET room_status_id = 0 WHERE room_unit = " + ReservationList.ElementAt(e.RowIndex).RoomUnit;
+                    }
+                }
+
+                UpdateStatus(query);
+                UpdateStatus(updateRoom);
+                // ReservationDataGridView.Refresh();
+            }
+        }
+
+        private bool HasNextSchedule(int RoomUnit)
+        {
+            string query = "SELECT * FROM reservations WHERE room_unit = " + RoomUnit + " AND check_in >= CURDATE() AND check_out_status = 0 AND reservation_cancel = 0 ORDER BY check_in DESC;";
+
+            MySqlConnection connection = new MySqlConnection(_connection);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataTable dataTable = new DataTable();
+            connection.Open();
+            adapter.Fill(dataTable);
+
+            bool result;
+
+            if (dataTable != null && dataTable.Rows.Count > 1)
+            {
+                result = true;
+            }
+            else { result = false; }
+
+            Debug.WriteLine(result);
+
+            return result;
+        }
     }
 
     public class Reservation : INotifyPropertyChanged
@@ -406,6 +457,11 @@ namespace HotelReservationSystem.Reservation
         public bool Check_In_Status { get { return _check_in_status; } set { _check_in_status = value; } }
         public bool Check_Out_Status { get { return _check_out_status; } set { _check_out_status = value; } }
         public bool Cancellation { get { return _cancellation; } set { _cancellation = value; } }
+
+
+        
+
     }
+
 }
 
