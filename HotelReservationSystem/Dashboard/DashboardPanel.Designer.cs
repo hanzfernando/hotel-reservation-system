@@ -37,69 +37,54 @@
             this.UserName = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.MonthlyRevenue = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.ExpectedValue = new System.Windows.Forms.Label();
-            this.Expected = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.RemainingValue = new System.Windows.Forms.Label();
-            this.Remaining = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.CollectedValue = new System.Windows.Forms.Label();
-            this.Collected = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.Floor1Bar = new System.Windows.Forms.ProgressBar();
             this.Floor1Percent = new System.Windows.Forms.Label();
             this.Floor1 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.Floor2Bar = new System.Windows.Forms.ProgressBar();
             this.Floor2Percent = new System.Windows.Forms.Label();
             this.Floor2 = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.Floor3Bar = new System.Windows.Forms.ProgressBar();
             this.Floor3Percent = new System.Windows.Forms.Label();
             this.Floor3 = new System.Windows.Forms.Label();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.panel12 = new System.Windows.Forms.Panel();
+            this.Floor4Bar = new System.Windows.Forms.ProgressBar();
             this.Floor4Percent = new System.Windows.Forms.Label();
             this.Floor4 = new System.Windows.Forms.Label();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.Floor5Bar = new System.Windows.Forms.ProgressBar();
             this.Floor5Percent = new System.Windows.Forms.Label();
             this.Floor5 = new System.Windows.Forms.Label();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.Floor6Bar = new System.Windows.Forms.ProgressBar();
             this.Floor6Percent = new System.Windows.Forms.Label();
             this.Floor6 = new System.Windows.Forms.Label();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.Floor1Bar = new System.Windows.Forms.ProgressBar();
-            this.Floor2Bar = new System.Windows.Forms.ProgressBar();
-            this.Floor3Bar = new System.Windows.Forms.ProgressBar();
-            this.Floor4Bar = new System.Windows.Forms.ProgressBar();
-            this.Floor5Bar = new System.Windows.Forms.ProgressBar();
-            this.Floor6Bar = new System.Windows.Forms.ProgressBar();
+            this.CollectedValue = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.MonthlyRevenue = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.CollectedTitleLabel = new System.Windows.Forms.Label();
             this.RevenueTableLayout.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -116,6 +101,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // listView1
@@ -211,47 +199,18 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.panel3, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel4, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.panel5, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.panel6, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.panel6, 0, 1);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(854, 230);
             this.tableLayoutPanel2.TabIndex = 1;
-            // 
-            // panel3
-            // 
-            this.tableLayoutPanel2.SetColumnSpan(this.panel3, 2);
-            this.panel3.Controls.Add(this.MonthlyRevenue);
-            this.panel3.Controls.Add(this.pictureBox2);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(0);
-            this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(30, 20, 30, 10);
-            this.panel3.Size = new System.Drawing.Size(854, 76);
-            this.panel3.TabIndex = 0;
-            // 
-            // MonthlyRevenue
-            // 
-            this.MonthlyRevenue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.MonthlyRevenue.AutoSize = true;
-            this.MonthlyRevenue.Font = new System.Drawing.Font("SansSerif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.MonthlyRevenue.Location = new System.Drawing.Point(0, 0);
-            this.MonthlyRevenue.Margin = new System.Windows.Forms.Padding(3);
-            this.MonthlyRevenue.Name = "MonthlyRevenue";
-            this.MonthlyRevenue.Size = new System.Drawing.Size(223, 31);
-            this.MonthlyRevenue.TabIndex = 1;
-            this.MonthlyRevenue.Text = "Monthly Revenue";
             // 
             // pictureBox2
             // 
@@ -260,161 +219,10 @@
             this.pictureBox2.Location = new System.Drawing.Point(30, 20);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(794, 46);
+            this.pictureBox2.Size = new System.Drawing.Size(794, 85);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.ExpectedValue);
-            this.panel4.Controls.Add(this.Expected);
-            this.panel4.Controls.Add(this.pictureBox3);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 76);
-            this.panel4.Margin = new System.Windows.Forms.Padding(0);
-            this.panel4.Name = "panel4";
-            this.panel4.Padding = new System.Windows.Forms.Padding(30, 10, 10, 10);
-            this.panel4.Size = new System.Drawing.Size(427, 76);
-            this.panel4.TabIndex = 1;
-            // 
-            // ExpectedValue
-            // 
-            this.ExpectedValue.AutoSize = true;
-            this.ExpectedValue.Font = new System.Drawing.Font("SansSerif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.ExpectedValue.ForeColor = System.Drawing.Color.White;
-            this.ExpectedValue.Location = new System.Drawing.Point(0, 18);
-            this.ExpectedValue.Margin = new System.Windows.Forms.Padding(0);
-            this.ExpectedValue.Name = "ExpectedValue";
-            this.ExpectedValue.Padding = new System.Windows.Forms.Padding(20, 3, 0, 0);
-            this.ExpectedValue.Size = new System.Drawing.Size(196, 34);
-            this.ExpectedValue.TabIndex = 2;
-            this.ExpectedValue.Text = "P 28,124,534";
-            // 
-            // Expected
-            // 
-            this.Expected.AutoSize = true;
-            this.Expected.Font = new System.Drawing.Font("SansSerif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.Expected.ForeColor = System.Drawing.Color.White;
-            this.Expected.Location = new System.Drawing.Point(0, 0);
-            this.Expected.Margin = new System.Windows.Forms.Padding(0);
-            this.Expected.Name = "Expected";
-            this.Expected.Padding = new System.Windows.Forms.Padding(20, 5, 0, 0);
-            this.Expected.Size = new System.Drawing.Size(71, 17);
-            this.Expected.TabIndex = 1;
-            this.Expected.Text = "Expected";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(30, 10);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(387, 56);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 0;
-            this.pictureBox3.TabStop = false;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.RemainingValue);
-            this.panel5.Controls.Add(this.Remaining);
-            this.panel5.Controls.Add(this.pictureBox4);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(437, 86);
-            this.panel5.Margin = new System.Windows.Forms.Padding(10, 10, 30, 10);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(387, 56);
-            this.panel5.TabIndex = 2;
-            // 
-            // RemainingValue
-            // 
-            this.RemainingValue.AutoSize = true;
-            this.RemainingValue.Font = new System.Drawing.Font("SansSerif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.RemainingValue.ForeColor = System.Drawing.Color.DarkOrange;
-            this.RemainingValue.Location = new System.Drawing.Point(0, 18);
-            this.RemainingValue.Margin = new System.Windows.Forms.Padding(0);
-            this.RemainingValue.Name = "RemainingValue";
-            this.RemainingValue.Padding = new System.Windows.Forms.Padding(20, 3, 0, 0);
-            this.RemainingValue.Size = new System.Drawing.Size(196, 34);
-            this.RemainingValue.TabIndex = 2;
-            this.RemainingValue.Text = "P 11,750,411";
-            // 
-            // Remaining
-            // 
-            this.Remaining.AutoSize = true;
-            this.Remaining.Font = new System.Drawing.Font("SansSerif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.Remaining.ForeColor = System.Drawing.Color.White;
-            this.Remaining.Location = new System.Drawing.Point(0, 0);
-            this.Remaining.Margin = new System.Windows.Forms.Padding(0);
-            this.Remaining.Name = "Remaining";
-            this.Remaining.Padding = new System.Windows.Forms.Padding(20, 5, 0, 0);
-            this.Remaining.Size = new System.Drawing.Size(76, 17);
-            this.Remaining.TabIndex = 1;
-            this.Remaining.Text = "Remaining";
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(387, 56);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 0;
-            this.pictureBox4.TabStop = false;
-            // 
-            // panel6
-            // 
-            this.tableLayoutPanel2.SetColumnSpan(this.panel6, 2);
-            this.panel6.Controls.Add(this.CollectedValue);
-            this.panel6.Controls.Add(this.Collected);
-            this.panel6.Controls.Add(this.pictureBox5);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 152);
-            this.panel6.Margin = new System.Windows.Forms.Padding(0);
-            this.panel6.Name = "panel6";
-            this.panel6.Padding = new System.Windows.Forms.Padding(30, 10, 30, 15);
-            this.panel6.Size = new System.Drawing.Size(854, 78);
-            this.panel6.TabIndex = 3;
-            // 
-            // CollectedValue
-            // 
-            this.CollectedValue.AutoSize = true;
-            this.CollectedValue.Font = new System.Drawing.Font("SansSerif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.CollectedValue.ForeColor = System.Drawing.Color.LimeGreen;
-            this.CollectedValue.Location = new System.Drawing.Point(0, 18);
-            this.CollectedValue.Margin = new System.Windows.Forms.Padding(0);
-            this.CollectedValue.Name = "CollectedValue";
-            this.CollectedValue.Padding = new System.Windows.Forms.Padding(20, 3, 0, 0);
-            this.CollectedValue.Size = new System.Drawing.Size(196, 34);
-            this.CollectedValue.TabIndex = 2;
-            this.CollectedValue.Text = "P 16,374,123";
-            // 
-            // Collected
-            // 
-            this.Collected.AutoSize = true;
-            this.Collected.Font = new System.Drawing.Font("SansSerif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.Collected.ForeColor = System.Drawing.Color.White;
-            this.Collected.Location = new System.Drawing.Point(0, 0);
-            this.Collected.Margin = new System.Windows.Forms.Padding(0);
-            this.Collected.Name = "Collected";
-            this.Collected.Padding = new System.Windows.Forms.Padding(20, 5, 0, 0);
-            this.Collected.Size = new System.Drawing.Size(70, 17);
-            this.Collected.TabIndex = 1;
-            this.Collected.Text = "Collected";
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(30, 10);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(794, 53);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 0;
-            this.pictureBox5.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -496,6 +304,14 @@
             this.panel9.Size = new System.Drawing.Size(226, 132);
             this.panel9.TabIndex = 0;
             // 
+            // Floor1Bar
+            // 
+            this.Floor1Bar.Location = new System.Drawing.Point(38, 90);
+            this.Floor1Bar.Margin = new System.Windows.Forms.Padding(0);
+            this.Floor1Bar.Name = "Floor1Bar";
+            this.Floor1Bar.Size = new System.Drawing.Size(150, 30);
+            this.Floor1Bar.TabIndex = 3;
+            // 
             // Floor1Percent
             // 
             this.Floor1Percent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -547,6 +363,14 @@
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(226, 132);
             this.panel10.TabIndex = 1;
+            // 
+            // Floor2Bar
+            // 
+            this.Floor2Bar.Location = new System.Drawing.Point(38, 90);
+            this.Floor2Bar.Margin = new System.Windows.Forms.Padding(0);
+            this.Floor2Bar.Name = "Floor2Bar";
+            this.Floor2Bar.Size = new System.Drawing.Size(150, 30);
+            this.Floor2Bar.TabIndex = 4;
             // 
             // Floor2Percent
             // 
@@ -600,6 +424,14 @@
             this.panel11.Size = new System.Drawing.Size(228, 132);
             this.panel11.TabIndex = 2;
             // 
+            // Floor3Bar
+            // 
+            this.Floor3Bar.Location = new System.Drawing.Point(38, 90);
+            this.Floor3Bar.Margin = new System.Windows.Forms.Padding(0);
+            this.Floor3Bar.Name = "Floor3Bar";
+            this.Floor3Bar.Size = new System.Drawing.Size(150, 30);
+            this.Floor3Bar.TabIndex = 5;
+            // 
             // Floor3Percent
             // 
             this.Floor3Percent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -651,6 +483,14 @@
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(226, 133);
             this.panel12.TabIndex = 3;
+            // 
+            // Floor4Bar
+            // 
+            this.Floor4Bar.Location = new System.Drawing.Point(38, 90);
+            this.Floor4Bar.Margin = new System.Windows.Forms.Padding(0);
+            this.Floor4Bar.Name = "Floor4Bar";
+            this.Floor4Bar.Size = new System.Drawing.Size(150, 30);
+            this.Floor4Bar.TabIndex = 5;
             // 
             // Floor4Percent
             // 
@@ -704,6 +544,14 @@
             this.panel13.Size = new System.Drawing.Size(226, 133);
             this.panel13.TabIndex = 4;
             // 
+            // Floor5Bar
+            // 
+            this.Floor5Bar.Location = new System.Drawing.Point(38, 90);
+            this.Floor5Bar.Margin = new System.Windows.Forms.Padding(0);
+            this.Floor5Bar.Name = "Floor5Bar";
+            this.Floor5Bar.Size = new System.Drawing.Size(150, 30);
+            this.Floor5Bar.TabIndex = 6;
+            // 
             // Floor5Percent
             // 
             this.Floor5Percent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -756,6 +604,14 @@
             this.panel14.Size = new System.Drawing.Size(228, 133);
             this.panel14.TabIndex = 5;
             // 
+            // Floor6Bar
+            // 
+            this.Floor6Bar.Location = new System.Drawing.Point(38, 90);
+            this.Floor6Bar.Margin = new System.Windows.Forms.Padding(0);
+            this.Floor6Bar.Name = "Floor6Bar";
+            this.Floor6Bar.Size = new System.Drawing.Size(150, 30);
+            this.Floor6Bar.TabIndex = 6;
+            // 
             // Floor6Percent
             // 
             this.Floor6Percent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -795,53 +651,80 @@
             this.pictureBox11.TabIndex = 0;
             this.pictureBox11.TabStop = false;
             // 
-            // Floor1Bar
+            // CollectedValue
             // 
-            this.Floor1Bar.Location = new System.Drawing.Point(38, 90);
-            this.Floor1Bar.Margin = new System.Windows.Forms.Padding(0);
-            this.Floor1Bar.Name = "Floor1Bar";
-            this.Floor1Bar.Size = new System.Drawing.Size(150, 30);
-            this.Floor1Bar.TabIndex = 3;
+            this.CollectedValue.AutoSize = true;
+            this.CollectedValue.Font = new System.Drawing.Font("SansSerif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.CollectedValue.ForeColor = System.Drawing.Color.LimeGreen;
+            this.CollectedValue.Location = new System.Drawing.Point(52, 56);
+            this.CollectedValue.Margin = new System.Windows.Forms.Padding(0);
+            this.CollectedValue.Name = "CollectedValue";
+            this.CollectedValue.Size = new System.Drawing.Size(176, 31);
+            this.CollectedValue.TabIndex = 2;
+            this.CollectedValue.Text = "P 16,374,123";
             // 
-            // Floor2Bar
+            // panel6
             // 
-            this.Floor2Bar.Location = new System.Drawing.Point(38, 90);
-            this.Floor2Bar.Margin = new System.Windows.Forms.Padding(0);
-            this.Floor2Bar.Name = "Floor2Bar";
-            this.Floor2Bar.Size = new System.Drawing.Size(150, 30);
-            this.Floor2Bar.TabIndex = 4;
+            this.panel6.Controls.Add(this.CollectedTitleLabel);
+            this.panel6.Controls.Add(this.CollectedValue);
+            this.panel6.Controls.Add(this.pictureBox5);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 115);
+            this.panel6.Margin = new System.Windows.Forms.Padding(0);
+            this.panel6.Name = "panel6";
+            this.panel6.Padding = new System.Windows.Forms.Padding(30, 10, 30, 15);
+            this.panel6.Size = new System.Drawing.Size(854, 115);
+            this.panel6.TabIndex = 3;
+            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
-            // Floor3Bar
+            // pictureBox5
             // 
-            this.Floor3Bar.Location = new System.Drawing.Point(38, 90);
-            this.Floor3Bar.Margin = new System.Windows.Forms.Padding(0);
-            this.Floor3Bar.Name = "Floor3Bar";
-            this.Floor3Bar.Size = new System.Drawing.Size(150, 30);
-            this.Floor3Bar.TabIndex = 5;
+            this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(30, 10);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(794, 90);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 0;
+            this.pictureBox5.TabStop = false;
             // 
-            // Floor4Bar
+            // MonthlyRevenue
             // 
-            this.Floor4Bar.Location = new System.Drawing.Point(38, 90);
-            this.Floor4Bar.Margin = new System.Windows.Forms.Padding(0);
-            this.Floor4Bar.Name = "Floor4Bar";
-            this.Floor4Bar.Size = new System.Drawing.Size(150, 30);
-            this.Floor4Bar.TabIndex = 5;
+            this.MonthlyRevenue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.MonthlyRevenue.AutoSize = true;
+            this.MonthlyRevenue.Font = new System.Drawing.Font("SansSerif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.MonthlyRevenue.Location = new System.Drawing.Point(53, 44);
+            this.MonthlyRevenue.Margin = new System.Windows.Forms.Padding(3);
+            this.MonthlyRevenue.Name = "MonthlyRevenue";
+            this.MonthlyRevenue.Size = new System.Drawing.Size(288, 41);
+            this.MonthlyRevenue.TabIndex = 1;
+            this.MonthlyRevenue.Text = "Monthly Revenue";
             // 
-            // Floor5Bar
+            // panel3
             // 
-            this.Floor5Bar.Location = new System.Drawing.Point(38, 90);
-            this.Floor5Bar.Margin = new System.Windows.Forms.Padding(0);
-            this.Floor5Bar.Name = "Floor5Bar";
-            this.Floor5Bar.Size = new System.Drawing.Size(150, 30);
-            this.Floor5Bar.TabIndex = 6;
+            this.panel3.Controls.Add(this.MonthlyRevenue);
+            this.panel3.Controls.Add(this.pictureBox2);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(0);
+            this.panel3.Name = "panel3";
+            this.panel3.Padding = new System.Windows.Forms.Padding(30, 20, 30, 10);
+            this.panel3.Size = new System.Drawing.Size(854, 115);
+            this.panel3.TabIndex = 0;
             // 
-            // Floor6Bar
+            // CollectedTitleLabel
             // 
-            this.Floor6Bar.Location = new System.Drawing.Point(38, 90);
-            this.Floor6Bar.Margin = new System.Windows.Forms.Padding(0);
-            this.Floor6Bar.Name = "Floor6Bar";
-            this.Floor6Bar.Size = new System.Drawing.Size(150, 30);
-            this.Floor6Bar.TabIndex = 6;
+            this.CollectedTitleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.CollectedTitleLabel.AutoSize = true;
+            this.CollectedTitleLabel.Font = new System.Drawing.Font("SansSerif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.CollectedTitleLabel.ForeColor = System.Drawing.Color.White;
+            this.CollectedTitleLabel.Location = new System.Drawing.Point(51, 21);
+            this.CollectedTitleLabel.Name = "CollectedTitleLabel";
+            this.CollectedTitleLabel.Size = new System.Drawing.Size(214, 31);
+            this.CollectedTitleLabel.TabIndex = 1;
+            this.CollectedTitleLabel.Text = "Collected Money";
             // 
             // DashboardPanel
             // 
@@ -859,18 +742,7 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
@@ -894,6 +766,11 @@
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -909,21 +786,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label MonthlyRevenue;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label Expected;
-        private System.Windows.Forms.Label ExpectedValue;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Label Remaining;
-        private System.Windows.Forms.Label RemainingValue;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Label Collected;
-        private System.Windows.Forms.Label CollectedValue;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel8;
@@ -958,5 +821,11 @@
         private System.Windows.Forms.ProgressBar Floor4Bar;
         private System.Windows.Forms.ProgressBar Floor5Bar;
         private System.Windows.Forms.ProgressBar Floor6Bar;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label MonthlyRevenue;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label CollectedTitleLabel;
+        private System.Windows.Forms.Label CollectedValue;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }

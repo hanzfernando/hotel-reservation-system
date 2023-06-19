@@ -1,4 +1,5 @@
-﻿using HotelReservationSystem.Constants;
+﻿using Google.Protobuf.WellKnownTypes;
+using HotelReservationSystem.Constants;
 using HotelReservationSystem.PresenterCommons;
 using MySql.Data.MySqlClient;
 using System;
@@ -14,6 +15,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+//using System.Globalization;
 
 namespace HotelReservationSystem.Dashboard
 {
@@ -30,11 +32,7 @@ namespace HotelReservationSystem.Dashboard
             _presenter = new PresenterDashboardPanel();
             tableLayoutPanel2.Parent = pictureBox1;
             MonthlyRevenue.Parent = pictureBox2;
-            Expected.Parent = pictureBox3;
-            ExpectedValue.Parent = pictureBox3;
-            Remaining.Parent = pictureBox4;
-            RemainingValue.Parent = pictureBox4;
-            Collected.Parent = pictureBox5;
+            CollectedTitleLabel.Parent = pictureBox5;
             CollectedValue.Parent = pictureBox5;
             Floor1.Parent = pictureBox6;
             Floor2.Parent = pictureBox7;
@@ -58,6 +56,7 @@ namespace HotelReservationSystem.Dashboard
         public void PeriodicRefresh (object sender, EventArgs e)
         {
 
+
             Task periodicTask = RunPeriodicAsynchronousTask(() =>
             {
                 _presenter.GetAllOccupancyPercentage();
@@ -73,6 +72,9 @@ namespace HotelReservationSystem.Dashboard
                 Floor4Bar.Value = _presenter.Floor4;
                 Floor5Bar.Value = _presenter.Floor5;
                 Floor6Bar.Value = _presenter.Floor6;
+                _presenter.GetCollectedMoney();
+                //CollectedValue.Text = string.Format(CultureInfo.CreateSpecificCulture("en-PH"), "{0:C}", double.Parse(CollectedValue.Text));
+                CollectedValue.Text = "PHP " + _presenter.Collected;
             }, TimeSpan.FromSeconds(1));
         }
 
@@ -93,6 +95,11 @@ namespace HotelReservationSystem.Dashboard
                 // Task was cancelled
             }
         }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 
     public interface IPresenterDashboardPanel : IPresenter
@@ -104,6 +111,7 @@ namespace HotelReservationSystem.Dashboard
         int Floor4 { get; set; }
         int Floor5 { get; set; }
         int Floor6 { get; set; }
+        double Collected { get; set; }
     }
 
     public class PresenterDashboardPanel : INotifyPropertyChanged, IPresenterDashboardPanel
@@ -118,6 +126,7 @@ namespace HotelReservationSystem.Dashboard
         private int _floor4 = 0;
         private int _floor5 = 0;
         private int _floor6 = 0;
+        private double _collected;
 
         public event PropertyChangedEventHandler PropertyChanged;
          public void OnPropertyChanged(string propertyName)
@@ -182,6 +191,14 @@ namespace HotelReservationSystem.Dashboard
             }
         }
 
+        public double Collected
+        {
+            get { return _collected; }
+            set { _collected = value;
+                OnPropertyChanged(nameof(Collected));
+            }
+        }
+
         public void Randomize()
         {
             Random random = new Random();
@@ -216,6 +233,61 @@ namespace HotelReservationSystem.Dashboard
             Floor4 = (GetOccupancyCount("4") * 100) / 12;
             Floor5 = (GetOccupancyCount("5") * 100) / 12;
             Floor6 = (GetOccupancyCount("6") * 100) / 12;
+        }
+
+        public void GetCollectedMoney()
+        {
+            int currentMonth = DateTime.Now.Month;
+            int currentYear = DateTime.Now.Year;
+            string query = String.Format(
+                                @"SELECT
+	                            (
+                                    SELECT
+                                        ROUND(
+                                            SUM(
+                                                IF(
+                                                    MONTH(r.check_in) = {0} AND YEAR(r.check_in) = {1},
+                                                    (DATEDIFF(r.check_out, r.check_in) * rtp.room_rate) * 0.9,
+                                                    0
+                                                )
+                                            )
+                                        ,2)
+                                    FROM
+                                        reservations r
+                                        JOIN rooms rms ON r.room_unit = rms.room_unit
+                                        JOIN room_types rtp ON rms.room_type_id = rtp.room_type_id
+                                    WHERE
+                                        MONTH(check_in) = {0} AND YEAR(check_in) = {1}
+                                    #AND r.reservation_status = ""Checked In"" OR r.reservation_status = ""Checked Out""
+                                    AND r.check_in_status = 1
+	                            )
+                                + 
+                                (
+    	                            SELECT
+                                        ROUND(
+                                            SUM(
+                                                IF(
+                                                    MONTH(r.transaction_date) = {0} AND YEAR(r.transaction_date) = {1},
+                                                    (DATEDIFF(r.check_out, r.check_in) * rtp.room_rate) * 0.1,
+                                                    0
+                                                )
+                                            )
+                                        ,2)
+                                    FROM
+                                        reservations r
+                                        JOIN rooms rms ON r.room_unit = rms.room_unit
+                                        JOIN room_types rtp ON rms.room_type_id = rtp.room_type_id
+                                    WHERE
+                                        MONTH(r.transaction_date) = {0} AND YEAR(r.transaction_date) = {1}
+	                            ) AS ""CollectedMoney""", currentMonth, currentYear);
+            string _connection = Constants.MySqlConstants.Connection;
+            MySqlConnection connection = new MySqlConnection(_connection);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            connection.Open();
+            MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(command);
+            DataTable dt = new DataTable();
+            mySqlDataAdapter.Fill(dt);
+            Collected = (double)dt.Select().ElementAt(0)["CollectedMoney"];
         }
     }
 }
