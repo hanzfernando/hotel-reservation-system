@@ -145,7 +145,7 @@
             this.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancelButton.Font = new System.Drawing.Font("SansSerif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.CancelButton.ForeColor = System.Drawing.Color.Black;
-            this.CancelButton.Location = new System.Drawing.Point(1064, 3);
+            this.CancelButton.Location = new System.Drawing.Point(1164, 0);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(100, 40);
             this.CancelButton.TabIndex = 1;
@@ -164,7 +164,7 @@
             this.CreateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CreateButton.Font = new System.Drawing.Font("SansSerif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.CreateButton.ForeColor = System.Drawing.Color.Black;
-            this.CreateButton.Location = new System.Drawing.Point(948, 3);
+            this.CreateButton.Location = new System.Drawing.Point(1048, 0);
             this.CreateButton.Name = "CreateButton";
             this.CreateButton.Size = new System.Drawing.Size(100, 40);
             this.CreateButton.TabIndex = 0;
