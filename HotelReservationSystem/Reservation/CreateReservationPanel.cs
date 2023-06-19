@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI.Common;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -140,7 +141,7 @@ namespace HotelReservationSystem.Reservation
         private void CreateRecordButton_Click(object sender, EventArgs e)
         {
             string[] strings = { "Enter first name...", "Enter last name...", "Enter room unit..." };
-            bool[] inputStatus = new bool[3];
+            bool[] inputStatus = new bool[4];
 
             if (FirstNameTextBox.Text == strings[0] || FirstNameTextBox.Text == "")
             {
@@ -157,10 +158,17 @@ namespace HotelReservationSystem.Reservation
                 inputStatus[2] = true;
             }
 
-           
+            string checkInDate = CheckInDateTimePicker.Value.ToString("yyyy-MM-dd");
+            string checkOutDate = CheckOutDateTimePicker.Value.ToString("yyyy-MM-dd");
+
+
+            if (_presenter.DateAvailability(RoomUnitTextBox.Text, checkInDate, checkOutDate))
+            {
+                inputStatus[3] = true;
+            }          
 
             string message = "";
-            string[] fieldName = { "First Name", "Last Name", "Room Unit" };
+            string[] fieldName = { "First Name", "Last Name", "Room Unit", "Check-in Date / Check-out Date" };
             bool isError = false;
 
             for (int i = 0; i < inputStatus.Length; i++)
@@ -180,8 +188,8 @@ namespace HotelReservationSystem.Reservation
             }
             else
             {
-                string middleName = "";
-                string suffix = "";
+                string middleName;
+                string suffix;
 
                 if (MiddleNameTextBox.Text == "Enter middle name...")
                 {
@@ -201,10 +209,9 @@ namespace HotelReservationSystem.Reservation
                 }
 
                 string transactionDate = TransactionDateTimePicker.Value.ToString("yyyy-MM-dd");
-                string checkInDate = CheckInDateTimePicker.Value.ToString("yyyy-MM-dd");
-                string checkOutDate = CheckOutDateTimePicker.Value.ToString("yyyy-MM-dd");
-                string reserved = "Reserved";
-
+                // string checkInDate = CheckInDateTimePicker.Value.ToString("yyyy-MM-dd");
+                // string checkOutDate = CheckOutDateTimePicker.Value.ToString("yyyy-MM-dd");
+                
                 string query = "INSERT INTO reservations (admin_id, room_unit, transaction_date, customer_name, customer_contact, check_in, check_out, reservation_status) " +
                     "VALUES ('" + _presenter.AdminId + "', " +
                     RoomUnitTextBox.Text + ", " +
@@ -215,10 +222,45 @@ namespace HotelReservationSystem.Reservation
                     "'" + checkOutDate + "', " +
                     "'Reserved');";
 
+                string updateRoomStatus = "UPDATE rooms SET room_status_id = 1 WHERE room_unit = " + RoomUnitTextBox.Text + "";
                 _presenter.UpdateStatus(query);
+                _presenter.UpdateStatus(updateRoomStatus);
+                // Close
+                _presenter.Form.Close();
 
-                // Close Window
-                //this._presenter.Form.Close();
+                /*if (_presenter.CheckRoomStatus(RoomUnitTextBox.Text.Trim()))
+                {
+                    //string updateRoomStatus = "UPDATE rooms SET room_status_id = 1 WHERE room_unit = " + RoomUnitTextBox.Text + "";
+                    //_presenter.UpdateStatus(query);
+                    //_presenter.UpdateStatus(updateRoomStatus);
+                    // Close
+                    //.Form.Close();
+                }
+                else
+                {
+
+                    string caption = "";
+                    if (_presenter.GetRoomStatusId(RoomUnitTextBox.Text.Trim()) == 0)
+                    {
+                        return;
+                    }
+                    else if(_presenter.GetRoomStatusId(RoomUnitTextBox.Text.Trim()) == 1)
+                    {
+                        caption = "Room Already Reserved";
+                    }
+                    else if (_presenter.GetRoomStatusId(RoomUnitTextBox.Text.Trim()) == 2)
+                    {
+                        caption = "Room Already Occupied";
+                    }
+                    else
+                    {
+                        caption = "Invalid Status";
+                    }
+
+                    MessageBoxButtons buttons = MessageBoxButtons.OK;
+                    MessageBox.Show(message, caption, buttons);
+                }     */        
+                
             }
         }
     }
@@ -257,6 +299,40 @@ namespace HotelReservationSystem.Reservation
             connection.Open();
             command.ExecuteNonQuery();
 
+        }
+
+        public bool CheckRoomStatus(string roomUnit)
+        {
+            string query = "SELECT * FROM rooms WHERE room_unit = " + roomUnit + " AND room_status_id = 0";
+            MySqlConnection connection = new MySqlConnection(_connection);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            connection.Open();
+            MySqlDataReader mySqlDataReader = command.ExecuteReader();
+            return mySqlDataReader.HasRows;
+        }
+
+        public int GetRoomStatusId(string roomUnit)
+        {
+            DataTable dataTable = new DataTable();
+
+            string query = "SELECT * FROM rooms WHERE room_unit = " + roomUnit;
+            MySqlConnection connection = new MySqlConnection(_connection);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            connection.Open();
+            MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(command);
+            mySqlDataAdapter.Fill(dataTable);
+            return (int)dataTable.Select().ElementAt(0)["room_status_id"];
+           
+        }
+
+        public bool DateAvailability(string roomUnit, string checkIn, string checkOut)
+        {
+            string query = "SELECT * FROM reservations WHERE room_unit = " + roomUnit + " AND (check_in <= '" + checkOut + "' AND check_out >= '" + checkIn + "') AND reservation_status NOT LIKE 'Cancelled';";
+            MySqlConnection connection = new MySqlConnection(_connection);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            connection.Open();
+            MySqlDataReader mySqlDataReader = command.ExecuteReader();
+            return mySqlDataReader.HasRows;
         }
     }
 

@@ -158,7 +158,7 @@ namespace HotelReservationSystem.Reservation
                 else                   
                 {
                     query = "UPDATE reservations SET check_out_status = " + cellOut.Value + ", reservation_status = 'Checked In' WHERE reservation_id = " + _presenter.ReservationList.ElementAt(e.RowIndex).ReservationId;
-                    updateRoom = "UPDATE rooms SET room_status_id = 1 WHERE room_unit = " + _presenter.ReservationList.ElementAt(e.RowIndex).RoomUnit;
+                    updateRoom = "UPDATE rooms SET room_status_id = 2 WHERE room_unit = " + _presenter.ReservationList.ElementAt(e.RowIndex).RoomUnit;
                 }
 
                 _presenter.UpdateStatus(query);
@@ -171,10 +171,18 @@ namespace HotelReservationSystem.Reservation
                 // Get the current cell
                 DataGridViewCheckBoxCell cellCancel = ReservationDataGridView.Rows[e.RowIndex].Cells["Cancellation"] as DataGridViewCheckBoxCell;
 
-                // Check if the corresponding "Check-out Status" is currently true
+                // Check if the corresponding "Check-in Status" is currently true
                 bool checkInStatus = (bool)ReservationDataGridView.Rows[e.RowIndex].Cells["Check-in Status"].Value;
                 // Check if the corresponding "Check-out Status" is currently true
                 bool checkOutStatus = (bool)ReservationDataGridView.Rows[e.RowIndex].Cells["Check-out Status"].Value;
+
+                if (checkInStatus || checkOutStatus)
+                {
+                    // Disable checkbox click for "Cancel"
+                    cellCancel.ReadOnly = true;
+                    return;
+                }
+
                 // Toggle the checkbox value
                 cellCancel.Value = !(bool)cellCancel.Value;
                 
@@ -189,7 +197,7 @@ namespace HotelReservationSystem.Reservation
                 }
                 else
                 {
-                    query = "UPDATE reservations SET reservation_cancel = " + cellCancel.Value + ", reservation_status = 'Checked Out' WHERE reservation_id = " + _presenter.ReservationList.ElementAt(e.RowIndex).ReservationId;
+                    query = "UPDATE reservations SET reservation_cancel = " + cellCancel.Value + ", reservation_status = 'Reserved' WHERE reservation_id = " + _presenter.ReservationList.ElementAt(e.RowIndex).ReservationId;
                     if (!checkInStatus && !checkOutStatus)
                     {
                         updateRoom = "UPDATE rooms SET room_status_id = 1 WHERE room_unit = " + _presenter.ReservationList.ElementAt(e.RowIndex).RoomUnit;
