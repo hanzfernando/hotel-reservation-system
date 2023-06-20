@@ -447,7 +447,7 @@ namespace HotelReservationSystem.Reservation
 
         private bool HasNextSchedule(int RoomUnit)
         {
-            string query = "SELECT * FROM reservations WHERE room_unit = " + RoomUnit + " AND check_in >= CURDATE() AND check_out_status = 0 AND reservation_cancel = 0 ORDER BY check_in DESC;";
+            string query = "SELECT * FROM reservations WHERE room_unit = " + RoomUnit + " AND check_out_status = 0 AND reservation_cancel = 0 ORDER BY check_in DESC;";
 
             MySqlConnection connection = new MySqlConnection(_connection);
             MySqlCommand command = new MySqlCommand(query, connection);
