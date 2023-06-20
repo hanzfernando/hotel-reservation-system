@@ -222,9 +222,8 @@ namespace HotelReservationSystem.Reservation
                     "'" + checkOutDate + "', " +
                     "'Reserved');";
 
-                string updateRoomStatus = "UPDATE rooms SET room_status_id = 1 WHERE room_unit = " + RoomUnitTextBox.Text + "";
                 _presenter.UpdateStatus(query);
-                _presenter.UpdateStatus(updateRoomStatus);
+                _presenter.UpdateStatus(_presenter.RoomStatusQuery(RoomUnitTextBox.Text.Trim()));
                 // Close
                 _presenter.Form.Close();
 
@@ -333,6 +332,45 @@ namespace HotelReservationSystem.Reservation
             connection.Open();
             MySqlDataReader mySqlDataReader = command.ExecuteReader();
             return mySqlDataReader.HasRows;
+        }
+
+        public string RoomStatusQuery(string RoomUnit)
+        {
+            string updateRoomStatus;
+            if (IsRoomOccupied(RoomUnit))
+            {
+                updateRoomStatus = "UPDATE rooms SET room_status_id = 2 WHERE room_unit = " + RoomUnit + "";
+            }
+            else
+            {
+                updateRoomStatus = "UPDATE rooms SET room_status_id = 1 WHERE room_unit = " + RoomUnit + "";
+            }
+            return updateRoomStatus;
+
+        }
+
+        private bool IsRoomOccupied(string RoomUnit)
+        {
+            string query = "SELECT * FROM rooms WHERE room_unit = " + RoomUnit + " AND room_status_id = 2";
+
+            MySqlConnection connection = new MySqlConnection(_connection);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataTable dataTable = new DataTable();
+            connection.Open();
+            adapter.Fill(dataTable);
+
+            bool result;
+
+            if (dataTable != null && dataTable.Rows.Count > 0)
+            {
+                result = true;
+            }
+            else { result = false; }
+
+            Debug.WriteLine(result);
+
+            return result;
         }
     }
 
