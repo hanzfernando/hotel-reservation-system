@@ -117,19 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="SearchButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAATJJREFUOE9jGAUoQFVV1UBZWTkBhFVUVBygwqQDBSAAGrJfSUnpv5qG5m1NLe3z
-        yioqn4H8+0DxeKgy4gDIMEVFxfvaOvqHM4qafarb5zvAsLm1wxSQJUBcAFVOGIBcpqdvtB3ZIGRs4+Da
-        ATTwPdBeAagW3ACoyADkgqikwghshsEwKAiA6hqg2nADoIEJoDDDZggyNja3ng8Mlg1QbbgBsQZaWDtM
-        Bhq4H6oNNwAa6ABMHp/RIwMdg8IY6OX5UG34ASjAQV7CZhAIg8IXFM4gy6Fa8AOgwgCQBpC3sBmmpqb+
-        HCg/AaqcOADUUAAyFBSbINdaWDtNBnlTRUX1MzDsFgAtNSDahTAA1KAAcgko8EEYxIYZAqJBFpKca/AB
-        oKEJNDMUSBtAhSgHVDWMDoCBAQBioLDJuyoICAAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <metadata name="mySqlDataAdapter1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
 </root>

@@ -2,6 +2,7 @@
 using HotelReservationSystem.MainWindow;
 using HotelReservationSystem.PresenterCommons;
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Asn1.BC;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -46,10 +47,18 @@ namespace HotelReservationSystem.Reservation
 
             Task periodicTask = RunPeriodicAsynchronousTask(() =>
             {
-                _presenter.RowIndex = ReservationDataGridView.CurrentRow.Index;
-                _presenter.PopulateDataTable(ReservationDataGridView);
+                _presenter.Name = SearchTextBox.Text;
+                _presenter.FilterBy = FilterByComboBox.SelectedIndex;
+                _presenter.SortBy = SortByComboBox.SelectedIndex;
+                _presenter.OrderBy = OrderByComboBox.SelectedIndex;
+                _presenter.SearchFilterSortOrder(ReservationDataGridView);
+
+                //_presenter.RowIndex = ReservationDataGridView.CurrentRow.Index;
+                
+                //_presenter.PopulateDataTable(ReservationDataGridView);
+
                 // ReservationDataGridView.CellContentClick += ReservationDataGridView_CellContentClick;
-                ReservationDataGridView.CurrentCell = ReservationDataGridView.Rows[_presenter.RowIndex].Cells[0];
+                //ReservationDataGridView.CurrentCell = ReservationDataGridView.Rows[_presenter.RowIndex].Cells[0];
 
             }, TimeSpan.FromMilliseconds(2000));
         }
@@ -74,8 +83,8 @@ namespace HotelReservationSystem.Reservation
 
         public void ReservationPanel_Load(object sender, EventArgs e)
         {
-            
-            _presenter.PopulateDataTable(ReservationDataGridView);
+            _presenter.Dgv = ReservationDataGridView;
+            //_presenter.PopulateDataTable(ReservationDataGridView);
             ReservationDataGridView.CellContentClick += ReservationDataGridView_CellContentClick;
 
             PeriodicRefresh(sender, e);
@@ -87,6 +96,11 @@ namespace HotelReservationSystem.Reservation
 
         }
 
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            string name = SearchTextBox.Text;
+
+        }
     }
 
     public interface IPresenterReservationPanel : IPresenter
@@ -110,11 +124,31 @@ namespace HotelReservationSystem.Reservation
         private DataTable _datatable = new DataTable();
         private List<Reservation> _reservationlist = new List<Reservation>();
         private int _rowIndex;
+        private string _name;
+        private int _filterby;
+        private int _sortby;
+        private int _orderby;
+        private DataGridView _dgv;
+
 
         public Form Form { get { return _form; } set { _form = value; } }
         public Panel Panel { get { return _panel; } set { _panel = value; } }
         public int AdminId { get { return _adminid; } set { _adminid = value; } }
         public int RowIndex { get { return _rowIndex; } set { _rowIndex = value; } }
+        public string Name { 
+            get { return _name; } 
+            set { 
+                if (_name != value) 
+                { 
+                    _name = value;
+                    //RowIndex = 0;
+                } 
+            } 
+        }
+        public int FilterBy { get { return _filterby; } set { _filterby = value; } }
+        public int SortBy { get { return _sortby; } set { _sortby = value; } }
+        public int OrderBy { get { return _orderby; } set { _orderby = value; } }
+        public DataGridView Dgv { get { return _dgv; } set { _dgv = value; } }
 
         private static string _connection = Constants.MySqlConstants.Connection;
                 
@@ -130,10 +164,10 @@ namespace HotelReservationSystem.Reservation
                       
         }
 
-        public void PopulateDataTable(DataGridView dataGridView)
+        public void PopulateDataTable(string query, DataGridView dataGridView)
         {
 
-            string query = "SELECT " +
+            /*string query = "SELECT " +
                 "r.reservation_id AS 'Reservation ID', " +
                 "r.room_unit AS 'Room Unit', " +
                 "r.transaction_date AS 'Transaction Date', " +
@@ -152,7 +186,7 @@ namespace HotelReservationSystem.Reservation
                 "JOIN rooms rms " +
                     "ON r.room_unit = rms.room_unit " + 
                 "JOIN room_types rtp " +
-                    "ON rms.room_type_id = rtp.room_type_id";
+                    "ON rms.room_type_id = rtp.room_type_id ";*/
 
             MySqlConnection connection = new MySqlConnection(_connection);
             MySqlCommand command = new MySqlCommand(query, connection);
@@ -229,8 +263,6 @@ namespace HotelReservationSystem.Reservation
             dataGridView.Columns["Cancellation"].CellTemplate = new DataGridViewCheckBoxCell();
             // Set the column to be clickable
             dataGridView.Columns["Cancellation"].ReadOnly = false;
-
-
 
             _datatable = dataTable;
 
@@ -349,6 +381,7 @@ namespace HotelReservationSystem.Reservation
         {
             if (e.ColumnIndex == ReservationDataGridView.Columns["Cancellation"].Index && e.RowIndex >= 0)
             {
+
                 // Get the current cell
                 DataGridViewCheckBoxCell cellCancel = ReservationDataGridView.Rows[e.RowIndex].Cells["Cancellation"] as DataGridViewCheckBoxCell;
 
@@ -406,6 +439,8 @@ namespace HotelReservationSystem.Reservation
 
                 UpdateStatus(query);
                 UpdateStatus(updateRoom);
+
+
                 // ReservationDataGridView.Refresh();
             }
         }
@@ -429,9 +464,125 @@ namespace HotelReservationSystem.Reservation
             }
             else { result = false; }
 
-            Debug.WriteLine(result);
-
             return result;
+        }
+
+        /*public void SearchQuery(DataGridView dataGridView)
+        {
+            string query = String.Format(@"SELECT * FROM reservations WHERE customer_name REGEXP '{0}.|.{0}|.{0}.'", Name);
+            MySqlConnection connection = new MySqlConnection(_connection);
+            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataTable dataTable = new DataTable();
+            connection.Open();
+            adapter.Fill(dataTable);
+
+            dataGridView.DataSource = dataTable;
+        }*/
+
+        public void FilterQuery(string query, DataGridView dataGridView)
+        {
+
+            switch (SortBy)
+            {
+                case 0:
+                    query += "ORDER BY reservation_id ";
+                    OrderQuery(query, dataGridView);
+                    break;
+                case 1:
+                    query += "ORDER BY transaction_date ";
+                    OrderQuery(query, dataGridView);
+                    break;
+                case 2:
+                    query += "ORDER BY check_in ";
+                    OrderQuery(query, dataGridView);
+                    break;
+                case 3:
+                    query += "ORDER BY check_out ";
+                    OrderQuery(query, dataGridView);
+                    break;
+                default:
+                    query += "ORDER BY reservation_id ";
+                    OrderQuery(query, dataGridView);
+                    break;
+            }
+
+        }
+
+        public void OrderQuery(string query, DataGridView dataGridView)
+        {
+            switch(OrderBy)
+            {
+                case 0:
+                    query += "ASC";
+                    PopulateDataTable(query, dataGridView);
+                    break;
+                case 1:
+                    query += "DESC";
+                    PopulateDataTable(query, dataGridView);
+                    break;
+                default :
+                    query += "ASC";
+                    PopulateDataTable(query, dataGridView);
+                    break;
+            }
+        }
+
+
+
+        public void SearchFilterSortOrder(DataGridView dataGridView)
+        {
+            // Name search
+            string query = "SELECT " +
+                "r.reservation_id AS 'Reservation ID', " +
+                "r.room_unit AS 'Room Unit', " +
+                "r.transaction_date AS 'Transaction Date', " +
+                "r.customer_name AS 'Customer Name', " +
+                "r.customer_contact AS 'Contact', " +
+                "r.check_in AS 'Check In', " +
+                "r.check_in_status AS 'Check-in Status', " +
+                "r.check_out AS 'Check Out', " +
+                "r.check_out_status AS 'Check-out Status', " +
+                "r.reservation_cancel AS 'Cancellation', " +
+                "rtp.room_rate AS 'Daily Cost', " +
+                "(DATEDIFF(r.check_out, r.check_in)) AS 'Days', " +
+                "(DATEDIFF(r.check_out, r.check_in) * rtp.room_rate) AS 'Total Cost', " +
+                "r.reservation_status AS 'Status' " +
+                "FROM reservations r " +
+                "JOIN rooms rms " +
+                    "ON r.room_unit = rms.room_unit " +
+                "JOIN room_types rtp " +
+                    "ON rms.room_type_id = rtp.room_type_id " +
+                String.Format("WHERE customer_name REGEXP '{0}.|.{0}|.{0}.' AND reservation_status <> 'Cancelled' ", Name);
+
+            // string query = "SELECT * FROM reservations WHERE customer_name REGEXP '{0}.|.{0}|.{0}.' AND reservation_status <> 'Cancelled' ";
+                // Filter
+                switch (FilterBy)
+                {
+                    case 0:
+                        FilterQuery(query, dataGridView);
+                        break;
+                    case 1:
+                        query += "AND reservation_status = 'Reserved' ";
+                        FilterQuery(query, dataGridView);
+                        break;
+                    case 2:
+                        query += "AND reservation_status = 'Checked In' ";
+                        FilterQuery(query, dataGridView);
+                        break;
+                    case 3:
+                        query += "AND reservation_status = 'Checked Out' ";
+                        FilterQuery(query, dataGridView);
+                        break;
+                    default:
+                        FilterQuery(query, dataGridView);
+                        break;
+                }
+            
+            
+
+            //string query = "SELECT FROM * reservations WHERE customer_name REGEXP '{0}.|.{0}|.{0}.' AND ";
+            
         }
     }
 
