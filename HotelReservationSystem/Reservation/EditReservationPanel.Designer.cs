@@ -46,6 +46,7 @@
             this.ContactTextBox = new System.Windows.Forms.TextBox();
             this.ReservationIdTextBox = new System.Windows.Forms.TextBox();
             this.ReservationIdLabel = new System.Windows.Forms.Label();
+            this.Username = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,11 +65,11 @@
             this.CreateReservationLabel.AutoSize = true;
             this.CreateReservationLabel.Font = new System.Drawing.Font("SansSerif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.CreateReservationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(209)))), ((int)(((byte)(253)))));
-            this.CreateReservationLabel.Location = new System.Drawing.Point(153, 157);
+            this.CreateReservationLabel.Location = new System.Drawing.Point(144, 129);
             this.CreateReservationLabel.Name = "CreateReservationLabel";
-            this.CreateReservationLabel.Size = new System.Drawing.Size(180, 25);
+            this.CreateReservationLabel.Size = new System.Drawing.Size(238, 25);
             this.CreateReservationLabel.TabIndex = 1;
-            this.CreateReservationLabel.Text = "Edit Reservation";
+            this.CreateReservationLabel.Text = "Reservation Edited By";
             // 
             // FirstNameLabel
             // 
@@ -232,11 +233,24 @@
             this.ReservationIdLabel.TabIndex = 25;
             this.ReservationIdLabel.Text = "Reservation ID";
             // 
+            // Username
+            // 
+            this.Username.AutoSize = true;
+            this.Username.BackColor = System.Drawing.Color.Transparent;
+            this.Username.Font = new System.Drawing.Font("SansSerif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.Username.ForeColor = System.Drawing.Color.White;
+            this.Username.Location = new System.Drawing.Point(189, 170);
+            this.Username.Name = "Username";
+            this.Username.Size = new System.Drawing.Size(101, 19);
+            this.Username.TabIndex = 27;
+            this.Username.Text = "<Username>";
+            // 
             // EditReservationPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(3)))), ((int)(((byte)(45)))));
+            this.Controls.Add(this.Username);
             this.Controls.Add(this.ReservationIdTextBox);
             this.Controls.Add(this.ReservationIdLabel);
             this.Controls.Add(this.ContactTextBox);
@@ -256,6 +270,7 @@
             this.Controls.Add(this.LogoPicture);
             this.Name = "EditReservationPanel";
             this.Size = new System.Drawing.Size(500, 675);
+            this.Load += new System.EventHandler(this.OnLoad);
             ((System.ComponentModel.ISupportInitialize)(this.LogoPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -281,5 +296,6 @@
         private System.Windows.Forms.TextBox ContactTextBox;
         private System.Windows.Forms.TextBox ReservationIdTextBox;
         private System.Windows.Forms.Label ReservationIdLabel;
+        private System.Windows.Forms.Label Username;
     }
 }
