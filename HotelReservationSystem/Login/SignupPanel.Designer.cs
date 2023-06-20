@@ -41,13 +41,15 @@ namespace HotelReservationSystem.Login
             this.UsernameLabel = new System.Windows.Forms.Label();
             this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.PasswordLabel = new System.Windows.Forms.Label();
-            this.EmailTextBox = new System.Windows.Forms.TextBox();
-            this.EmailLabel = new System.Windows.Forms.Label();
-            this.ConfimPasswordTextBox = new System.Windows.Forms.TextBox();
+            this.FirstNameTextBox = new System.Windows.Forms.TextBox();
+            this.FirstNameLabel = new System.Windows.Forms.Label();
+            this.ConfirmPasswordTextBox = new System.Windows.Forms.TextBox();
             this.ConfirmPasswordLabel = new System.Windows.Forms.Label();
             this.SignInLabel2 = new System.Windows.Forms.LinkLabel();
             this.SignInLabel1 = new System.Windows.Forms.Label();
-            this.LoginButton = new HotelReservationSystem.Assets.RJButton();
+            this.CreateButton = new HotelReservationSystem.Assets.RJButton();
+            this.LastNameTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.BackgroundPicture2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,11 +91,11 @@ namespace HotelReservationSystem.Login
             // UsernameTextBox
             // 
             this.UsernameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(139)))), ((int)(((byte)(139)))));
-            this.UsernameTextBox.Location = new System.Drawing.Point(509, 260);
+            this.UsernameTextBox.Location = new System.Drawing.Point(509, 367);
             this.UsernameTextBox.Name = "UsernameTextBox";
             this.UsernameTextBox.Size = new System.Drawing.Size(287, 20);
             this.UsernameTextBox.TabIndex = 23;
-            this.UsernameTextBox.Text = "Enter Username...";
+            this.UsernameTextBox.Text = "Enter username...";
             this.UsernameTextBox.Enter += new System.EventHandler(this.UsernameTextBox_Enter);
             this.UsernameTextBox.Leave += new System.EventHandler(this.UsernameTextBox_Leave);
             // 
@@ -103,7 +105,7 @@ namespace HotelReservationSystem.Login
             this.UsernameLabel.BackColor = System.Drawing.Color.Transparent;
             this.UsernameLabel.Font = new System.Drawing.Font("SansSerif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.UsernameLabel.ForeColor = System.Drawing.Color.White;
-            this.UsernameLabel.Location = new System.Drawing.Point(506, 239);
+            this.UsernameLabel.Location = new System.Drawing.Point(506, 346);
             this.UsernameLabel.Name = "UsernameLabel";
             this.UsernameLabel.Size = new System.Drawing.Size(64, 14);
             this.UsernameLabel.TabIndex = 22;
@@ -112,11 +114,11 @@ namespace HotelReservationSystem.Login
             // PasswordTextBox
             // 
             this.PasswordTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(139)))), ((int)(((byte)(139)))));
-            this.PasswordTextBox.Location = new System.Drawing.Point(509, 389);
+            this.PasswordTextBox.Location = new System.Drawing.Point(509, 425);
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.Size = new System.Drawing.Size(287, 20);
             this.PasswordTextBox.TabIndex = 25;
-            this.PasswordTextBox.Text = "Enter Password...";
+            this.PasswordTextBox.Text = "Enter password...";
             this.PasswordTextBox.Enter += new System.EventHandler(this.PasswordTextBox_Enter);
             this.PasswordTextBox.Leave += new System.EventHandler(this.PasswordTextBox_Leave);
             // 
@@ -126,45 +128,45 @@ namespace HotelReservationSystem.Login
             this.PasswordLabel.BackColor = System.Drawing.Color.Transparent;
             this.PasswordLabel.Font = new System.Drawing.Font("SansSerif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.PasswordLabel.ForeColor = System.Drawing.Color.White;
-            this.PasswordLabel.Location = new System.Drawing.Point(506, 368);
+            this.PasswordLabel.Location = new System.Drawing.Point(506, 404);
             this.PasswordLabel.Name = "PasswordLabel";
             this.PasswordLabel.Size = new System.Drawing.Size(61, 14);
             this.PasswordLabel.TabIndex = 24;
             this.PasswordLabel.Text = "Password";
             // 
-            // EmailTextBox
+            // FirstNameTextBox
             // 
-            this.EmailTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(139)))), ((int)(((byte)(139)))));
-            this.EmailTextBox.Location = new System.Drawing.Point(509, 322);
-            this.EmailTextBox.Name = "EmailTextBox";
-            this.EmailTextBox.Size = new System.Drawing.Size(287, 20);
-            this.EmailTextBox.TabIndex = 27;
-            this.EmailTextBox.Text = "Enter Email...";
-            this.EmailTextBox.Enter += new System.EventHandler(this.EmailTextBox_Enter);
-            this.EmailTextBox.Leave += new System.EventHandler(this.EmailTextBox_Leave);
+            this.FirstNameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(139)))), ((int)(((byte)(139)))));
+            this.FirstNameTextBox.Location = new System.Drawing.Point(509, 248);
+            this.FirstNameTextBox.Name = "FirstNameTextBox";
+            this.FirstNameTextBox.Size = new System.Drawing.Size(287, 20);
+            this.FirstNameTextBox.TabIndex = 27;
+            this.FirstNameTextBox.Text = "Enter first name...";
+            this.FirstNameTextBox.Enter += new System.EventHandler(this.FirstNameTextBox_Enter);
+            this.FirstNameTextBox.Leave += new System.EventHandler(this.FirstNameTextBox_Leave);
             // 
-            // EmailLabel
+            // FirstNameLabel
             // 
-            this.EmailLabel.AutoSize = true;
-            this.EmailLabel.BackColor = System.Drawing.Color.Transparent;
-            this.EmailLabel.Font = new System.Drawing.Font("SansSerif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.EmailLabel.ForeColor = System.Drawing.Color.White;
-            this.EmailLabel.Location = new System.Drawing.Point(506, 301);
-            this.EmailLabel.Name = "EmailLabel";
-            this.EmailLabel.Size = new System.Drawing.Size(38, 14);
-            this.EmailLabel.TabIndex = 26;
-            this.EmailLabel.Text = "Email";
+            this.FirstNameLabel.AutoSize = true;
+            this.FirstNameLabel.BackColor = System.Drawing.Color.Transparent;
+            this.FirstNameLabel.Font = new System.Drawing.Font("SansSerif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.FirstNameLabel.ForeColor = System.Drawing.Color.White;
+            this.FirstNameLabel.Location = new System.Drawing.Point(506, 227);
+            this.FirstNameLabel.Name = "FirstNameLabel";
+            this.FirstNameLabel.Size = new System.Drawing.Size(66, 14);
+            this.FirstNameLabel.TabIndex = 26;
+            this.FirstNameLabel.Text = "First Name";
             // 
-            // ConfimPasswordTextBox
+            // ConfirmPasswordTextBox
             // 
-            this.ConfimPasswordTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(139)))), ((int)(((byte)(139)))));
-            this.ConfimPasswordTextBox.Location = new System.Drawing.Point(509, 454);
-            this.ConfimPasswordTextBox.Name = "ConfimPasswordTextBox";
-            this.ConfimPasswordTextBox.Size = new System.Drawing.Size(287, 20);
-            this.ConfimPasswordTextBox.TabIndex = 29;
-            this.ConfimPasswordTextBox.Text = "Enter Password...";
-            this.ConfimPasswordTextBox.Enter += new System.EventHandler(this.ConfimPasswordTextBox_Enter);
-            this.ConfimPasswordTextBox.Leave += new System.EventHandler(this.ConfimPasswordTextBox_Leave);
+            this.ConfirmPasswordTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(139)))), ((int)(((byte)(139)))));
+            this.ConfirmPasswordTextBox.Location = new System.Drawing.Point(509, 487);
+            this.ConfirmPasswordTextBox.Name = "ConfirmPasswordTextBox";
+            this.ConfirmPasswordTextBox.Size = new System.Drawing.Size(287, 20);
+            this.ConfirmPasswordTextBox.TabIndex = 29;
+            this.ConfirmPasswordTextBox.Text = "Confirm password...";
+            this.ConfirmPasswordTextBox.Enter += new System.EventHandler(this.ConfimPasswordTextBox_Enter);
+            this.ConfirmPasswordTextBox.Leave += new System.EventHandler(this.ConfimPasswordTextBox_Leave);
             // 
             // ConfirmPasswordLabel
             // 
@@ -172,7 +174,7 @@ namespace HotelReservationSystem.Login
             this.ConfirmPasswordLabel.BackColor = System.Drawing.Color.Transparent;
             this.ConfirmPasswordLabel.Font = new System.Drawing.Font("SansSerif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.ConfirmPasswordLabel.ForeColor = System.Drawing.Color.White;
-            this.ConfirmPasswordLabel.Location = new System.Drawing.Point(506, 433);
+            this.ConfirmPasswordLabel.Location = new System.Drawing.Point(506, 466);
             this.ConfirmPasswordLabel.Name = "ConfirmPasswordLabel";
             this.ConfirmPasswordLabel.Size = new System.Drawing.Size(107, 14);
             this.ConfirmPasswordLabel.TabIndex = 28;
@@ -185,7 +187,7 @@ namespace HotelReservationSystem.Login
             this.SignInLabel2.BackColor = System.Drawing.Color.Transparent;
             this.SignInLabel2.Font = new System.Drawing.Font("SansSerif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.SignInLabel2.LinkColor = System.Drawing.Color.Yellow;
-            this.SignInLabel2.Location = new System.Drawing.Point(695, 564);
+            this.SignInLabel2.Location = new System.Drawing.Point(695, 594);
             this.SignInLabel2.Name = "SignInLabel2";
             this.SignInLabel2.Size = new System.Drawing.Size(37, 12);
             this.SignInLabel2.TabIndex = 32;
@@ -199,43 +201,69 @@ namespace HotelReservationSystem.Login
             this.SignInLabel1.BackColor = System.Drawing.Color.Transparent;
             this.SignInLabel1.Font = new System.Drawing.Font("SansSerif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.SignInLabel1.ForeColor = System.Drawing.Color.White;
-            this.SignInLabel1.Location = new System.Drawing.Point(563, 564);
+            this.SignInLabel1.Location = new System.Drawing.Point(563, 594);
             this.SignInLabel1.Name = "SignInLabel1";
             this.SignInLabel1.Size = new System.Drawing.Size(132, 12);
             this.SignInLabel1.TabIndex = 31;
             this.SignInLabel1.Text = "Already have an account?";
             // 
-            // LoginButton
+            // CreateButton
             // 
-            this.LoginButton.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.LoginButton.BackgroundColor = System.Drawing.SystemColors.MenuBar;
-            this.LoginButton.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.LoginButton.BorderRadius = 20;
-            this.LoginButton.BorderSize = 0;
-            this.LoginButton.FlatAppearance.BorderSize = 0;
-            this.LoginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LoginButton.Font = new System.Drawing.Font("SansSerif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.LoginButton.ForeColor = System.Drawing.Color.Black;
-            this.LoginButton.Location = new System.Drawing.Point(568, 513);
-            this.LoginButton.Name = "LoginButton";
-            this.LoginButton.Size = new System.Drawing.Size(161, 39);
-            this.LoginButton.TabIndex = 30;
-            this.LoginButton.Text = "Create Account";
-            this.LoginButton.TextColor = System.Drawing.Color.Black;
-            this.LoginButton.UseVisualStyleBackColor = false;
+            this.CreateButton.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.CreateButton.BackgroundColor = System.Drawing.SystemColors.MenuBar;
+            this.CreateButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.CreateButton.BorderRadius = 20;
+            this.CreateButton.BorderSize = 0;
+            this.CreateButton.FlatAppearance.BorderSize = 0;
+            this.CreateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CreateButton.Font = new System.Drawing.Font("SansSerif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.CreateButton.ForeColor = System.Drawing.Color.Black;
+            this.CreateButton.Location = new System.Drawing.Point(568, 543);
+            this.CreateButton.Name = "CreateButton";
+            this.CreateButton.Size = new System.Drawing.Size(161, 39);
+            this.CreateButton.TabIndex = 30;
+            this.CreateButton.Text = "Create Account";
+            this.CreateButton.TextColor = System.Drawing.Color.Black;
+            this.CreateButton.UseVisualStyleBackColor = false;
+            this.CreateButton.Click += new System.EventHandler(this.CreateButton_Click);
+            // 
+            // LastNameTextBox
+            // 
+            this.LastNameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(139)))), ((int)(((byte)(139)))));
+            this.LastNameTextBox.Location = new System.Drawing.Point(509, 307);
+            this.LastNameTextBox.Name = "LastNameTextBox";
+            this.LastNameTextBox.Size = new System.Drawing.Size(287, 20);
+            this.LastNameTextBox.TabIndex = 34;
+            this.LastNameTextBox.Text = "Enter last name...";
+            this.LastNameTextBox.Enter += new System.EventHandler(this.LastNameTextBox_Enter);
+            this.LastNameTextBox.Leave += new System.EventHandler(this.LastNameTextBox_Leave);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("SansSerif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(506, 286);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 14);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "Last Name";
             // 
             // SignupPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(3)))), ((int)(((byte)(45)))));
+            this.Controls.Add(this.LastNameTextBox);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.SignInLabel2);
             this.Controls.Add(this.SignInLabel1);
-            this.Controls.Add(this.LoginButton);
-            this.Controls.Add(this.ConfimPasswordTextBox);
+            this.Controls.Add(this.CreateButton);
+            this.Controls.Add(this.ConfirmPasswordTextBox);
             this.Controls.Add(this.ConfirmPasswordLabel);
-            this.Controls.Add(this.EmailTextBox);
-            this.Controls.Add(this.EmailLabel);
+            this.Controls.Add(this.FirstNameTextBox);
+            this.Controls.Add(this.FirstNameLabel);
             this.Controls.Add(this.PasswordTextBox);
             this.Controls.Add(this.PasswordLabel);
             this.Controls.Add(this.UsernameTextBox);
@@ -260,12 +288,14 @@ namespace HotelReservationSystem.Login
         private System.Windows.Forms.Label UsernameLabel;
         private System.Windows.Forms.TextBox PasswordTextBox;
         private System.Windows.Forms.Label PasswordLabel;
-        private System.Windows.Forms.TextBox EmailTextBox;
-        private System.Windows.Forms.Label EmailLabel;
-        private System.Windows.Forms.TextBox ConfimPasswordTextBox;
+        private System.Windows.Forms.TextBox FirstNameTextBox;
+        private System.Windows.Forms.Label FirstNameLabel;
+        private System.Windows.Forms.TextBox ConfirmPasswordTextBox;
         private System.Windows.Forms.Label ConfirmPasswordLabel;
-        private Assets.RJButton LoginButton;
+        private Assets.RJButton CreateButton;
         private System.Windows.Forms.LinkLabel SignInLabel2;
         private System.Windows.Forms.Label SignInLabel1;
+        private TextBox LastNameTextBox;
+        private Label label1;
     }
 }
