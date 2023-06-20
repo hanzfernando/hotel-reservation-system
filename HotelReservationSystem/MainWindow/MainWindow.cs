@@ -40,6 +40,7 @@ namespace HotelReservationSystem.MainWindow
         {
             _presenter.Width = 1200;
             this.Width = _presenter.Width;
+            this.CenterToScreen();
             DashboardPanel dashboardPanel = new DashboardPanel();
             dashboardPanel.Presenter.Username = _presenter.Username;
             if (!dashboardPanel.Equals(_presenter.CurrentPanel))
@@ -56,6 +57,7 @@ namespace HotelReservationSystem.MainWindow
         {
             _presenter.Width = 1600;
             this.Width = _presenter.Width;
+            this.CenterToScreen();
             ReservationPanel reservationPanel = new ReservationPanel();
             if (!reservationPanel.Equals(_presenter.CurrentPanel))
             {
@@ -66,12 +68,14 @@ namespace HotelReservationSystem.MainWindow
                 _presenter.Panel.Controls.Add(reservationPanel);
                 _presenter.CurrentPanel = reservationPanel;
             }
+
         }
 
         private void RoomsTab_Click(object sender, EventArgs e)
         {
             _presenter.Width = 1200;
             this.Width = _presenter.Width;
+            this.CenterToScreen();
             RoomsPanel roomsPanel = new RoomsPanel();
             if(!roomsPanel.Equals(_presenter.CurrentPanel))
             {

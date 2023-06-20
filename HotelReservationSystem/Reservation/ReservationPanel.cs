@@ -37,9 +37,17 @@ namespace HotelReservationSystem.Reservation
 
             HotelReservationSystem.Reservation.CreateReservationWindow reservationWindow = new CreateReservationWindow();
             reservationWindow.Presenter.AdminId = _presenter.AdminId;
-
+            reservationWindow.Presenter.PanelName = "create";
             reservationWindow.Show();
             
+        }
+
+        private void EditButton_Click(object sender, EventArgs e)
+        {
+            HotelReservationSystem.Reservation.CreateReservationWindow reservationWindow = new CreateReservationWindow();
+            reservationWindow.Presenter.AdminId = _presenter.AdminId;
+            reservationWindow.Presenter.PanelName = "edit";
+            reservationWindow.Show();
         }
 
         public void PeriodicRefresh(object sender, EventArgs e)
@@ -101,6 +109,8 @@ namespace HotelReservationSystem.Reservation
             string name = SearchTextBox.Text;
 
         }
+
+        
     }
 
     public interface IPresenterReservationPanel : IPresenter
@@ -379,8 +389,12 @@ namespace HotelReservationSystem.Reservation
 
         private void CheckBoxCancel (object sender, DataGridViewCellEventArgs e, DataGridView ReservationDataGridView)
         {
+
+            
+
             if (e.ColumnIndex == ReservationDataGridView.Columns["Cancellation"].Index && e.RowIndex >= 0)
             {
+                
 
                 // Get the current cell
                 DataGridViewCheckBoxCell cellCancel = ReservationDataGridView.Rows[e.RowIndex].Cells["Cancellation"] as DataGridViewCheckBoxCell;
@@ -394,6 +408,18 @@ namespace HotelReservationSystem.Reservation
                 {
                     // Disable checkbox click for "Cancel"
                     cellCancel.ReadOnly = true;
+                    //cancelReservationWindow.Close();
+                    return;
+                }
+
+                CancelReservationWindow cancelReservationWindow = new CancelReservationWindow();
+                //Debug.Write("Here1");
+                cancelReservationWindow.ShowDialog();
+                //Debug.Write("Here2");
+                if (!cancelReservationWindow.Presenter.IsCancelled)
+                {
+                    //Debug.Write("Here3");
+                    cancelReservationWindow.Close();
                     return;
                 }
 
@@ -440,7 +466,7 @@ namespace HotelReservationSystem.Reservation
                 UpdateStatus(query);
                 UpdateStatus(updateRoom);
 
-
+                cancelReservationWindow.Close();
                 // ReservationDataGridView.Refresh();
             }
         }
