@@ -32,6 +32,7 @@ namespace HotelReservationSystem.MainWindow
             dashboard.Presenter.Form = _presenter.Form;
             dashboard.Presenter.Panel = _presenter.Panel;
             dashboard.Presenter.Username = _presenter.Username;
+            dashboard.Presenter.AdminId = _presenter.AdminId;
             PanelRoot.Controls.Add(dashboard);
             _presenter.CurrentPanel = dashboard;
         }
@@ -43,6 +44,7 @@ namespace HotelReservationSystem.MainWindow
             this.CenterToScreen();
             DashboardPanel dashboardPanel = new DashboardPanel();
             dashboardPanel.Presenter.Username = _presenter.Username;
+            dashboardPanel.Presenter.AdminId = _presenter.AdminId;
             if (!dashboardPanel.Equals(_presenter.CurrentPanel))
             {
                 dashboardPanel.Presenter.Form = _presenter.Form;
@@ -59,6 +61,7 @@ namespace HotelReservationSystem.MainWindow
             this.Width = _presenter.Width;
             this.CenterToScreen();
             ReservationPanel reservationPanel = new ReservationPanel();
+            reservationPanel.Presenter.AdminId = _presenter.AdminId;
             if (!reservationPanel.Equals(_presenter.CurrentPanel))
             {
                 reservationPanel.Presenter.AdminId = _presenter.AdminId;

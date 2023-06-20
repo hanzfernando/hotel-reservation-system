@@ -35,7 +35,7 @@ namespace HotelReservationSystem.Reservation
         private void CreateButton_Click(object sender, EventArgs e)
         {
 
-            HotelReservationSystem.Reservation.CreateReservationWindow reservationWindow = new CreateReservationWindow();
+            CreateReservationWindow reservationWindow = new CreateReservationWindow();
             reservationWindow.Presenter.AdminId = _presenter.AdminId;
             reservationWindow.Presenter.PanelName = "create";
             reservationWindow.Show();
@@ -44,7 +44,7 @@ namespace HotelReservationSystem.Reservation
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            HotelReservationSystem.Reservation.CreateReservationWindow reservationWindow = new CreateReservationWindow();
+            CreateReservationWindow reservationWindow = new CreateReservationWindow();
             reservationWindow.Presenter.AdminId = _presenter.AdminId;
             reservationWindow.Presenter.PanelName = "edit";
             reservationWindow.Show();

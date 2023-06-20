@@ -112,7 +112,9 @@
             // 
             this.RoomsTab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RoomsTab.FlatAppearance.BorderSize = 0;
+            this.RoomsTab.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Goldenrod;
             this.RoomsTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RoomsTab.Font = new System.Drawing.Font("SansSerif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.RoomsTab.ForeColor = System.Drawing.Color.White;
             this.RoomsTab.Location = new System.Drawing.Point(3, 153);
             this.RoomsTab.Name = "RoomsTab";
@@ -126,8 +128,9 @@
             // 
             this.DashboardTab.BackColor = System.Drawing.Color.Transparent;
             this.DashboardTab.FlatAppearance.BorderSize = 0;
-            this.DashboardTab.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCoral;
+            this.DashboardTab.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Goldenrod;
             this.DashboardTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DashboardTab.Font = new System.Drawing.Font("SansSerif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.DashboardTab.ForeColor = System.Drawing.Color.White;
             this.DashboardTab.Location = new System.Drawing.Point(3, 3);
             this.DashboardTab.Name = "DashboardTab";
@@ -141,7 +144,9 @@
             // 
             this.ReservationTab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ReservationTab.FlatAppearance.BorderSize = 0;
+            this.ReservationTab.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Goldenrod;
             this.ReservationTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReservationTab.Font = new System.Drawing.Font("SansSerif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.ReservationTab.ForeColor = System.Drawing.Color.White;
             this.ReservationTab.Location = new System.Drawing.Point(3, 78);
             this.ReservationTab.Name = "ReservationTab";

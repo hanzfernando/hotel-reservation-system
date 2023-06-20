@@ -43,13 +43,14 @@
             this.SuffixLabel = new System.Windows.Forms.Label();
             this.MiddleNameTextBox = new System.Windows.Forms.TextBox();
             this.MiddleNameLabel = new System.Windows.Forms.Label();
-            this.CreateRecordButton = new HotelReservationSystem.Assets.RJButton();
             this.CheckInDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.CheckOutDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.TransactionDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.TransactionDateLabel = new System.Windows.Forms.Label();
             this.ContactLabel = new System.Windows.Forms.Label();
             this.ContactTextBox = new System.Windows.Forms.TextBox();
+            this.Username = new System.Windows.Forms.Label();
+            this.CreateRecordButton = new HotelReservationSystem.Assets.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,11 +69,11 @@
             this.CreateReservationLabel.AutoSize = true;
             this.CreateReservationLabel.Font = new System.Drawing.Font("SansSerif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.CreateReservationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(209)))), ((int)(((byte)(253)))));
-            this.CreateReservationLabel.Location = new System.Drawing.Point(143, 157);
+            this.CreateReservationLabel.Location = new System.Drawing.Point(133, 129);
             this.CreateReservationLabel.Name = "CreateReservationLabel";
-            this.CreateReservationLabel.Size = new System.Drawing.Size(206, 25);
+            this.CreateReservationLabel.Size = new System.Drawing.Size(252, 25);
             this.CreateReservationLabel.TabIndex = 1;
-            this.CreateReservationLabel.Text = "Create Reservation";
+            this.CreateReservationLabel.Text = "Reservation Created By";
             // 
             // FirstNameLabel
             // 
@@ -206,26 +207,6 @@
             this.MiddleNameLabel.TabIndex = 10;
             this.MiddleNameLabel.Text = "Middle Name";
             // 
-            // CreateRecordButton
-            // 
-            this.CreateRecordButton.BackColor = System.Drawing.Color.LightGray;
-            this.CreateRecordButton.BackgroundColor = System.Drawing.Color.LightGray;
-            this.CreateRecordButton.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.CreateRecordButton.BorderRadius = 20;
-            this.CreateRecordButton.BorderSize = 0;
-            this.CreateRecordButton.FlatAppearance.BorderSize = 0;
-            this.CreateRecordButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CreateRecordButton.Font = new System.Drawing.Font("SansSerif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.CreateRecordButton.ForeColor = System.Drawing.Color.Black;
-            this.CreateRecordButton.Location = new System.Drawing.Point(180, 577);
-            this.CreateRecordButton.Name = "CreateRecordButton";
-            this.CreateRecordButton.Size = new System.Drawing.Size(125, 34);
-            this.CreateRecordButton.TabIndex = 18;
-            this.CreateRecordButton.Text = "Create record";
-            this.CreateRecordButton.TextColor = System.Drawing.Color.Black;
-            this.CreateRecordButton.UseVisualStyleBackColor = false;
-            this.CreateRecordButton.Click += new System.EventHandler(this.CreateRecordButton_Click);
-            // 
             // CheckInDateTimePicker
             // 
             this.CheckInDateTimePicker.Location = new System.Drawing.Point(29, 501);
@@ -280,11 +261,44 @@
             this.ContactTextBox.Enter += new System.EventHandler(this.ContactCheckBox_Enter);
             this.ContactTextBox.Leave += new System.EventHandler(this.ContactCheckBox_Leave);
             // 
+            // Username
+            // 
+            this.Username.AutoSize = true;
+            this.Username.BackColor = System.Drawing.Color.Transparent;
+            this.Username.Font = new System.Drawing.Font("SansSerif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.Username.ForeColor = System.Drawing.Color.White;
+            this.Username.Location = new System.Drawing.Point(192, 167);
+            this.Username.Name = "Username";
+            this.Username.Size = new System.Drawing.Size(101, 19);
+            this.Username.TabIndex = 25;
+            this.Username.Text = "<Username>";
+            // 
+            // CreateRecordButton
+            // 
+            this.CreateRecordButton.BackColor = System.Drawing.Color.LightGray;
+            this.CreateRecordButton.BackgroundColor = System.Drawing.Color.LightGray;
+            this.CreateRecordButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.CreateRecordButton.BorderRadius = 20;
+            this.CreateRecordButton.BorderSize = 0;
+            this.CreateRecordButton.FlatAppearance.BorderSize = 0;
+            this.CreateRecordButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CreateRecordButton.Font = new System.Drawing.Font("SansSerif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.CreateRecordButton.ForeColor = System.Drawing.Color.Black;
+            this.CreateRecordButton.Location = new System.Drawing.Point(180, 577);
+            this.CreateRecordButton.Name = "CreateRecordButton";
+            this.CreateRecordButton.Size = new System.Drawing.Size(125, 34);
+            this.CreateRecordButton.TabIndex = 18;
+            this.CreateRecordButton.Text = "Create record";
+            this.CreateRecordButton.TextColor = System.Drawing.Color.Black;
+            this.CreateRecordButton.UseVisualStyleBackColor = false;
+            this.CreateRecordButton.Click += new System.EventHandler(this.CreateRecordButton_Click);
+            // 
             // CreateReservationPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(3)))), ((int)(((byte)(45)))));
+            this.Controls.Add(this.Username);
             this.Controls.Add(this.ContactTextBox);
             this.Controls.Add(this.ContactLabel);
             this.Controls.Add(this.TransactionDateTimePicker);
@@ -308,6 +322,7 @@
             this.Controls.Add(this.LogoPicture);
             this.Name = "CreateReservationPanel";
             this.Size = new System.Drawing.Size(500, 675);
+            this.Load += new System.EventHandler(this.OnLoad);
             ((System.ComponentModel.ISupportInitialize)(this.LogoPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -337,5 +352,6 @@
         private System.Windows.Forms.Label TransactionDateLabel;
         private System.Windows.Forms.Label ContactLabel;
         private System.Windows.Forms.TextBox ContactTextBox;
+        private System.Windows.Forms.Label Username;
     }
 }

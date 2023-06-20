@@ -28,6 +28,12 @@ namespace HotelReservationSystem.Reservation
             _presenter = new PresenterEditReservationPanel();
         }
 
+        public void OnLoad(object sender, EventArgs e)
+        {
+            Username.Text = _presenter.GetName();
+            Username.Location = new Point(Username.Location.Y, (this.Width / 2) - (Username.Width / 2));
+        }
+
         private void ReservationIdTextBox_Enter(object sender, EventArgs e)
         {
             if (ReservationIdTextBox.Text == "Enter reservation id...")
@@ -366,7 +372,21 @@ namespace HotelReservationSystem.Reservation
 
             return result;
         }
+        public string GetName()
+        {
+            string query = "SELECT * FROM admins WHERE admin_id = " + AdminId;
+            MySqlConnection mySqlConnection = new MySqlConnection(_connection);
+            mySqlConnection.Open();
+            MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
+            MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
+            DataTable dataTable = new DataTable();
+            mySqlDataAdapter.Fill(dataTable);
+            DataRow row = dataTable.Rows[0];
+            string fname = Convert.ToString(row["admin_fname"]);
+            string lname = Convert.ToString(row["admin_lname"]);
 
+            return fname + " " + lname;
+        }
     }
 
     

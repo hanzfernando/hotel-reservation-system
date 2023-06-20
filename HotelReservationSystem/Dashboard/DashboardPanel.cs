@@ -50,7 +50,7 @@ namespace HotelReservationSystem.Dashboard
         }
         public void OnLoad (object sender, EventArgs e)
         {
-            this.UserName.Text = _presenter.Username;
+            this.UserName.Text = _presenter.GetName();
             PeriodicRefresh(sender, e);
         }
 
@@ -113,6 +113,7 @@ namespace HotelReservationSystem.Dashboard
         int Floor5 { get; set; }
         int Floor6 { get; set; }
         double Collected { get; set; }
+        int AdminId { get; set; }
     }
 
     public class PresenterDashboardPanel : INotifyPropertyChanged, IPresenterDashboardPanel
@@ -127,6 +128,7 @@ namespace HotelReservationSystem.Dashboard
         private int _floor4 = 0;
         private int _floor5 = 0;
         private int _floor6 = 0;
+        private int _adminid;
         private double _collected;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -191,6 +193,8 @@ namespace HotelReservationSystem.Dashboard
                 OnPropertyChanged(nameof(Floor6));
             }
         }
+
+        public int AdminId { get { return _adminid; } set { _adminid = value; } }
 
         public double Collected
         {
@@ -289,6 +293,21 @@ namespace HotelReservationSystem.Dashboard
             DataTable dt = new DataTable();
             mySqlDataAdapter.Fill(dt);
             Collected = (double)dt.Select().ElementAt(0)["CollectedMoney"];
+        }
+        public string GetName()
+        {
+            string query = "SELECT * FROM admins WHERE admin_id = " + AdminId;
+            MySqlConnection mySqlConnection = new MySqlConnection(_connection);
+            mySqlConnection.Open();
+            MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
+            MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
+            DataTable dataTable = new DataTable();
+            mySqlDataAdapter.Fill(dataTable);
+            DataRow row = dataTable.Rows[0];
+            string fname = Convert.ToString(row["admin_fname"]);
+            string lname = Convert.ToString(row["admin_lname"]);
+
+            return fname + " " + lname;
         }
     }
 }
