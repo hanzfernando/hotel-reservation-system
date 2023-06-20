@@ -25,11 +25,23 @@ namespace HotelReservationSystem.Reservation
 
         private void OnLoad(object sender, EventArgs e)
         {
-            CreateReservationPanel createReservation = new CreateReservationPanel();
-            createReservation.Presenter.Form = this;
-            createReservation.Presenter.Panel = _presenter.Panel;
-            createReservation.Presenter.AdminId = _presenter.AdminId;
-            this.createReservationPanel.Controls.Add(createReservation);
+            if (_presenter.PanelName == "create")
+            {
+                CreateReservationPanel createReservation = new CreateReservationPanel();
+                createReservation.Presenter.Form = this;
+                createReservation.Presenter.Panel = _presenter.Panel;
+                createReservation.Presenter.AdminId = _presenter.AdminId;
+                this.createReservationPanel.Controls.Add(createReservation);
+            }
+            else
+            {
+                EditReservationPanel editReservation = new EditReservationPanel();
+                editReservation.Presenter.Form = this;
+                editReservation.Presenter.Panel = _presenter.Panel;
+                editReservation.Presenter.AdminId = _presenter.AdminId;
+                this.createReservationPanel.Controls.Add(editReservation);
+            }
+            
             
         }
     }
@@ -51,6 +63,7 @@ namespace HotelReservationSystem.Reservation
         private Form _form;
         private Panel _panel;
         private int _adminid;
+        private string _panelName;
 
 
         public Form Form
@@ -63,6 +76,12 @@ namespace HotelReservationSystem.Reservation
         {
             get { return _panel; }
             set { _panel = value; }
+        }
+
+        public string PanelName
+        {
+            get { return _panelName; }
+            set { _panelName = value; }
         }
 
         public int AdminId { get { return _adminid; } set { _adminid = value; } }

@@ -30,10 +30,11 @@ namespace HotelReservationSystem.Dashboard
         {
             InitializeComponent();
             _presenter = new PresenterDashboardPanel();
-            tableLayoutPanel2.Parent = pictureBox1;
-            MonthlyRevenue.Parent = pictureBox2;
-            CollectedTitleLabel.Parent = pictureBox5;
-            CollectedValue.Parent = pictureBox5;
+            MonthlyRevenue.Parent = InnerTopPanel;
+            CollectedTitleLabel.Parent = InnerBottomPanel;
+            CollectedValue.Parent = InnerBottomPanel;
+            InnerTopPanel.Parent = OuterPinkPanel;
+            InnerBottomPanel.Parent = OuterPinkPanel;
             Floor1.Parent = pictureBox6;
             Floor2.Parent = pictureBox7;
             Floor3.Parent = pictureBox8;
