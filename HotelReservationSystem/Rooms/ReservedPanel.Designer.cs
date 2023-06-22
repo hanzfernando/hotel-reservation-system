@@ -44,6 +44,7 @@
             this.CustomerNameLabel = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.ScheduleButton = new HotelReservationSystem.Assets.RJButton();
             this.CloseButton = new HotelReservationSystem.Assets.RJButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -227,6 +228,7 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.ScheduleButton);
             this.panel6.Controls.Add(this.CloseButton);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(0, 565);
@@ -234,6 +236,26 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(510, 115);
             this.panel6.TabIndex = 5;
+            // 
+            // ScheduleButton
+            // 
+            this.ScheduleButton.BackColor = System.Drawing.SystemColors.Control;
+            this.ScheduleButton.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.ScheduleButton.BorderColor = System.Drawing.SystemColors.Control;
+            this.ScheduleButton.BorderRadius = 20;
+            this.ScheduleButton.BorderSize = 0;
+            this.ScheduleButton.FlatAppearance.BorderSize = 0;
+            this.ScheduleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScheduleButton.Font = new System.Drawing.Font("SansSerif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.ScheduleButton.ForeColor = System.Drawing.Color.Black;
+            this.ScheduleButton.Location = new System.Drawing.Point(124, 51);
+            this.ScheduleButton.Name = "ScheduleButton";
+            this.ScheduleButton.Size = new System.Drawing.Size(91, 40);
+            this.ScheduleButton.TabIndex = 2;
+            this.ScheduleButton.Text = "Schedule";
+            this.ScheduleButton.TextColor = System.Drawing.Color.Black;
+            this.ScheduleButton.UseVisualStyleBackColor = false;
+            this.ScheduleButton.Click += new System.EventHandler(this.ScheduleButton_Click);
             // 
             // CloseButton
             // 
@@ -244,8 +266,9 @@
             this.CloseButton.BorderSize = 0;
             this.CloseButton.FlatAppearance.BorderSize = 0;
             this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CloseButton.Font = new System.Drawing.Font("SansSerif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.CloseButton.ForeColor = System.Drawing.Color.Black;
-            this.CloseButton.Location = new System.Drawing.Point(172, 51);
+            this.CloseButton.Location = new System.Drawing.Point(268, 51);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(91, 40);
             this.CloseButton.TabIndex = 0;
@@ -298,5 +321,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel6;
         private Assets.RJButton CloseButton;
+        private Assets.RJButton ScheduleButton;
     }
 }

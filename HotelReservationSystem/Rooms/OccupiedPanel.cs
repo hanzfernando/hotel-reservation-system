@@ -33,12 +33,22 @@ namespace HotelReservationSystem.Rooms
             RoomUnitLabel.Location = new Point((this.panel3.Width / 2) - (RoomUnitLabel.Width / 2), (this.panel3.Height / 2) - (RoomUnitLabel.Height / 2));
             CustomerNameLabel.Location = new Point((this.panel4.Width / 2) - (CustomerNameLabel.Width / 2), (this.panel4.Height / 2) - (CustomerNameLabel.Height / 2));
             DateLabel.Location = new Point((this.panel5.Width / 2) - (DateLabel.Width / 2), (this.panel5.Height / 2) - (DateLabel.Height / 2));
-            CloseButton.Location = new Point((this.panel6.Width / 2) - (CloseButton.Width / 2), (this.panel6.Height / 2) - (CloseButton.Height / 2));
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
             _presenter.Form.Close();
+        }
+
+        private void ScheduleButton_Click(object sender, EventArgs e)
+        {
+            SchedulePanel schedulePanel = new SchedulePanel();
+            schedulePanel.Presenter.Form = _presenter.Form;
+            schedulePanel.Presenter.Panel = _presenter.Panel;
+            schedulePanel.Presenter.RoomUnit = _presenter.RoomUnit;
+            schedulePanel.Presenter.PreviousPanel = this;
+            _presenter.Panel.Controls.Remove(this);
+            _presenter.Panel.Controls.Add(schedulePanel);
         }
     }
 

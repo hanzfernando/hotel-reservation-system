@@ -51,15 +51,19 @@
     <Reference Include="K4os.Hash.xxHash, Version=1.0.8.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
       <HintPath>..\packages\K4os.Hash.xxHash.1.0.8\lib\net462\K4os.Hash.xxHash.dll</HintPath>
     </Reference>
+    <Reference Include="MonthCalendar, Version=1.8.2.0, Culture=neutral, PublicKeyToken=9d22151b1b463438, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data, Version=8.0.33.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.0.33\lib\net462\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.IO.Pipelines, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.Pipelines.7.0.0\lib\net462\System.IO.Pipelines.dll</HintPath>
     </Reference>
@@ -82,6 +86,7 @@
     </Reference>
     <Reference Include="System.Transactions" />
     <Reference Include="System.Windows" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -91,7 +96,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administrator\AdministratorPanel.cs">
@@ -102,6 +109,9 @@
     </Compile>
     <Compile Include="Assets\ArtanPanel.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Assets\Calendar.xaml.cs">
+      <DependentUpon>Calendar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Assets\PlaceholderTextbox.cs">
       <SubType>Component</SubType>
@@ -194,6 +204,12 @@
     <Compile Include="Reservation\CreateReservationWindow.Designer.cs">
       <DependentUpon>CreateReservationWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Rooms\SchedulePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Rooms\SchedulePanel.Designer.cs">
+      <DependentUpon>SchedulePanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Rooms\ReservedPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -282,6 +298,9 @@
     <EmbeddedResource Include="Reservation\CreateReservationWindow.resx">
       <DependentUpon>CreateReservationWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Rooms\SchedulePanel.resx">
+      <DependentUpon>SchedulePanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Rooms\ReservedPanel.resx">
       <DependentUpon>ReservedPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -325,7 +344,14 @@
     <Content Include="Assets\Dashboard\Rectangle 6528.png" />
     <Content Include="Assets\Dashboard\Rectangle 6529.png" />
     <Content Include="Assets\LogoMainWindow.png" />
+    <Content Include="Assets\MonthCalendar.dll" />
     <Content Include="Assets\NavBarBG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Assets\Calendar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

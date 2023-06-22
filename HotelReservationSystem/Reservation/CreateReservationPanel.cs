@@ -31,7 +31,7 @@ namespace HotelReservationSystem.Reservation
         public void OnLoad (object sender, EventArgs e)
         {
             Username.Text = _presenter.GetName();
-            Username.Location = new Point(Username.Location.Y, (this.Width/2)-(Username.Width/2));
+            Username.Location = new Point((this.Width / 2) - (Username.Width / 2), Username.Location.Y);
         }
 
         private void FirstNameTextBox_Enter(object sender, EventArgs e)
