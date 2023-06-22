@@ -69,7 +69,7 @@
             this.CreateReservationLabel.AutoSize = true;
             this.CreateReservationLabel.Font = new System.Drawing.Font("SansSerif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.CreateReservationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(209)))), ((int)(((byte)(253)))));
-            this.CreateReservationLabel.Location = new System.Drawing.Point(133, 129);
+            this.CreateReservationLabel.Location = new System.Drawing.Point(125, 129);
             this.CreateReservationLabel.Name = "CreateReservationLabel";
             this.CreateReservationLabel.Size = new System.Drawing.Size(252, 25);
             this.CreateReservationLabel.TabIndex = 1;
@@ -267,7 +267,7 @@
             this.Username.BackColor = System.Drawing.Color.Transparent;
             this.Username.Font = new System.Drawing.Font("SansSerif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.Username.ForeColor = System.Drawing.Color.White;
-            this.Username.Location = new System.Drawing.Point(192, 167);
+            this.Username.Location = new System.Drawing.Point(192, 163);
             this.Username.Name = "Username";
             this.Username.Size = new System.Drawing.Size(101, 19);
             this.Username.TabIndex = 25;

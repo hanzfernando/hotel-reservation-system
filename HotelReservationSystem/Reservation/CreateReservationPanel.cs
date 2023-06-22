@@ -41,8 +41,7 @@ namespace HotelReservationSystem.Reservation
                 FirstNameTextBox.Text = "";
                 
                 FirstNameTextBox.ForeColor = Color.Black;
-            }
-                         
+            }                        
         }
 
         private void FirstNameTextBox_Leave(object sender, EventArgs e)

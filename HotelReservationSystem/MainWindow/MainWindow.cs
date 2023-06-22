@@ -89,6 +89,14 @@ namespace HotelReservationSystem.MainWindow
                 _presenter.CurrentPanel = roomsPanel;
             }
         }
+
+        private void LogoutButton_Click(object sender, EventArgs e)
+        {
+            HotelReservationSystem.Login.LoginWindow loginWindow = new Login.LoginWindow();
+            this._presenter.Form.Hide();
+            loginWindow.Closed += (s, args) => this._presenter.Form.Close();
+            loginWindow.Show();
+        }
     }
 
     public interface IPresenterMainWindow : IPresenter

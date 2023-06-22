@@ -166,7 +166,7 @@ namespace HotelReservationSystem.Reservation
                 // string checkInDate = CheckInDateTimePicker.Value.ToString("yyyy-MM-dd");
                 // string checkOutDate = CheckOutDateTimePicker.Value.ToString("yyyy-MM-dd");
                 
-                string query = String.Format(@"UPDATE reservations SET customer_name = '{0}', customer_contact = '{1}', room_unit = {2}, transaction_date = '{3}', check_in = '{4}', check_out = '{5}' WHERE reservation_id = {6}", FullNameTextBox.Text, ContactTextBox.Text, RoomUnitTextBox.Text, transactionDate, checkInDate, checkOutDate, ReservationIdTextBox.Text);
+                string query = String.Format(@"UPDATE reservations SET customer_name = '{0}', customer_contact = '{1}', room_unit = {2}, transaction_date = '{3}', check_in = '{4}', check_out = '{5}', admin_id = {6} WHERE reservation_id = {7}", FullNameTextBox.Text, ContactTextBox.Text, RoomUnitTextBox.Text, transactionDate, checkInDate, checkOutDate, _presenter.AdminId, ReservationIdTextBox.Text);
 
                 _presenter.UpdateStatus(query);
                 _presenter.UpdateStatus(_presenter.RemovePreviousRoomStatus(prevRoomUnit));
