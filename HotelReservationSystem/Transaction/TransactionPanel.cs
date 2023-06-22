@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HotelReservationSystem
+namespace HotelReservationSystem.Transaction
 {
-    public partial class Form1 : Form
+    public partial class TransactionPanel : UserControl
     {
-        public Form1()
+        public TransactionPanel()
         {
             InitializeComponent();
         }
