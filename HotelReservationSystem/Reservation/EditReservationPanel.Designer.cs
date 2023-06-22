@@ -37,7 +37,6 @@
             this.RoomUnitTextBox = new System.Windows.Forms.TextBox();
             this.RoomUnitLabel = new System.Windows.Forms.Label();
             this.CheckOutLabel = new System.Windows.Forms.Label();
-            this.EditRecordButton = new HotelReservationSystem.Assets.RJButton();
             this.CheckInDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.CheckOutDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.TransactionDateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -47,6 +46,7 @@
             this.ReservationIdTextBox = new System.Windows.Forms.TextBox();
             this.ReservationIdLabel = new System.Windows.Forms.Label();
             this.Username = new System.Windows.Forms.Label();
+            this.EditRecordButton = new HotelReservationSystem.Assets.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,7 +65,7 @@
             this.CreateReservationLabel.AutoSize = true;
             this.CreateReservationLabel.Font = new System.Drawing.Font("SansSerif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.CreateReservationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(209)))), ((int)(((byte)(253)))));
-            this.CreateReservationLabel.Location = new System.Drawing.Point(144, 129);
+            this.CreateReservationLabel.Location = new System.Drawing.Point(132, 129);
             this.CreateReservationLabel.Name = "CreateReservationLabel";
             this.CreateReservationLabel.Size = new System.Drawing.Size(238, 25);
             this.CreateReservationLabel.TabIndex = 1;
@@ -136,26 +136,6 @@
             this.CheckOutLabel.Size = new System.Drawing.Size(69, 15);
             this.CheckOutLabel.TabIndex = 16;
             this.CheckOutLabel.Text = "Check Out";
-            // 
-            // EditRecordButton
-            // 
-            this.EditRecordButton.BackColor = System.Drawing.Color.LightGray;
-            this.EditRecordButton.BackgroundColor = System.Drawing.Color.LightGray;
-            this.EditRecordButton.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.EditRecordButton.BorderRadius = 20;
-            this.EditRecordButton.BorderSize = 0;
-            this.EditRecordButton.FlatAppearance.BorderSize = 0;
-            this.EditRecordButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EditRecordButton.Font = new System.Drawing.Font("SansSerif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.EditRecordButton.ForeColor = System.Drawing.Color.Black;
-            this.EditRecordButton.Location = new System.Drawing.Point(180, 577);
-            this.EditRecordButton.Name = "EditRecordButton";
-            this.EditRecordButton.Size = new System.Drawing.Size(125, 34);
-            this.EditRecordButton.TabIndex = 18;
-            this.EditRecordButton.Text = "Confirm";
-            this.EditRecordButton.TextColor = System.Drawing.Color.Black;
-            this.EditRecordButton.UseVisualStyleBackColor = false;
-            this.EditRecordButton.Click += new System.EventHandler(this.EditRecordButton_Click);
             // 
             // CheckInDateTimePicker
             // 
@@ -239,11 +219,31 @@
             this.Username.BackColor = System.Drawing.Color.Transparent;
             this.Username.Font = new System.Drawing.Font("SansSerif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.Username.ForeColor = System.Drawing.Color.White;
-            this.Username.Location = new System.Drawing.Point(189, 170);
+            this.Username.Location = new System.Drawing.Point(189, 164);
             this.Username.Name = "Username";
             this.Username.Size = new System.Drawing.Size(101, 19);
             this.Username.TabIndex = 27;
             this.Username.Text = "<Username>";
+            // 
+            // EditRecordButton
+            // 
+            this.EditRecordButton.BackColor = System.Drawing.Color.LightGray;
+            this.EditRecordButton.BackgroundColor = System.Drawing.Color.LightGray;
+            this.EditRecordButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.EditRecordButton.BorderRadius = 20;
+            this.EditRecordButton.BorderSize = 0;
+            this.EditRecordButton.FlatAppearance.BorderSize = 0;
+            this.EditRecordButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EditRecordButton.Font = new System.Drawing.Font("SansSerif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.EditRecordButton.ForeColor = System.Drawing.Color.Black;
+            this.EditRecordButton.Location = new System.Drawing.Point(180, 577);
+            this.EditRecordButton.Name = "EditRecordButton";
+            this.EditRecordButton.Size = new System.Drawing.Size(125, 34);
+            this.EditRecordButton.TabIndex = 18;
+            this.EditRecordButton.Text = "Confirm";
+            this.EditRecordButton.TextColor = System.Drawing.Color.Black;
+            this.EditRecordButton.UseVisualStyleBackColor = false;
+            this.EditRecordButton.Click += new System.EventHandler(this.EditRecordButton_Click);
             // 
             // EditReservationPanel
             // 

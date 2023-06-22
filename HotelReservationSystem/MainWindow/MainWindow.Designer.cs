@@ -36,6 +36,7 @@
             this.RoomsTab = new System.Windows.Forms.Button();
             this.DashboardTab = new System.Windows.Forms.Button();
             this.ReservationTab = new System.Windows.Forms.Button();
+            this.LogoutButton = new System.Windows.Forms.Button();
             this.PanelRoot = new System.Windows.Forms.Panel();
             this.TableLayoutNavigationRoot.SuspendLayout();
             this.LogoPanel.SuspendLayout();
@@ -92,6 +93,7 @@
             this.TableLayoutNavigation.Controls.Add(this.RoomsTab, 0, 2);
             this.TableLayoutNavigation.Controls.Add(this.DashboardTab, 0, 0);
             this.TableLayoutNavigation.Controls.Add(this.ReservationTab, 0, 1);
+            this.TableLayoutNavigation.Controls.Add(this.LogoutButton, 0, 9);
             this.TableLayoutNavigation.Location = new System.Drawing.Point(3, 138);
             this.TableLayoutNavigation.Name = "TableLayoutNavigation";
             this.TableLayoutNavigation.RowCount = 10;
@@ -156,6 +158,22 @@
             this.ReservationTab.UseVisualStyleBackColor = true;
             this.ReservationTab.Click += new System.EventHandler(this.ReservationTab_Click);
             // 
+            // LogoutButton
+            // 
+            this.LogoutButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LogoutButton.FlatAppearance.BorderSize = 0;
+            this.LogoutButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Goldenrod;
+            this.LogoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LogoutButton.Font = new System.Drawing.Font("SansSerif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.LogoutButton.ForeColor = System.Drawing.Color.White;
+            this.LogoutButton.Location = new System.Drawing.Point(3, 678);
+            this.LogoutButton.Name = "LogoutButton";
+            this.LogoutButton.Size = new System.Drawing.Size(288, 78);
+            this.LogoutButton.TabIndex = 3;
+            this.LogoutButton.Text = "Logout";
+            this.LogoutButton.UseVisualStyleBackColor = true;
+            this.LogoutButton.Click += new System.EventHandler(this.LogoutButton_Click);
+            // 
             // PanelRoot
             // 
             this.PanelRoot.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -172,6 +190,7 @@
             this.ClientSize = new System.Drawing.Size(1200, 900);
             this.Controls.Add(this.PanelRoot);
             this.Controls.Add(this.TableLayoutNavigationRoot);
+            this.MinimumSize = new System.Drawing.Size(1216, 939);
             this.Name = "MainWindow";
             this.Text = "MainWindow";
             this.Load += new System.EventHandler(this.OnLoad);
@@ -192,5 +211,6 @@
         private System.Windows.Forms.TableLayoutPanel TableLayoutNavigation;
         private System.Windows.Forms.Button RoomsTab;
         private System.Windows.Forms.Button ReservationTab;
+        private System.Windows.Forms.Button LogoutButton;
     }
 }
