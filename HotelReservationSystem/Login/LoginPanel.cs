@@ -174,10 +174,6 @@ namespace HotelReservationSystem.Login
             {
                 return false;
             }
-            /*MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter();
-            mySqlDataAdapter.SelectCommand = mySqlCommand;
-            MySqlDataAdapter.*/
-            
         }
 
         public int GetId()

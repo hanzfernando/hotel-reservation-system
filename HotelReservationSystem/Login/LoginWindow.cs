@@ -25,8 +25,7 @@ namespace HotelReservationSystem.Login
 
         private void LoginWindow_Load(object sender, EventArgs e)
         {
-            /*UserControl panel = new LoginPanel(loginPanel, this);
-            loginPanel.Controls.Add(panel);*/
+          
         }
     }
 }

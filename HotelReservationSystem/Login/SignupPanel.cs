@@ -16,7 +16,6 @@ namespace HotelReservationSystem.Login
     public partial class SignupPanel : UserControl
     {
         PresenterSignupPanel _presenter;
-        //LoginPanel _loginPanel;
         public SignupPanel()
         {
             InitializeComponent();

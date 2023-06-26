@@ -46,7 +46,7 @@
             this.Controls.Add(this.createReservationPanel);
             this.Name = "CreateReservationWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Create Reservation Window";
+            this.Text = "Love Euphoria";
             this.Load += new System.EventHandler(this.OnLoad);
             this.ResumeLayout(false);
 

@@ -48,7 +48,7 @@
             this.MaximumSize = new System.Drawing.Size(916, 759);
             this.MinimumSize = new System.Drawing.Size(916, 759);
             this.Name = "LoginWindow";
-            this.Text = "LoginWindow";
+            this.Text = "Love Euphoria";
             this.Load += new System.EventHandler(this.LoginWindow_Load);
             this.ResumeLayout(false);
 
