@@ -51,6 +51,8 @@ namespace HotelReservationSystem.Dashboard
         public void OnLoad (object sender, EventArgs e)
         {
             this.UserName.Text = _presenter.GetName();
+            _presenter.GetCollectedMoney();
+            CollectedValue.Text = "PHP " + _presenter.Collected;
             PeriodicRefresh(sender, e);
         }
 
@@ -74,7 +76,6 @@ namespace HotelReservationSystem.Dashboard
                 Floor5Bar.Value = _presenter.Floor5;
                 Floor6Bar.Value = _presenter.Floor6;
                 _presenter.GetCollectedMoney();
-                //CollectedValue.Text = string.Format(CultureInfo.CreateSpecificCulture("en-PH"), "{0:C}", double.Parse(CollectedValue.Text));
                 CollectedValue.Text = "PHP " + _presenter.Collected;
             }, TimeSpan.FromSeconds(1));
         }
@@ -244,47 +245,54 @@ namespace HotelReservationSystem.Dashboard
         {
             int currentMonth = DateTime.Now.Month;
             int currentYear = DateTime.Now.Year;
+            // get all checkin then multiply total cost by 0.9 + get all transactions done then mutiply total cost by 0.1
             string query = String.Format(
                                 @"SELECT
-	                            (
-                                    SELECT
-                                        ROUND(
-                                            SUM(
-                                                IF(
-                                                    MONTH(r.check_in) = {0} AND YEAR(r.check_in) = {1},
-                                                    (DATEDIFF(r.check_out, r.check_in) * rtp.room_rate) * 0.9,
-                                                    0
+                                    COALESCE(
+                                        (
+                                            SELECT
+                                                ROUND(
+                                                    SUM(
+                                                        IF(
+                                                            MONTH(r.check_in) = 6 AND YEAR(r.check_in) = 2023,
+                                                            (DATEDIFF(r.check_out, r.check_in) * rtp.room_rate) * 0.9,
+                                                            0
+                                                        )
+                                                    )
+                                                ,2) AS totalCost
+                                            FROM
+                                                reservations r
+                                                JOIN rooms rms ON r.room_unit = rms.room_unit
+                                                JOIN room_types rtp ON rms.room_type_id = rtp.room_type_id
+                                            WHERE
+                                                MONTH(check_in) = 6 AND YEAR(check_in) = 2023
+                                                #AND r.reservation_status = ""Checked In"" OR r.reservation_status = ""Checked Out""
+                                                AND r.check_in_status = 1
+                                        ),
+                                        0
+                                    )
+
+                                    +
+
+                                    (
+                                        SELECT
+                                            ROUND(
+                                                SUM(
+                                                    IF(
+                                                        MONTH(r.transaction_date) = 6 AND YEAR(r.transaction_date) = 2023,
+                                                        (DATEDIFF(r.check_out, r.check_in) * rtp.room_rate) * 0.1,
+                                                        0
+                                                    )
                                                 )
-                                            )
-                                        ,2)
-                                    FROM
-                                        reservations r
-                                        JOIN rooms rms ON r.room_unit = rms.room_unit
-                                        JOIN room_types rtp ON rms.room_type_id = rtp.room_type_id
-                                    WHERE
-                                        MONTH(check_in) = {0} AND YEAR(check_in) = {1}
-                                    #AND r.reservation_status = ""Checked In"" OR r.reservation_status = ""Checked Out""
-                                    AND r.check_in_status = 1
-	                            )
-                                + 
-                                (
-    	                            SELECT
-                                        ROUND(
-                                            SUM(
-                                                IF(
-                                                    MONTH(r.transaction_date) = {0} AND YEAR(r.transaction_date) = {1},
-                                                    (DATEDIFF(r.check_out, r.check_in) * rtp.room_rate) * 0.1,
-                                                    0
-                                                )
-                                            )
-                                        ,2)
-                                    FROM
-                                        reservations r
-                                        JOIN rooms rms ON r.room_unit = rms.room_unit
-                                        JOIN room_types rtp ON rms.room_type_id = rtp.room_type_id
-                                    WHERE
-                                        MONTH(r.transaction_date) = {0} AND YEAR(r.transaction_date) = {1}
-	                            ) AS ""CollectedMoney""", currentMonth, currentYear);
+                                            ,2) AS totalCost
+                                        FROM
+                                            reservations r
+                                            JOIN rooms rms ON r.room_unit = rms.room_unit
+                                            JOIN room_types rtp ON rms.room_type_id = rtp.room_type_id
+                                        WHERE
+                                            MONTH(r.transaction_date) = 6 AND YEAR(r.transaction_date) = 2023
+                                    )
+                                 AS ""CollectedMoney""", currentMonth, currentYear);
             string _connection = Constants.MySqlConstants.Connection;
             MySqlConnection connection = new MySqlConnection(_connection);
             MySqlCommand command = new MySqlCommand(query, connection);
@@ -292,7 +300,18 @@ namespace HotelReservationSystem.Dashboard
             MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(command);
             DataTable dt = new DataTable();
             mySqlDataAdapter.Fill(dt);
-            Collected = (double)dt.Select().ElementAt(0)["CollectedMoney"];
+            //Collected = (double)dt.Select().ElementAt(0)["CollectedMoney"];
+            try
+            {
+                Collected = (double)dt.Select().ElementAt(0)["CollectedMoney"];
+            }
+            catch (Exception ex) 
+            {
+                Collected = 0;
+            }
+            
+
+
         }
         public string GetName()
         {

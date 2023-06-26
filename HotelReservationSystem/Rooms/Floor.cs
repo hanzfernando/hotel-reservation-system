@@ -32,7 +32,6 @@ namespace HotelReservationSystem.Rooms
             _presenter.PopulateRoomList();
             _presenter.GetRoomUnit();
             _presenter.GetRoomType();
-            // _presenter.GetReservationID();
             UpdateUnitName();
             FloorLabel.Text = "Floor " + _presenter.FloorNumber;
             PeriodicRefresh(sender, e);
@@ -323,35 +322,6 @@ namespace HotelReservationSystem.Rooms
                 RoomStatuses[i].Status = (int)filteredRows.ElementAt(i)["room_status_id"];
             }
         }
-
-        /*public void GetReservationID()
-        {
-
-            string query = "SELECT * FROM rooms";
-            MySqlConnection connection = new MySqlConnection(_connection);
-            MySqlCommand command = new MySqlCommand(query, connection);
-            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-            DataTable dataTable = new DataTable();
-            connection.Open();
-            adapter.Fill(dataTable);
-
-
-            DataRow[] filteredRows = dataTable.Select("room_floor = " + FloorNumber.ToString());
-
-            for (int i = 0; i < filteredRows.Count(); i++)
-            {
-                RoomStatuses[i].ReservationID = (int)filteredRows.ElementAt(i)["reservation_id"];
-            }
-        }*/
-
-       /* public void RandomStatus()
-        {
-            Random random = new Random();
-            for (int i = 0; i < RoomStatuses.Length; i++)
-            {
-                RoomStatuses[i].Status = random.Next(0, 3);
-            }
-        }*/
 
         public void PopulateRoomList()
         {

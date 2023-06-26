@@ -101,12 +101,6 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Administrator\AdministratorPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Administrator\AdministratorPanel.Designer.cs">
-      <DependentUpon>AdministratorPanel.cs</DependentUpon>
-    </Compile>
     <Compile Include="Assets\ArtanPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -121,24 +115,6 @@
     </Compile>
     <Compile Include="Assets\RJComboBox.cs">
       <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="CheckInCheckOut\CheckInCheckOutPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="CheckInCheckOut\CheckInCheckOutPanel.Designer.cs">
-      <DependentUpon>CheckInCheckOutPanel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CheckInCheckOut\CheckInPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="CheckInCheckOut\CheckInPanel.Designer.cs">
-      <DependentUpon>CheckInPanel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CheckInCheckOut\CheckOutPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="CheckInCheckOut\CheckOutPanel.Designer.cs">
-      <DependentUpon>CheckOutPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Constants\MySqlConstants.cs" />
     <Compile Include="Dashboard\DashboardPanel.cs">
@@ -259,12 +235,6 @@
     <Compile Include="Transaction\TransactionPanel.Designer.cs">
       <DependentUpon>TransactionPanel.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CheckInCheckOut\CheckInCheckOutPanel.resx">
-      <DependentUpon>CheckInCheckOutPanel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CheckInCheckOut\CheckInPanel.resx">
-      <DependentUpon>CheckInPanel.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard\DashboardPanel.resx">
       <DependentUpon>DashboardPanel.cs</DependentUpon>
     </EmbeddedResource>

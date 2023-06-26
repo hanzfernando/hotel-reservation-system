@@ -49,7 +49,7 @@
             this.MaximumSize = new System.Drawing.Size(520, 715);
             this.MinimumSize = new System.Drawing.Size(520, 715);
             this.Name = "RoomDetailsWindow";
-            this.Text = "RoomDetailsWindow";
+            this.Text = "Love Euphoria";
             this.Load += new System.EventHandler(this.OnLoad);
             this.ResumeLayout(false);
 

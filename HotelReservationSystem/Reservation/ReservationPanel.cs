@@ -61,13 +61,6 @@ namespace HotelReservationSystem.Reservation
                 _presenter.OrderBy = OrderByComboBox.SelectedIndex;
                 _presenter.SearchFilterSortOrder(ReservationDataGridView);
 
-                //_presenter.RowIndex = ReservationDataGridView.CurrentRow.Index;
-                
-                //_presenter.PopulateDataTable(ReservationDataGridView);
-
-                // ReservationDataGridView.CellContentClick += ReservationDataGridView_CellContentClick;
-                //ReservationDataGridView.CurrentCell = ReservationDataGridView.Rows[_presenter.RowIndex].Cells[0];
-
             }, TimeSpan.FromMilliseconds(2000));
         }
 
@@ -92,7 +85,6 @@ namespace HotelReservationSystem.Reservation
         public void ReservationPanel_Load(object sender, EventArgs e)
         {
             _presenter.Dgv = ReservationDataGridView;
-            //_presenter.PopulateDataTable(ReservationDataGridView);
             ReservationDataGridView.CellContentClick += ReservationDataGridView_CellContentClick;
 
             PeriodicRefresh(sender, e);
@@ -151,7 +143,6 @@ namespace HotelReservationSystem.Reservation
                 if (_name != value) 
                 { 
                     _name = value;
-                    //RowIndex = 0;
                 } 
             } 
         }
@@ -177,26 +168,7 @@ namespace HotelReservationSystem.Reservation
         public void PopulateDataTable(string query, DataGridView dataGridView)
         {
 
-            /*string query = "SELECT " +
-                "r.reservation_id AS 'Reservation ID', " +
-                "r.room_unit AS 'Room Unit', " +
-                "r.transaction_date AS 'Transaction Date', " +
-                "r.customer_name AS 'Customer Name', " +
-                "r.customer_contact AS 'Contact', " +
-                "r.check_in AS 'Check In', " +
-                "r.check_in_status AS 'Check-in Status', " +
-                "r.check_out AS 'Check Out', " +
-                "r.check_out_status AS 'Check-out Status', " +
-                "r.reservation_cancel AS 'Cancellation', " +              
-                "rtp.room_rate AS 'Daily Cost', " + 
-                "(DATEDIFF(r.check_out, r.check_in)) AS 'Days', " +
-                "(DATEDIFF(r.check_out, r.check_in) * rtp.room_rate) AS 'Total Cost', " +
-                "r.reservation_status AS 'Status' " +
-                "FROM reservations r " +
-                "JOIN rooms rms " +
-                    "ON r.room_unit = rms.room_unit " + 
-                "JOIN room_types rtp " +
-                    "ON rms.room_type_id = rtp.room_type_id ";*/
+            
 
             MySqlConnection connection = new MySqlConnection(_connection);
             MySqlCommand command = new MySqlCommand(query, connection);
@@ -207,16 +179,7 @@ namespace HotelReservationSystem.Reservation
 
             dataGridView.DataSource = dataTable;
 
-            // Adjust the header text
-            /*dataGridView.Columns["Reservation ID"].HeaderText = "Reservation ID";
-            dataGridView.Columns["Room Unit"].HeaderText = "Room Unit";
-            dataGridView.Columns["Transaction Date"].HeaderText = "Transaction Date";
-            dataGridView.Columns["Customer Name"].HeaderText = "Customer Name";
-            dataGridView.Columns["Check In"].HeaderText = "Check In";
-            dataGridView.Columns["Check-in Status"].HeaderText = "Check-in Status";
-            dataGridView.Columns["Check Out"].HeaderText = "Check Out";
-            dataGridView.Columns["Check-out Status"].HeaderText = "Check-out Status";
-            dataGridView.Columns["Status"].HeaderText = "Status";*/
+            
 
             // Set Width
             dataGridView.Columns["Reservation ID"].Width = 100;
@@ -253,7 +216,6 @@ namespace HotelReservationSystem.Reservation
             // Update the data type and appearance of the checkbox column
             dataTable.Columns["Check-in Status"].DataType = typeof(bool);
             dataGridView.Columns["Check-in Status"].DefaultCellStyle.NullValue = false;
-            dataGridView.Columns["Check-in Status"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView.Columns["Check-in Status"].CellTemplate = new DataGridViewCheckBoxCell();
             // Set the column to be clickable
             dataGridView.Columns["Check-in Status"].ReadOnly = false;
@@ -261,15 +223,13 @@ namespace HotelReservationSystem.Reservation
             // Update the data type and appearance of the checkbox column
             dataTable.Columns["Check-out Status"].DataType = typeof(bool);
             dataGridView.Columns["Check-out Status"].DefaultCellStyle.NullValue = false;
-            dataGridView.Columns["Check-out Status"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView.Columns["Check-out Status"].CellTemplate = new DataGridViewCheckBoxCell();
             // Set the column to be clickable
             dataGridView.Columns["Check-out Status"].ReadOnly = true;
 
             // Update the data type and appearance of the checkbox column
             dataTable.Columns["Cancellation"].DataType = typeof(bool);
-            dataGridView.Columns["Cancellation"].DefaultCellStyle.NullValue = false;
-            dataGridView.Columns["Cancellation"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView.Columns["Cancellation"].DefaultCellStyle.NullValue = false;            
             dataGridView.Columns["Cancellation"].CellTemplate = new DataGridViewCheckBoxCell();
             // Set the column to be clickable
             dataGridView.Columns["Cancellation"].ReadOnly = false;
@@ -336,7 +296,6 @@ namespace HotelReservationSystem.Reservation
                 }
                 UpdateStatus(query);
                 UpdateStatus(updateRoom);
-                // ReservationDataGridView.Refresh();
             }
         }
 
@@ -383,7 +342,6 @@ namespace HotelReservationSystem.Reservation
 
                 UpdateStatus(query);
                 UpdateStatus(updateRoom);
-                // ReservationDataGridView.Refresh();
             }
         }
 
@@ -467,7 +425,6 @@ namespace HotelReservationSystem.Reservation
                 UpdateStatus(updateRoom);
 
                 cancelReservationWindow.Close();
-                // ReservationDataGridView.Refresh();
             }
         }
 
@@ -492,19 +449,6 @@ namespace HotelReservationSystem.Reservation
 
             return result;
         }
-
-        /*public void SearchQuery(DataGridView dataGridView)
-        {
-            string query = String.Format(@"SELECT * FROM reservations WHERE customer_name REGEXP '{0}.|.{0}|.{0}.'", Name);
-            MySqlConnection connection = new MySqlConnection(_connection);
-            MySqlCommand command = new MySqlCommand(query, connection);
-            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-            DataTable dataTable = new DataTable();
-            connection.Open();
-            adapter.Fill(dataTable);
-
-            dataGridView.DataSource = dataTable;
-        }*/
 
         public void FilterQuery(string query, DataGridView dataGridView)
         {
@@ -581,34 +525,28 @@ namespace HotelReservationSystem.Reservation
                     "ON rms.room_type_id = rtp.room_type_id " +
                 String.Format("WHERE customer_name REGEXP '{0}.|.{0}|.{0}.' AND reservation_status <> 'Cancelled' ", Name);
 
-            // string query = "SELECT * FROM reservations WHERE customer_name REGEXP '{0}.|.{0}|.{0}.' AND reservation_status <> 'Cancelled' ";
-                // Filter
-                switch (FilterBy)
-                {
-                    case 0:
-                        FilterQuery(query, dataGridView);
-                        break;
-                    case 1:
-                        query += "AND reservation_status = 'Reserved' ";
-                        FilterQuery(query, dataGridView);
-                        break;
-                    case 2:
-                        query += "AND reservation_status = 'Checked In' ";
-                        FilterQuery(query, dataGridView);
-                        break;
-                    case 3:
-                        query += "AND reservation_status = 'Checked Out' ";
-                        FilterQuery(query, dataGridView);
-                        break;
-                    default:
-                        FilterQuery(query, dataGridView);
-                        break;
-                }
-            
-            
-
-            //string query = "SELECT FROM * reservations WHERE customer_name REGEXP '{0}.|.{0}|.{0}.' AND ";
-            
+            // Filter
+            switch (FilterBy)
+            {
+                case 0:
+                    FilterQuery(query, dataGridView);
+                    break;
+                case 1:
+                    query += "AND reservation_status = 'Reserved' ";
+                    FilterQuery(query, dataGridView);
+                    break;
+                case 2:
+                    query += "AND reservation_status = 'Checked In' ";
+                    FilterQuery(query, dataGridView);
+                    break;
+                case 3:
+                    query += "AND reservation_status = 'Checked Out' ";
+                    FilterQuery(query, dataGridView);
+                    break;
+                default:
+                    FilterQuery(query, dataGridView);
+                    break;
+            }            
         }
     }
 

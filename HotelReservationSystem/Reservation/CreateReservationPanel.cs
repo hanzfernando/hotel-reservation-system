@@ -214,8 +214,6 @@ namespace HotelReservationSystem.Reservation
                 }
 
                 string transactionDate = TransactionDateTimePicker.Value.ToString("yyyy-MM-dd");
-                // string checkInDate = CheckInDateTimePicker.Value.ToString("yyyy-MM-dd");
-                // string checkOutDate = CheckOutDateTimePicker.Value.ToString("yyyy-MM-dd");
                 
                 string query = "INSERT INTO reservations (admin_id, room_unit, transaction_date, customer_name, customer_contact, check_in, check_out, reservation_status) " +
                     "VALUES ('" + _presenter.AdminId + "', " +
@@ -231,39 +229,6 @@ namespace HotelReservationSystem.Reservation
                 _presenter.UpdateStatus(_presenter.RoomStatusQuery(RoomUnitTextBox.Text.Trim()));
                 // Close
                 _presenter.Form.Close();
-
-                /*if (_presenter.CheckRoomStatus(RoomUnitTextBox.Text.Trim()))
-                {
-                    //string updateRoomStatus = "UPDATE rooms SET room_status_id = 1 WHERE room_unit = " + RoomUnitTextBox.Text + "";
-                    //_presenter.UpdateStatus(query);
-                    //_presenter.UpdateStatus(updateRoomStatus);
-                    // Close
-                    //.Form.Close();
-                }
-                else
-                {
-
-                    string caption = "";
-                    if (_presenter.GetRoomStatusId(RoomUnitTextBox.Text.Trim()) == 0)
-                    {
-                        return;
-                    }
-                    else if(_presenter.GetRoomStatusId(RoomUnitTextBox.Text.Trim()) == 1)
-                    {
-                        caption = "Room Already Reserved";
-                    }
-                    else if (_presenter.GetRoomStatusId(RoomUnitTextBox.Text.Trim()) == 2)
-                    {
-                        caption = "Room Already Occupied";
-                    }
-                    else
-                    {
-                        caption = "Invalid Status";
-                    }
-
-                    MessageBoxButtons buttons = MessageBoxButtons.OK;
-                    MessageBox.Show(message, caption, buttons);
-                }     */        
                 
             }
         }

@@ -75,6 +75,7 @@
             this.CollectedValue = new System.Windows.Forms.Label();
             this.InnerTopPanel = new HotelReservationSystem.Assets.ArtanPanel();
             this.MonthlyRevenue = new System.Windows.Forms.Label();
+            //this.label3 = new System.Windows.Forms.Label();
             this.RevenueTableLayout.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -612,6 +613,7 @@
             // 
             this.InnerBottomPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(0)))), ((int)(((byte)(95)))));
             this.InnerBottomPanel.BorderRadius = 20;
+            //this.InnerBottomPanel.Controls.Add(this.label3);
             this.InnerBottomPanel.Controls.Add(this.CollectedTitleLabel);
             this.InnerBottomPanel.Controls.Add(this.CollectedValue);
             this.InnerBottomPanel.ForeColor = System.Drawing.Color.Black;
@@ -646,9 +648,9 @@
             this.CollectedValue.Location = new System.Drawing.Point(16, 40);
             this.CollectedValue.Margin = new System.Windows.Forms.Padding(0);
             this.CollectedValue.Name = "CollectedValue";
-            this.CollectedValue.Size = new System.Drawing.Size(176, 31);
+            this.CollectedValue.Size = new System.Drawing.Size(0, 31);
             this.CollectedValue.TabIndex = 2;
-            this.CollectedValue.Text = "P 16,374,123";
+            this.CollectedValue.Text = "PHP 0.00";
             // 
             // InnerTopPanel
             // 
@@ -677,6 +679,15 @@
             this.MonthlyRevenue.Size = new System.Drawing.Size(288, 41);
             this.MonthlyRevenue.TabIndex = 1;
             this.MonthlyRevenue.Text = "Monthly Revenue";
+            // 
+            // label3
+            // 
+            /*this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(34, 58);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "label3";*/
             // 
             // DashboardPanel
             // 
@@ -772,5 +783,6 @@
         private Assets.ArtanPanel OuterPinkPanel;
         private Assets.ArtanPanel InnerBottomPanel;
         private Assets.ArtanPanel InnerTopPanel;
+        //private System.Windows.Forms.Label label3;
     }
 }

@@ -192,7 +192,7 @@
             this.Controls.Add(this.TableLayoutNavigationRoot);
             this.MinimumSize = new System.Drawing.Size(1216, 939);
             this.Name = "MainWindow";
-            this.Text = "MainWindow";
+            this.Text = "Love Euphoria";
             this.Load += new System.EventHandler(this.OnLoad);
             this.TableLayoutNavigationRoot.ResumeLayout(false);
             this.LogoPanel.ResumeLayout(false);
