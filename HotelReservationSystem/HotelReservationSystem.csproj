@@ -141,6 +141,12 @@
     <Compile Include="Login\SignupPanel.Designer.cs">
       <DependentUpon>SignupPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login\SplashScreenPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Login\SplashScreenPanel.Designer.cs">
+      <DependentUpon>SplashScreenPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,6 +247,9 @@
     <EmbeddedResource Include="Login\SignupPanel.resx">
       <DependentUpon>SignupPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Login\SplashScreenPanel.resx">
+      <DependentUpon>SplashScreenPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainWindow\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -316,6 +325,8 @@
     <Content Include="Assets\LogoMainWindow.png" />
     <Content Include="Assets\MonthCalendar.dll" />
     <Content Include="Assets\NavBarBG.png" />
+    <Content Include="Assets\SplashLogo.png" />
+    <Content Include="Assets\Window.ico" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Assets\Calendar.xaml">
