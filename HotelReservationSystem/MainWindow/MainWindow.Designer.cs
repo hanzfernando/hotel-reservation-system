@@ -190,6 +190,7 @@
             this.ClientSize = new System.Drawing.Size(1200, 900);
             this.Controls.Add(this.PanelRoot);
             this.Controls.Add(this.TableLayoutNavigationRoot);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1216, 939);
             this.Name = "MainWindow";
             this.Text = "Love Euphoria";

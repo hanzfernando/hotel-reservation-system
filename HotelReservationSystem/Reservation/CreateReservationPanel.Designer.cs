@@ -288,7 +288,7 @@
             this.CreateRecordButton.Name = "CreateRecordButton";
             this.CreateRecordButton.Size = new System.Drawing.Size(125, 34);
             this.CreateRecordButton.TabIndex = 18;
-            this.CreateRecordButton.Text = "Create record";
+            this.CreateRecordButton.Text = "Confirm";
             this.CreateRecordButton.TextColor = System.Drawing.Color.Black;
             this.CreateRecordButton.UseVisualStyleBackColor = false;
             this.CreateRecordButton.Click += new System.EventHandler(this.CreateRecordButton_Click);
