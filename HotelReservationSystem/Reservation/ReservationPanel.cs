@@ -61,7 +61,7 @@ namespace HotelReservationSystem.Reservation
                 _presenter.OrderBy = OrderByComboBox.SelectedIndex;
                 _presenter.SearchFilterSortOrder(ReservationDataGridView);
 
-            }, TimeSpan.FromMilliseconds(2000));
+            }, TimeSpan.FromMilliseconds(500));
         }
 
         public async Task RunPeriodicAsynchronousTask(Action action, TimeSpan interval)
@@ -382,7 +382,7 @@ namespace HotelReservationSystem.Reservation
                 }
 
                 // Toggle the checkbox value
-                cellCancel.Value = !(bool)cellCancel.Value;
+                cellCancel.Value = true;
 
                 // Commit the change to the underlying data source
 
