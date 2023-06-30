@@ -124,7 +124,7 @@ namespace HotelReservationSystem.Login
             }
             else
             {
-                // pop up window if wrong
+                // nothing happens
             }
         }
     }
